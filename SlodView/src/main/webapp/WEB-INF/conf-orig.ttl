@@ -1,9 +1,3 @@
-@prefix xml2rdf: <urn:isbn:1-931666-22-9#> .
-@prefix ead2rdf: <http://data.archiveshub.ac.uk/def/> .
-@prefix ex: <http://example.org/cdv/> .
-
-
-
 @prefix conf: <http://lodview.it/conf#> .
 @prefix meta: <http://example.org/metadata#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -66,11 +60,11 @@
 ## 	IRIs namespace we use to replace the webapp base (eg. http://localhost:8080/lodview/), an
 ##	installation on dbpedia domain should use <http://dbpedia.org/resource/> 
 	
-	conf:IRInamespace <http://example.org/cdv/>  ;
+	conf:IRInamespace <http://dbpedia.org/resource/>  ;
 
 ## 	EndPoint
 
-	conf:endpoint <http://cdv.yovisto.com/sparql>;
+	conf:endpoint <http://dbpedia.org/sparql>;
 	conf:endpointType "virtuoso"; 	## 	just "virtuoso" is handled right now, this will add some "rawdata" 
 									##	options in the footer, leave this blank if you don't want these links
 
@@ -106,8 +100,7 @@
 ##	${IRI} will be replaced, it's always recommended to specify a limit for the query 
 ##	the query can be seplified removing the last 2 unions to improve performance (usually not needed)
 
-	conf:defaultQueries """
-	    select distinct ?s ?p ?o { 
+	conf:defaultQueries """select distinct ?s ?p ?o { 
 		{<${IRI}> ?p ?o} 
 		UNION 
 		{<${IRI}> ?p1 ?s . FILTER(isBlank(?s)) . ?s ?p ?o} 
@@ -123,8 +116,7 @@
 ##	${IRI} will be replaced
 ##	the query can be seplified removing the last 2 unions to improve performance (usually not needed)
  
-	conf:defaultRawDataQueries	"""
-	    select distinct ?s ?p ?o { 
+	conf:defaultRawDataQueries	"""select distinct ?s ?p ?o { 
 		{<${IRI}> ?p ?o} 
 		UNION 
 		{<${IRI}> ?p1 ?s . FILTER(isBlank(?s)) . ?s ?p ?o} 
