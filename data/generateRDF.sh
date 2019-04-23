@@ -13,7 +13,7 @@ python fixXml.py > origin/labw_2_2039-fixed.xml
 #git commit -m "fixed xml"
 #git push origin master
 
-
+mkdir tmp
 ##### XML to RDF Conversion ######
 #
 # call the rhizomik api to use their XML2RDF Converter with our fixed file ad github
@@ -51,7 +51,16 @@ cat origin/images.txt | awk '{print "<http://example.org/cdv/" $1 "> <http://xml
 
 ### Now you can upload the result RDF data to the Triplestore
 
-
+### Now lets create some SameAs Links
+#INSERT 'INTO <http://www.example.com/my-graph> {?r1 owl:sameAs ?r2 .}
+#WHERE  { select distinct ?r1 ?r2  WHERE{
+#?r1 <urn:isbn:1-931666-22-9#did> ?did .
+#?did <urn:isbn:1-931666-22-9#unitid> ?uid .
+#?uid <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> ?val .
+#?uid <urn:isbn:1-931666-22-9#countrycode> ?cc .
+#?r2 <http://purl.org/dc/terms/identifier> ?val .
+#?r2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.archiveshub.ac.uk/def/ArchivalResource> .
+#}}
 
 
 
