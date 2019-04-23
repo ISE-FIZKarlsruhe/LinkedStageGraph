@@ -15,7 +15,8 @@
    </eadheader>
    <archdesc level="collection" type="Findbuch">
       <did>
-         <repository>
+         <unitid repositorycode="1951" countrycode="DE">Landesarchiv Baden-Württemberg</unitid>
+<repository>
             <corpname role="Staatliche Archive" id="DE-1951">Landesarchiv Baden-Württemberg</corpname>
          </repository>
       </did><userestrict><p>Es gelten die &lt;a href="http://www.landesarchiv-bw.de/nutzungsbedingungen"&gt;Nutzungsbedingungen des Landesarchivs Baden-Württemberg.&lt;/a&gt;</p></userestrict><userestrict type="dao"><p><extref xlink:href="http://creativecommons.org/licenses/by/3.0/de/">CC-BY 3.0</extref></p></userestrict><userestrict type="ead"><p><extref xlink:href="http://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0) Public Domain Dedication</extref></p></userestrict>
