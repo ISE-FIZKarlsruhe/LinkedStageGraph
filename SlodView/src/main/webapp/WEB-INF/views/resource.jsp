@@ -40,7 +40,7 @@
 						<div class="c2 value">
 							<c:forEach items='${results.getLiterals(results.getMainIRI()).get(results.getDescriptionProperty())}' var="el">
 								<div class="lang ${el.getLang()}" data-lang="${el.getLang()}">
-									${el.getValue()}
+									${el.getValue().replaceAll("\\n","<br/>")}
 									<c:if test='${el.getDataType()!=null && !el.getDataType().equals("")}'>
 										<span class="dType">${el.getNsDataType()}</span>
 									</c:if>
@@ -77,7 +77,7 @@
 
 		</div>
 		<c:choose>
-			<c:when test="${results.getBnodes(results.getMainIRI())!=null && results.getBnodes(results.getMainIRI()).keySet().size()>0 }">
+			<c:when test="${results.getBnodes(results.getMainIRI())!=null && results.getBnodes(results.getMainIRI()).keySet().size()>0 }" >
 				<div id="bnodes">
 					<h3>
 						<sp:message code='title.blankNodes' text='blank nodes' />
