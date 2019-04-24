@@ -12,6 +12,7 @@ def doit(text):
 	text = text.replace('{E', 'E')		
 	text = text.replace('}</unitid>', '</unitid>')	
 	text = text.replace('<repository>','<unitid repositorycode="1951" countrycode="DE">Landesarchiv Baden-Württemberg</unitid>\n<repository>')
+	text = text.replace('<lb/>','&#10;');
 	return text
 
 for line in lines:	

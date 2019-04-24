@@ -9,9 +9,9 @@ python fixXml.py > origin/labw_2_2039-fixed.xml
 
 # push this file to github
 
-#git add origin/labw_2_2039-fixed.xml 
-#git commit -m "fixed xml"
-#git push origin master
+git add origin/labw_2_2039-fixed.xml 
+git commit -m "fixed xml"
+git push origin master
 
 mkdir tmp
 ##### XML to RDF Conversion ######
@@ -63,6 +63,43 @@ cat origin/images.txt | awk '{print "<http://example.org/cdv/" $1 "> <http://xml
 #}}
 
 
+# Create sameAs closure
+#
+# insert into <http://www.example.com/my-graph>
+#{
+#?r2 ?p ?o .
+#}
+#WHERE {
+#select ?r2 ?p ?o where {
+#?r2 owl:sameAs ?r1 .
+#?r1 ?p ?o .
+#}
+#}
+
+# insert into <http://www.example.com/my-graph>
+#{
+#?r2 ?p ?o .
+#}
+#WHERE {
+#select ?r2 ?p ?o where {
+#?r1 owl:sameAs ?r2 .
+#?r1 ?p ?o .
+#}
+#}
+
+
+### DELETE duplicates preferring the archivischer identifikator
+#DELETE from <http://www.example.com/my-graph>
+#{?s ?p ?o .} where {
+#?s ?p ?o .
+#filter regex (str(?s),'http://example.org/cdv/archivalresource/de1951-landesarchivbaden-wurttemberg/*' , 'i')
+#}
+
+#DELETE from <http://www.example.com/my-graph>
+#{?s ?p ?o .} where {
+#?s ?p ?o .
+#filter regex (str(?o),'http://example.org/cdv/archivalresource/de1951-landesarchivbaden-wurttemberg/*' , 'i')
+#}
 
 
 
