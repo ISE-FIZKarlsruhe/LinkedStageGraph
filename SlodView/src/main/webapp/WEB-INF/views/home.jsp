@@ -15,41 +15,43 @@
 	<div class="spacer"></div>
 	
 
-	<div class="uk-container uk-container" uk-grid>
-		<div class="uk-width-3-4">
-			<c:forEach items='${images.keySet()}' var="year">
-				<h2 id="year${year}">${year}</h2>
-				<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-
-						<ul class="uk-slider-items uk-grid">
-							<c:forEach items='${images.get(year)}' var="entry">
-							<li class="uk-width-5-5">
-								<div class="uk-panel">
-									<img style="height: 500px;" src="${entry.getImageUrl()}" alt="">
-									<div class="uk-position-center uk-text-center">
-										<h2 uk-slider-parallax="x: 100,-100">Heading</h2>
-										<p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
-									</div>
-								</div>
-							</li></c:forEach>
-						</ul>
-					
-						<div class="uk-light">
-								<a class="uk-position-center-left uk-position-small uk-slidenav-large" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-								<a class="uk-position-center-right uk-position-small uk-slidenav-large" href="#" uk-slidenav-next uk-slider-item="next"></a>
-							</div>
-
-					</div>
-			</c:forEach>
-		</div>
-	
-		<div class="uk-width-1-4">
-			<div uk-sticky="offset: 100">
-			<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
+	<div class="uk-container">
+		<div class="" uk-grid>
+			<div class="uk-width-5-6">
 				<c:forEach items='${images.keySet()}' var="year">
-					<li><a href="#year${year}">${year}</a></li>
+					<h2 id="year${year}">${year}</h2>
+					<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+
+							<ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-top: 30">
+								<c:forEach items='${images.get(year)}' var="entry">
+								<li class="uk-width-5-5">
+									<div class="uk-cover-container">
+										<img src="${entry.getImageUrl()}" alt="" uk-cover>
+										<div class="uk-position-center uk-text-center">
+											<h2 uk-slider-parallax="x: 100,-100">Heading</h2>
+											<p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+										</div>
+									</div>
+								</li></c:forEach>
+							</ul>
+						
+							<div class="uk-light">
+									<a class="uk-position-center-left uk-position-small uk-slidenav-large" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+									<a class="uk-position-center-right uk-position-small uk-slidenav-large" href="#" uk-slidenav-next uk-slider-item="next"></a>
+								</div>
+
+						</div>
 				</c:forEach>
-			</ul>
+			</div>
+		
+			<div class="uk-width-1-6">
+				<div uk-sticky="offset: 100">
+				<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
+					<c:forEach items='${images.keySet()}' var="year">
+						<li><a href="#year${year}">${year}</a></li>
+					</c:forEach>
+				</ul>
+				</div>
 			</div>
 		</div>
 	</div>

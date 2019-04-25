@@ -1,6 +1,6 @@
 <!--HEADER-->
 <header id="site-head">
-    <div class="uk-container uk-container-expand">
+    <div class="uk-container">
         <div class="uk-grid uk-grid-medium uk-flex uk-flex-middle" data-uk-grid>
             <div class="uk-width-auto">
                 <a href="#" class="uk-logo" title=""><img src="img/logo.svg" alt="">Logo</a>
