@@ -1,12 +1,17 @@
 package org.dvcama.lodview.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.dvcama.lodview.bean.OntologyBean;
+import org.dvcama.lodview.bean.TripleBean;
 import org.dvcama.lodview.conf.ConfigurationBean;
+import org.dvcama.lodview.endpoint.SPARQLEndPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
@@ -26,6 +31,9 @@ public class StaticController {
 	@Autowired
 	private MessageSource messageSource;
 
+	@Autowired
+	OntologyBean ontoBean;
+	
 	public StaticController() {
 		// TODO Auto-generated constructor stub
 	}
@@ -44,6 +52,14 @@ public class StaticController {
 		model.addAttribute("conf", conf);
 		model.addAttribute("locale", locale.getLanguage());
 		model.addAttribute("path", new UrlPathHelper().getContextPath(req).replaceAll("/lodview/", "/"));
+		
+		SPARQLEndPoint se = new SPARQLEndPoint(conf, ontoBean, locale.getLanguage());				
+		try {
+			model.addAttribute("images", se.doHomeQuery());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		System.out.println("home controller");
 		return "home";
 	}

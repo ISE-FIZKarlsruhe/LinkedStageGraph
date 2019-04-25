@@ -16,6 +16,13 @@
 					<span>This is your own homepage</span>
 				</h1>
 				<h2></h2>
+				
+				<c:forEach items='${images}' var="entry">
+				${entry.getResource()} ${entry.getDate()}   ${entry.getDateLabel()}  ${entry.getImageUrl()}   ${entry.getLabel()}   <br/>
+				</c:forEach>
+				
+				
+				
 			</hgroup>
 			<div id="abstract">
 				<div class="value">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</div>
@@ -32,6 +39,8 @@
 		</div>
 
 		<div id="inverses" class="empty"></div> 
+		
+		
 		<jsp:include page="inc/custom_footer.jsp"></jsp:include>
 	</article>
 	<jsp:include page="inc/footer.jsp"></jsp:include>

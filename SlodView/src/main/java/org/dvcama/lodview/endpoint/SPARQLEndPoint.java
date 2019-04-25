@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.jena.atlas.web.auth.HttpAuthenticator;
 import org.apache.jena.atlas.web.auth.SimpleAuthenticator;
+import org.dvcama.lodview.bean.HomeImageBean;
 import org.dvcama.lodview.bean.OntologyBean;
 import org.dvcama.lodview.bean.PropertyBean;
 import org.dvcama.lodview.bean.TripleBean;
@@ -21,6 +22,7 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.sparql.engine.http.QueryEngineHTTP;
 
 public class SPARQLEndPoint {
 
@@ -34,6 +36,56 @@ public class SPARQLEndPoint {
 		this.conf = conf;
 		// TODO Auto-generated constructor stub
 	}
+	
+	public List<HomeImageBean> doHomeQuery() throws Exception {
+		// System.out.println("executing query on " + conf.getEndPointUrl());
+		List<HomeImageBean> results = new ArrayList<HomeImageBean>();
+		HttpAuthenticator auth = null;
+		if (conf.getAuthPassword() != null && !conf.getAuthPassword().equals("")) {
+			auth = new SimpleAuthenticator(conf.getAuthUsername(), conf.getAuthPassword().toCharArray());
+		}
+		String query = "select distinct ?s ?date ?date2 ?image ?label where { ?s <urn:isbn:1-931666-22-9#did> ?didbl . ?s <http://purl.org/dc/terms/title> ?label . ?s <http://xmlns.com/foaf/0.1/depiction> ?image . ?didbl <urn:isbn:1-931666-22-9#unitdate> ?datebl . ?datebl <urn:isbn:1-931666-22-9#normal> ?date . OPTIONAL {?s <http://purl.org/dc/terms/date> ?date2} FILTER regex (?date, '^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$', 'i' ) } ORDER BY ?date";
+		
+		QueryExecution qe = new QueryEngineHTTP(conf.getEndPointUrl(), query, auth);
+		
+		try {
+			ResultSet rs = qe.execSelect();
+			while (rs.hasNext()) {
+				HomeImageBean hb = new HomeImageBean();
+				QuerySolution qs = rs.next();				
+				try {
+					if (qs.get("s") != null) { 
+						hb.setResource(qs.get("s").asNode().toString());						
+					}
+					if (qs.get("date") != null) { 
+						hb.setDate(qs.get("date").asNode().toString());						
+					}
+					if (qs.get("date2") != null) { 
+						hb.setDateLabel(qs.get("date2").asNode().toString());						
+					}
+					if (qs.get("image") != null) { 
+						hb.setImageUrl(qs.get("image").asNode().toString());						
+					}
+					if (qs.get("label") != null) { 
+						hb.setLabel(qs.get("label").asNode().toString());						
+					}
+				
+				results.add(hb);
+				} catch (Exception e) {
+					System.err.println("error? " + e.getMessage());
+					// e.printStackTrace();
+				}
+			}
+		} catch (Exception ez) {			
+			ez.printStackTrace();
+			qe.close();
+			throw new Exception("connection refused");
+		}
+		
+		qe.close();
+		
+		return results;
+	}
 
 	public List<TripleBean> doQuery(String IRI, String aProperty, int start, List<String> queries, String filter, String overrideProperty) throws Exception {
 		// System.out.println("executing query on " + conf.getEndPointUrl());
@@ -43,9 +95,10 @@ public class SPARQLEndPoint {
 			auth = new SimpleAuthenticator(conf.getAuthUsername(), conf.getAuthPassword().toCharArray());
 		}
 		for (String query : queries) {
-			// System.out.println("-- " + parseQuery(query, IRI, aProperty,
-			// start, filter));
-			QueryExecution qe = QueryExecutionFactory.sparqlService(conf.getEndPointUrl(), parseQuery(query, IRI, aProperty, start, filter), auth);
+			System.out.println("-- " + parseQuery(query, IRI, aProperty, start, filter));
+			//QueryExecution qe = QueryExecutionFactory.sparqlService(conf.getEndPointUrl(), parseQuery(query, IRI, aProperty, start, filter), auth);
+			QueryExecution qe = new QueryEngineHTTP(conf.getEndPointUrl(), parseQuery(query, IRI, aProperty, start, filter), auth);
+			
 			results = moreThenOneQuery(qe, results, 0, overrideProperty);
 			qe.close();
 		}
@@ -54,9 +107,9 @@ public class SPARQLEndPoint {
 			if (IRI != null) {
 				boolean hasInverses = false;
 				for (String query : conf.getDefaultInversesTest()) {
-					// System.out.println("query!!! " + parseQuery(query, IRI,
-					// aProperty, start, filter));
-					QueryExecution qe = QueryExecutionFactory.sparqlService(conf.getEndPointUrl(), parseQuery(query, IRI, aProperty, start, filter), auth);
+					System.out.println("query!!! " + parseQuery(query, IRI, aProperty, start, filter));
+					//QueryExecution qe = QueryExecutionFactory.sparqlService(conf.getEndPointUrl(), parseQuery(query, IRI, aProperty, start, filter), auth);
+					QueryExecution qe = new QueryEngineHTTP(conf.getEndPointUrl(), parseQuery(query, IRI, aProperty, start, filter), auth);
 					if (!hasInverses) {
 						hasInverses = qe.execAsk();
 					}

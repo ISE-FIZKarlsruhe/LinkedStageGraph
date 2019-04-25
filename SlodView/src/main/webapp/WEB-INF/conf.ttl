@@ -142,7 +142,7 @@
 	conf:defaultInversesTest "ASK {?s ?p <${IRI}>}";
 
 ##  define if inverse relations have to be automatically opened (open|close)
-	conf:defaultInverseBehaviour "close"; 
+	conf:defaultInverseBehaviour "open"; 
 
 ########################################################################################
 ########################		configuring the webapp			########################
