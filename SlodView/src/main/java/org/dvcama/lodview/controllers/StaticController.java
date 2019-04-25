@@ -3,13 +3,15 @@ package org.dvcama.lodview.controllers;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.dvcama.lodview.bean.HomeImageBean;
 import org.dvcama.lodview.bean.OntologyBean;
-import org.dvcama.lodview.bean.TripleBean;
 import org.dvcama.lodview.conf.ConfigurationBean;
 import org.dvcama.lodview.endpoint.SPARQLEndPoint;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,13 +57,30 @@ public class StaticController {
 		
 		SPARQLEndPoint se = new SPARQLEndPoint(conf, ontoBean, locale.getLanguage());				
 		try {
-			model.addAttribute("images", se.doHomeQuery());
+			model.addAttribute("images", groupBy(se.doHomeQuery()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		System.out.println("home controller");
 		return "home";
+	}
+
+	private Map<String, List<HomeImageBean>> groupBy(List<HomeImageBean> doHomeQuery) {
+		Map<String, List<HomeImageBean>> moppy = new TreeMap<String, List<HomeImageBean>>();
+		
+		String lastYear = doHomeQuery.get(0).getYear();
+		List<HomeImageBean> beany = new ArrayList<HomeImageBean>();
+		for (HomeImageBean item : doHomeQuery){
+			if (!lastYear.equals(item.getYear())){
+				moppy.put(lastYear, beany);
+				beany = new ArrayList<HomeImageBean>();
+			}
+			beany.add(item);	
+			lastYear=item.getYear();
+		}
+		
+		return moppy;
 	}
 
 	@RequestMapping(value = "/lodviewmenu")

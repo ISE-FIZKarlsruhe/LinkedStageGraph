@@ -28,7 +28,10 @@ ${entry.getLabel()}
 				<div class="uk-width-3-4">
 					<div class="uk-grid uk-grid-medium uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l  uk-child-width-1-5@xl uk-grid-match js-filter" data-uk-grid="masonry: true"">
 						<!-- card -->
-						<c:forEach items='${images}' var="entry" begin="0" end="30">
+						
+						<c:forEach items='${images.keySet()}' var="year">
+							----- ${year} -----		
+						  <c:forEach items='${images.get(year)}' var="entry" begin="0" end="30">												
 							<div class="${entry.getYear()} ${entry.getWorkLabel()}" data-tags="${entry.getYear()} ${entry.getLabel()} ${entry.getWorkLabel()}">	
 									<a href='${entry.getResource().replace("http://example.org/cdv/","")}'> 
 										<div class="uk-card uk-card-small uk-card-default">
@@ -58,7 +61,8 @@ ${entry.getLabel()}
 										</div>
 									</a>
 								</div>
-						</c:forEach>
+							</c:forEach>
+						</c:forEach> 
 						<!-- /card -->
 					</div>
 				</div>
