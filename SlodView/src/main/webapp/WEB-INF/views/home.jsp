@@ -18,7 +18,7 @@
 	<div class="uk-container uk-container" uk-grid>
 		<div class="uk-width-3-4">
 			<c:forEach items='${images.keySet()}' var="year">
-				<h2 id="${year}">${year}</h2>
+				<h2 id="year${year}">${year}</h2>
 				<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
 
 						<ul class="uk-slider-items uk-grid">
@@ -47,7 +47,7 @@
 			<div uk-sticky="offset: 100">
 			<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
 				<c:forEach items='${images.keySet()}' var="year">
-					<li><a href="#${year}">${year}</a></li>
+					<li><a href="#year${year}">${year}</a></li>
 				</c:forEach>
 			</ul>
 			</div>
