@@ -28,9 +28,11 @@
 									<div class="uk-cover-container">
 										<img src="${entry.getImageUrl()}" alt="" uk-cover>
 										<div class="uk-position-center uk-text-center">
-											<h2 uk-slider-parallax="x: 100,-100">Heading</h2>
-											<p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+											<h2 uk-slider-parallax="x: 100,-100">${entry.getLabel()}</h2>
+											<p uk-slider-parallax="x: 200,-200">${entry.getDateLabel()}</p>
 										</div>
+										
+										
 									</div>
 								</li></c:forEach>
 							</ul>
