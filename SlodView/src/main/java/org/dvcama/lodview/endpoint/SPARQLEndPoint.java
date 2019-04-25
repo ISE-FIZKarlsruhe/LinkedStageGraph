@@ -36,7 +36,7 @@ public class SPARQLEndPoint {
 		this.conf = conf;
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public List<HomeImageBean> doHomeQuery() throws Exception {
 		// System.out.println("executing query on " + conf.getEndPointUrl());
 		List<HomeImageBean> results = new ArrayList<HomeImageBean>();
@@ -44,46 +44,53 @@ public class SPARQLEndPoint {
 		if (conf.getAuthPassword() != null && !conf.getAuthPassword().equals("")) {
 			auth = new SimpleAuthenticator(conf.getAuthUsername(), conf.getAuthPassword().toCharArray());
 		}
-		String query = "select distinct ?s ?date ?date2 ?image ?label where { ?s <urn:isbn:1-931666-22-9#did> ?didbl . ?s <http://purl.org/dc/terms/title> ?label . ?s <http://xmlns.com/foaf/0.1/depiction> ?image . ?didbl <urn:isbn:1-931666-22-9#unitdate> ?datebl . ?datebl <urn:isbn:1-931666-22-9#normal> ?date . OPTIONAL {?s <http://purl.org/dc/terms/date> ?date2} FILTER regex (?date, '^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$', 'i' ) } ORDER BY ?date";
-		
+		String query = "select distinct ?s ?date ?date2 ?image ?label ?work STRBEFORE(?date, '-') as ?year  where { ?s <urn:isbn:1-931666-22-9#did> ?didbl . ?s <http://purl.org/dc/terms/title> ?label . ?s <http://xmlns.com/foaf/0.1/depiction> ?image . ?didbl <urn:isbn:1-931666-22-9#unitdate> ?datebl . ?datebl <urn:isbn:1-931666-22-9#normal> ?date . OPTIONAL {?s <http://purl.org/dc/terms/date> ?date2} OPTIONAL {?s <http://schema.org/isBasedOn> ?w . ?w rdfs:label ?work} FILTER regex (?date, '^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$', 'i' ) } ORDER BY ?date";
+
 		QueryExecution qe = new QueryEngineHTTP(conf.getEndPointUrl(), query, auth);
-		
+
 		try {
 			ResultSet rs = qe.execSelect();
 			while (rs.hasNext()) {
 				HomeImageBean hb = new HomeImageBean();
-				QuerySolution qs = rs.next();				
+				QuerySolution qs = rs.next();
 				try {
-					if (qs.get("s") != null) { 
-						hb.setResource(qs.get("s").asNode().toString());						
+					if (qs.get("s") != null) {
+						hb.setResource(qs.get("s").asNode().toString());
 					}
-					if (qs.get("date") != null) { 
-						hb.setDate(qs.get("date").asNode().toString());						
+					if (qs.get("date") != null) {
+						hb.setDate(qs.get("date").asNode().getLiteralLexicalForm());
 					}
-					if (qs.get("date2") != null) { 
-						hb.setDateLabel(qs.get("date2").asNode().toString());						
+					if (qs.get("date2") != null) {
+						hb.setDateLabel(qs.get("date2").asNode().getLiteralLexicalForm());
 					}
-					if (qs.get("image") != null) { 
-						hb.setImageUrl(qs.get("image").asNode().toString());						
+					if (qs.get("image") != null) {
+						hb.setImageUrl(qs.get("image").asNode().toString());
 					}
-					if (qs.get("label") != null) { 
-						hb.setLabel(qs.get("label").asNode().toString());						
+					if (qs.get("label") != null) {
+						hb.setLabel(qs.get("label").asNode().getLiteralLexicalForm());
 					}
-				
-				results.add(hb);
+
+					if (qs.get("work") != null) {
+						hb.setWorkLabel(qs.get("work").asNode().getLiteralLexicalForm());
+					}
+					if (qs.get("year") != null) {
+						hb.setYear(qs.get("year").asNode().getLiteralLexicalForm());
+					}
+
+					results.add(hb);
 				} catch (Exception e) {
 					System.err.println("error? " + e.getMessage());
 					// e.printStackTrace();
 				}
 			}
-		} catch (Exception ez) {			
+		} catch (Exception ez) {
 			ez.printStackTrace();
 			qe.close();
 			throw new Exception("connection refused");
 		}
-		
+
 		qe.close();
-		
+
 		return results;
 	}
 
@@ -96,9 +103,11 @@ public class SPARQLEndPoint {
 		}
 		for (String query : queries) {
 			System.out.println("-- " + parseQuery(query, IRI, aProperty, start, filter));
-			//QueryExecution qe = QueryExecutionFactory.sparqlService(conf.getEndPointUrl(), parseQuery(query, IRI, aProperty, start, filter), auth);
+			// QueryExecution qe =
+			// QueryExecutionFactory.sparqlService(conf.getEndPointUrl(),
+			// parseQuery(query, IRI, aProperty, start, filter), auth);
 			QueryExecution qe = new QueryEngineHTTP(conf.getEndPointUrl(), parseQuery(query, IRI, aProperty, start, filter), auth);
-			
+
 			results = moreThenOneQuery(qe, results, 0, overrideProperty);
 			qe.close();
 		}
@@ -108,7 +117,9 @@ public class SPARQLEndPoint {
 				boolean hasInverses = false;
 				for (String query : conf.getDefaultInversesTest()) {
 					System.out.println("query!!! " + parseQuery(query, IRI, aProperty, start, filter));
-					//QueryExecution qe = QueryExecutionFactory.sparqlService(conf.getEndPointUrl(), parseQuery(query, IRI, aProperty, start, filter), auth);
+					// QueryExecution qe =
+					// QueryExecutionFactory.sparqlService(conf.getEndPointUrl(),
+					// parseQuery(query, IRI, aProperty, start, filter), auth);
 					QueryExecution qe = new QueryEngineHTTP(conf.getEndPointUrl(), parseQuery(query, IRI, aProperty, start, filter), auth);
 					if (!hasInverses) {
 						hasInverses = qe.execAsk();
