@@ -30,3 +30,6 @@
 		<div>${conf.getLicense()}</div>
 	</div>
 </c:if>
+<script src="${conf.getStaticResourceURL()}vendor/uikit/uikit.min.js"></script>
+<script src="${conf.getStaticResourceURL()}vendor/uikit/uikit-icons.min.js"></script>
+<script src="${conf.getStaticResourceURL()}vendor/uikit/cards.js"></script>
