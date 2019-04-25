@@ -20,7 +20,7 @@
 			<div class="uk-width-5-6">
 				<c:forEach items='${images.keySet()}' var="year">
 					<h2 id="year${year}">${year}</h2>
-					<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+					<div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
 
 							<ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-top: 30">
 								<c:forEach items='${images.get(year)}' var="entry">
@@ -32,6 +32,13 @@
 											<h2 uk-slider-parallax="x: 100,-100"><a href='${entry.getResource().replace("http://example.org/cdv/","")}'>${entry.getLabel()}</a></h2>
 											<p uk-slider-parallax="x: 200,-200">${entry.getDateLabel()}</p>
 										</div>
+										<div class="uk-position-bottom-center uk-position-small">
+											<ul class="uk-thumbnav">
+												<li uk-slideshow-item="0"><a href="#"><img src="https://images.unsplash.com/photo-1522201949034-507737bce479?fit=crop&w=650&h=433&q=80" width="100" alt=""></a></li>
+												<li uk-slideshow-item="1"><a href="#"><img src="https://images.unsplash.com/photo-1522201949034-507737bce479?fit=crop&w=650&h=433&q=80" width="100" alt=""></a></li>
+												<li uk-slideshow-item="2"><a href="#"><img src="https://images.unsplash.com/photo-1522201949034-507737bce479?fit=crop&w=650&h=433&q=80" width="100" alt=""></a></li>
+											</ul>
+										</div>
 										
 										
 									</div>
@@ -39,9 +46,11 @@
 							</ul>
 						
 							<div class="uk-light">
-									<a class="uk-position-center-left uk-position-small uk-slidenav-large" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-									<a class="uk-position-center-right uk-position-small uk-slidenav-large" href="#" uk-slidenav-next uk-slider-item="next"></a>
-								</div>
+								<a class="uk-position-center-left uk-position-small uk-slidenav-large" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+								<a class="uk-position-center-right uk-position-small uk-slidenav-large" href="#" uk-slidenav-next uk-slider-item="next"></a>
+							</div>
+
+							<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 
 						</div>
 				</c:forEach>
