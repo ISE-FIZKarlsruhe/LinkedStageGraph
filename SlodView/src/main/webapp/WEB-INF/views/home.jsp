@@ -18,7 +18,7 @@
 				<h2></h2>
 				
 				<c:forEach items='${images}' var="entry">
-				${entry.getResource()} ${entry.getDate()}   ${entry.getDateLabel()}  ${entry.getImageUrl()}   ${entry.getLabel()}   <br/>
+				<a href='${entry.getResource().replace("http://example.org/cdv/","")}'> <img src=" ${entry.getImageUrl()}" style="width:50px"></a> ${entry.getDate()}   ${entry.getDateLabel()}    ${entry.getLabel()}   <br/>
 				</c:forEach>
 				
 				
