@@ -27,8 +27,9 @@
 								<li class="uk-width-5-5">
 									<div class="uk-cover-container">
 										<img src="${entry.getImageUrl()}" alt="" uk-cover>
+									
 										<div class="uk-position-center uk-text-center">
-											<h2 uk-slider-parallax="x: 100,-100">${entry.getLabel()}</h2>
+											<h2 uk-slider-parallax="x: 100,-100"><a href='${entry.getResource().replace("http://example.org/cdv/","")}'>${entry.getLabel()}</a></h2>
 											<p uk-slider-parallax="x: 200,-200">${entry.getDateLabel()}</p>
 										</div>
 										
