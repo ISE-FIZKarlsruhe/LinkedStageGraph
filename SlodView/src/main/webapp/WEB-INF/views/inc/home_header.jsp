@@ -2,6 +2,9 @@
 <!-- <link href="${conf.getStaticResourceURL()}style.css" rel="stylesheet" type="text/css" /> -->
 <link href="${conf.getStaticResourceURL()}css/uikit.min.css" rel="stylesheet" type="text/css" />
 <link href="${conf.getStaticResourceURL()}css/cards.css" rel="stylesheet" type="text/css" />
+<script src="${conf.getStaticResourceURL()}vendor/uikit/uikit.min.js"></script>
+<script src="${conf.getStaticResourceURL()}vendor/uikit/uikit-icons.min.js"></script>
+<script src="${conf.getStaticResourceURL()}vendor/uikit/cards.js"></script>
 <script>
 	document.write('<style type="text/css">');
 	document.write('.c2{visibility:hidden}');
@@ -62,4 +65,4 @@ div#loadPanel span.ok img {
 	<script type="text/javascript" src="${conf.getStaticResourceURL()}vendor/jplayercircle/js/jquery.jplayer.js"></script>
 	<script type="text/javascript" src="${conf.getStaticResourceURL()}vendor/jplayercircle/js/mod.csstransforms.min.js"></script>
 	<script type="text/javascript" src="${conf.getStaticResourceURL()}vendor/jplayercircle/js/circle.player.js"></script>
-</c:if>	
+</c:if>
