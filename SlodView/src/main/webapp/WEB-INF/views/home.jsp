@@ -13,7 +13,7 @@
 				<li class="uk-active" data-uk-filter-control><a href="#">Show All</a></li>
 				<li data-uk-filter-control="[data-tags*='Sommer']"><a href="#">Ein Sommernachtstraum</a></li>
 				<li data-uk-filter-control="[data-tags*='Staatstheater']"><a href="#">Staatstheater</a></li>
-				<li data-uk-filter-control=".1912"><a href="#">1912</a></li>
+				<li data-uk-filter-control="[data-tags*='1912']"><a href="#">1912</a></li>
 			</ul>
 			
 <!-- 
@@ -26,45 +26,44 @@ ${entry.getLabel()}
 
 			<div class="uk-grid" data-ukgrid>
 				<div class="uk-width-3-4">
+					<c:forEach items='${images.keySet()}' var="year">
+						----- ${year} -----
 					<div class="uk-grid uk-grid-medium uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l  uk-child-width-1-5@xl uk-grid-match js-filter" data-uk-grid="masonry: true"">
 						<!-- card -->
-						
-						<c:forEach items='${images.keySet()}' var="year">
-							----- ${year} -----		
-						  <c:forEach items='${images.get(year)}' var="entry" begin="0" end="30">												
+						<c:forEach items='${images.get(year)}' var="entry" begin="0" end="30">												
 							<div class="${entry.getYear()} ${entry.getWorkLabel()}" data-tags="${entry.getYear()} ${entry.getLabel()} ${entry.getWorkLabel()}">	
-									<a href='${entry.getResource().replace("http://example.org/cdv/","")}'> 
-										<div class="uk-card uk-card-small uk-card-default">
-											<div class="uk-card-header">
-												<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
-													<div class="uk-width-expand">
-														<span class="cat-txt">${entry.getWorkLabel()}</span>
-													</div>
-													<div class="uk-width-auto uk-text-right uk-text-muted">
-														${entry.getYear()}
-													</div>
+								<a href='${entry.getResource().replace("http://example.org/cdv/","")}'> 
+									<div class="uk-card uk-card-small uk-card-default">
+										<div class="uk-card-header">
+											<div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+												<div class="uk-width-expand">
+													<span class="cat-txt">${entry.getWorkLabel()}</span>
 												</div>
-											</div>
-											<div class="uk-card-media">
-												<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-													<img class="lazy" data-src="${entry.getImageUrl()}" data-width="400" data-height="300" data-uk-img alt="" src="${entry.getImageUrl()}">
-													<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
-														<span data-uk-icon="icon:heart; ratio: 0.8"></span> 12.345 <span data-uk-icon="icon:comment; ratio: 0.8"></span> 12.345
-													</div>
+												<div class="uk-width-auto uk-text-right uk-text-muted">
+													${entry.getYear()}
 												</div>
-												
-											</div>
-											<div class="uk-card-body">
-												<h6 class="uk-margin-small-bottom uk-margin-remove-adjacent uk-text-bold">${entry.getLabel()}</h6>
-												<p class="uk-text-small uk-text-muted">${entry.getDateLabel()}</p>
 											</div>
 										</div>
-									</a>
-								</div>
-							</c:forEach>
-						</c:forEach> 
+										<div class="uk-card-media">
+											<div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+												<img class="lazy" data-src="${entry.getImageUrl()}" data-width="400" data-height="300" data-uk-img alt="" src="${entry.getImageUrl()}">
+												<div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+													<span data-uk-icon="icon:heart; ratio: 0.8"></span> 12.345 <span data-uk-icon="icon:comment; ratio: 0.8"></span> 12.345
+												</div>
+											</div>
+											
+										</div>
+										<div class="uk-card-body">
+											<h6 class="uk-margin-small-bottom uk-margin-remove-adjacent uk-text-bold">${entry.getLabel()}</h6>
+											<p class="uk-text-small uk-text-muted">${entry.getDateLabel()}</p>
+										</div>
+									</div>
+								</a>
+							</div>
+						</c:forEach>
 						<!-- /card -->
 					</div>
+					</c:forEach> 
 				</div>
 				<div class="uk-width-1-4">
 					<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
