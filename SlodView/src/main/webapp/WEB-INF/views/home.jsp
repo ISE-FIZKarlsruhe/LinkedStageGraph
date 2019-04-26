@@ -10,7 +10,7 @@
 	<jsp:include page="inc/home_header.jsp"></jsp:include>
 </head>
 
-<c:set var="proxy1200" scope="session" value="http://cdv.yovisto.com/imageproxy/1200,sc,q25/" />
+<c:set var="proxy1200" scope="session" value="http://cdv.yovisto.com/imageproxy/1200,q25/" />
 <c:set var="proxyThumb" scope="session" value="http://cdv.yovisto.com/imageproxy/150,sc,q25/" />
 
 <body data-uk-filter="target: .js-filter">
