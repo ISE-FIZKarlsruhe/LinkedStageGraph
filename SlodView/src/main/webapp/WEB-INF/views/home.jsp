@@ -28,13 +28,13 @@
 									<div class="uk-cover-container">
 										
 									<div class="uk-inline-clip uk-transition-toggle" tabindex="0" uk-cover>
-										<img src='${entry.getImageUrl().replace("/cdv/","/cdv-orig/")}' alt="">
+										<img src='${entry.getImageUrl()}' alt="">
 										<img class="uk-transition-fade uk-position-cover" src='${entry.getImageUrl()}' alt="">
 									</div>
 									
 										<div class="uk-position-small uk-position-bottom uk-overlay uk-overlay-default uk-text-center uk-transition-toggle">
 												<ul uk-slider-parallax="x: 200,-200" class="uk-thumbnav">
-													<c:forEach items='${entry.getThumbnails()}' var="thumb">
+													<c:forEach items='${entry.getThumbnails()}' var="thumb" end="5">
 														<li uk-slideshow-item="0"><a href="#"><img src="${thumb}" width="100" alt=""></a></li>
 													</c:forEach>
 												</ul>
