@@ -66,12 +66,22 @@ public class StaticController {
 		return "home";
 	}
 
-	private Map<String, List<HomeImageBean>> groupBy(List<HomeImageBean> doHomeQuery) {
-		Map<String, List<HomeImageBean>> moppy = new TreeMap<String, List<HomeImageBean>>();
+	private Map<String, List<HomeImageBean>> groupBy(List<HomeImageBean> beans) {
 		
-		String lastYear = doHomeQuery.get(0).getYear();
+		Map<String, List<HomeImageBean>> moppy = new TreeMap<String, List<HomeImageBean>>();
+		// extract thumbnails per resource
+		
+		
+		// for each resource use only the first occurence
+		
+		
+		// add the images to the resource
+		
+		
+		// group by year
+		String lastYear = beans.get(0).getYear();
 		List<HomeImageBean> beany = new ArrayList<HomeImageBean>();
-		for (HomeImageBean item : doHomeQuery){
+		for (HomeImageBean item : beans){
 			if (!lastYear.equals(item.getYear())){
 				moppy.put(lastYear, beany);
 				beany = new ArrayList<HomeImageBean>();

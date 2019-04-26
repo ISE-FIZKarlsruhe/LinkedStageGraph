@@ -44,14 +44,16 @@ public class SPARQLEndPoint {
 		if (conf.getAuthPassword() != null && !conf.getAuthPassword().equals("")) {
 			auth = new SimpleAuthenticator(conf.getAuthUsername(), conf.getAuthPassword().toCharArray());
 		}
-		String query = "select distinct ?s ?date ?date2 sample(?image) as ?img ?label ?work STRBEFORE(?date, '-') as ?year  where { ?s <urn:isbn:1-931666-22-9#did> ?didbl . ?s <http://purl.org/dc/terms/title> ?label . ?s <http://xmlns.com/foaf/0.1/depiction> ?image . ?didbl <urn:isbn:1-931666-22-9#unitdate> ?datebl . ?datebl <urn:isbn:1-931666-22-9#normal> ?date . OPTIONAL {?s <http://purl.org/dc/terms/date> ?date2} OPTIONAL {?s <http://schema.org/isBasedOn> ?w . ?w rdfs:label ?work} FILTER regex (?date, '^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$', 'i' ) } GROUP BY ?s ?date ?date2 ?label ?work ORDER BY ?date";
+		String query = "select distinct ?s ?date ?date2 ?image ?label ?work STRBEFORE(?date, '-') as ?year  where { ?s <urn:isbn:1-931666-22-9#did> ?didbl . ?s <http://purl.org/dc/terms/title> ?label . ?s <http://xmlns.com/foaf/0.1/depiction> ?image . ?didbl <urn:isbn:1-931666-22-9#unitdate> ?datebl . ?datebl <urn:isbn:1-931666-22-9#normal> ?date . OPTIONAL {?s <http://purl.org/dc/terms/date> ?date2} OPTIONAL {?s <http://schema.org/isBasedOn> ?w . ?w rdfs:label ?work} FILTER regex (?date, '^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$', 'i' ) } GROUP BY ?s ?date ?date2 ?label ?work ORDER BY ?date";
 
 		QueryExecution qe = new QueryEngineHTTP(conf.getEndPointUrl(), query, auth);
 
 		try {
 			ResultSet rs = qe.execSelect();
+			String resource = "";
+			HomeImageBean hb = new HomeImageBean();	
 			while (rs.hasNext()) {
-				HomeImageBean hb = new HomeImageBean();
+							
 				QuerySolution qs = rs.next();
 				try {
 					if (qs.get("s") != null) {
@@ -63,13 +65,12 @@ public class SPARQLEndPoint {
 					if (qs.get("date2") != null) {
 						hb.setDateLabel(qs.get("date2").asNode().getLiteralLexicalForm());
 					}
-					if (qs.get("img") != null) {
-						hb.setImageUrl(qs.get("img").asNode().toString());
+					if (qs.get("image") != null) {
+						hb.getThumbnails().add(qs.get("image").asNode().toString());						
 					}
 					if (qs.get("label") != null) {
 						hb.setLabel(qs.get("label").asNode().getLiteralLexicalForm());
 					}
-
 					if (qs.get("work") != null) {
 						hb.setWorkLabel(qs.get("work").asNode().getLiteralLexicalForm());
 					}
@@ -77,7 +78,15 @@ public class SPARQLEndPoint {
 						hb.setYear(qs.get("year").asNode().getLiteralLexicalForm());
 					}
 
-					results.add(hb);
+					if (!resource.equals(hb.getResource())){
+						hb.setImageUrl(hb.getThumbnails().get(0));
+						results.add(hb);		
+						resource = hb.getResource();
+						hb = new HomeImageBean();
+					}else{
+						
+					}
+					
 				} catch (Exception e) {
 					System.err.println("error? " + e.getMessage());
 					// e.printStackTrace();

@@ -1,5 +1,8 @@
 package org.dvcama.lodview.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeImageBean {
 
 	public String getResource() {
@@ -65,5 +68,16 @@ public class HomeImageBean {
 	private String label;
 	private String workLabel;
 	private String year;
+	
+	private List<String> thumbnails = new ArrayList<String>();
+
+	public List<String> getThumbnails() {
+		return thumbnails;
+	}
+
+	public void setThumbnails(List<String> thumbnails) {
+		this.thumbnails = thumbnails;
+	}
+	
 
 }
