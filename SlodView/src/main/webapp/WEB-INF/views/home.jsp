@@ -10,6 +10,9 @@
 	<jsp:include page="inc/home_header.jsp"></jsp:include>
 </head>
 
+<c:set var="proxy1200" scope="session" value="http://cdv.yovisto.com/imageproxy/1200,sc,q25/" />
+<c:set var="proxyThumb" scope="session" value="http://cdv.yovisto.com/imageproxy/150,sc,q25/" />
+
 <body data-uk-filter="target: .js-filter">
 	<jsp:include page="inc/custom_menu.jsp"></jsp:include>
 	<div class="spacer"></div>
@@ -25,25 +28,21 @@
 							<ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-top: 30">
 								<c:forEach items='${images.get(year)}' var="entry">
 								<li class="uk-width-5-5">
-									<div class="uk-cover-container uk-transition-toggle">
-											<img src='${entry.getImageUrl().replace("/cdv/","/cdv-orig/")}' alt="" uk-cover uk-img>
-											<img class="uk-transition-fade" src='${entry.getImageUrl()}' alt="" uk-cover uk-img>
+									<div class="uk-cover-container">
+										
+									<div class="uk-inline-clip uk-transition-toggle" tabindex="0" uk-cover>
+										<img src='${proxy1200}${entry.getImageUrl().replace("/cdv/","/cdv-o/")}' alt="">
+										<img class="uk-transition-fade uk-position-cover" src='${proxy1200}${entry.getImageUrl()}' alt="">
+									</div>
 									
-										<div class="uk-position-bottom">
-											<ul uk-slider-parallax="x: 200,-200" class="uk-thumbnav uk-transition-fade">
-												<c:forEach items='${entry.getThumbnails()}' var="thumb" end="4">
-													<li uk-slideshow-item="0"><a href="#"><img src="${thumb}" width="100" alt=""></a></li>
-												</c:forEach>
-											</ul>
-											<div class="uk-overlay uk-overlay-primary uk-text-center" uk-grid>
-												<div class="uk-width-expand" uk-slider-parallax="x: 100,-100">
-													<h2 uk-slider-parallax="x: 100,-100" class="uk-h4"><a href='${entry.getResource().replace("http://example.org/cdv/","")}' class="uk-link-reset">${entry.getLabel()}</a></h2>
-												</div>
-												<div class="uk-width-auto uk-text-right" uk-slider-parallax="x: 100,-100">
-														<a href="#" class="uk-icon-link uk-icon" data-uk-icon="icon: paint-bucket">
-														</a>
-												</div>
-											</div>
+										<div class="uk-position-small uk-position-bottom uk-overlay uk-overlay-default uk-text-center uk-transition-toggle">
+												<ul uk-slider-parallax="x: 200,-200" class="uk-thumbnav">
+													<c:forEach items='${entry.getThumbnails()}' var="thumb" end="5">
+														<li uk-slideshow-item="0"><a href="#"><img src="${proxyThumb}${thumb}" width="100" alt=""></a></li>
+													</c:forEach>
+												</ul>
+											<h2 uk-slider-parallax="x: 100,-100"><a href='${entry.getResource().replace("http://example.org/cdv/","")}'>${entry.getLabel()}</a></h2>
+											<p uk-slider-parallax="x: 200,-200">${entry.getDateLabel()}</p>
 										</div>
 										
 										
