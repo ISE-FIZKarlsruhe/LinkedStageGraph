@@ -31,7 +31,7 @@
 									<div class="uk-cover-container">
 										
 									<div class="uk-inline-clip uk-transition-toggle" tabindex="0" uk-cover>
-										<img src='${proxy1200}${entry.getImageUrl().replace("/cdv/","/cdv-o/")}' alt="">
+										<img src='${proxy1200}${entry.getImageUrl()}' alt="" style="-webkit-filter: grayscale(1); filter: gray; filter: grayscale(1);">
 										<img class="uk-transition-fade uk-position-cover" src='${proxy1200}${entry.getImageUrl()}' alt="">
 									</div>
 									
