@@ -56,9 +56,21 @@ public class SPARQLEndPoint {
 							
 				QuerySolution qs = rs.next();
 				try {
-					if (qs.get("s") != null) {
-						hb.setResource(qs.get("s").asNode().toString());
+					String r = qs.get("s").asNode().toString();
+					
+					if (resource.equals("")){
+						resource=r;
 					}
+					
+					if (!resource.equals(r)){
+						hb.setImageUrl(hb.getThumbnails().get(0));
+						results.add(hb);		
+						resource = hb.getResource();
+						hb = new HomeImageBean();
+					}
+
+					hb.setResource(r);
+					
 					if (qs.get("date") != null) {
 						hb.setDate(qs.get("date").asNode().getLiteralLexicalForm());
 					}
@@ -76,16 +88,7 @@ public class SPARQLEndPoint {
 					}
 					if (qs.get("year") != null) {
 						hb.setYear(qs.get("year").asNode().getLiteralLexicalForm());
-					}
-
-					if (!resource.equals(hb.getResource())){
-						hb.setImageUrl(hb.getThumbnails().get(0));
-						results.add(hb);		
-						resource = hb.getResource();
-						hb = new HomeImageBean();
-					}else{
-						
-					}
+					}					
 					
 				} catch (Exception e) {
 					System.err.println("error? " + e.getMessage());
