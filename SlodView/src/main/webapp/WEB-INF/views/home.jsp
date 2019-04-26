@@ -26,18 +26,20 @@
 								<c:forEach items='${images.get(year)}' var="entry">
 								<li class="uk-width-5-5">
 									<div class="uk-cover-container">
-										<img src="${entry.getImageUrl()}" alt="" uk-cover>
+										
+									<div class="uk-inline-clip uk-transition-toggle" tabindex="0" uk-cover>
+										<img src='${entry.getImageUrl().replace("/cdv/","/cdv-orig/")}' alt="">
+										<img class="uk-transition-fade uk-position-cover" src='${entry.getImageUrl()}' alt="">
+									</div>
 									
-										<div class="uk-position-center uk-text-center">
+										<div class="uk-position-small uk-position-bottom uk-overlay uk-overlay-default uk-text-center uk-transition-toggle">
+												<ul uk-slider-parallax="x: 200,-200" class="uk-thumbnav">
+													<c:forEach items='${entry.getThumbnails()}' var="thumb">
+														<li uk-slideshow-item="0"><a href="#"><img src="${thumb}" width="100" alt=""></a></li>
+													</c:forEach>
+												</ul>
 											<h2 uk-slider-parallax="x: 100,-100"><a href='${entry.getResource().replace("http://example.org/cdv/","")}'>${entry.getLabel()}</a></h2>
 											<p uk-slider-parallax="x: 200,-200">${entry.getDateLabel()}</p>
-										</div>
-										<div class="uk-position-bottom-center uk-position-small">
-											<ul class="uk-thumbnav">
-												<c:forEach items='${entry.getThumbnails()}' var="thumb">
-													<li uk-slideshow-item="0"><a href="#"><img src="${thumb}" width="100" alt=""></a></li>
-												</c:forEach>
-											</ul>
 										</div>
 										
 										
