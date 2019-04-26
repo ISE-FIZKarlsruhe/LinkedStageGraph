@@ -44,7 +44,7 @@ public class SPARQLEndPoint {
 		if (conf.getAuthPassword() != null && !conf.getAuthPassword().equals("")) {
 			auth = new SimpleAuthenticator(conf.getAuthUsername(), conf.getAuthPassword().toCharArray());
 		}
-		String query = "select distinct ?s ?date ?date2 ?image ?label ?work STRBEFORE(?date, '-') as ?year  where { ?s <urn:isbn:1-931666-22-9#did> ?didbl . ?s <http://purl.org/dc/terms/title> ?label . ?s <http://xmlns.com/foaf/0.1/depiction> ?image . ?didbl <urn:isbn:1-931666-22-9#unitdate> ?datebl . ?datebl <urn:isbn:1-931666-22-9#normal> ?date . OPTIONAL {?s <http://purl.org/dc/terms/date> ?date2} OPTIONAL {?s <http://schema.org/isBasedOn> ?w . ?w rdfs:label ?work} FILTER regex (?date, '^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$', 'i' ) } GROUP BY ?s ?date ?date2 ?label ?work ORDER BY ?date";
+		String query = "select distinct ?s ?date ?date2 ?image ?label ?work STRBEFORE(?date, '-') as ?year  where { ?s <urn:isbn:1-931666-22-9#did> ?didbl . ?s <http://purl.org/dc/terms/title> ?label . ?s <http://xmlns.com/foaf/0.1/depiction> ?image . ?didbl <urn:isbn:1-931666-22-9#unitdate> ?datebl . ?datebl <urn:isbn:1-931666-22-9#normal> ?date . OPTIONAL {?s <http://purl.org/dc/terms/date> ?date2} OPTIONAL {?s <http://schema.org/isBasedOn> ?w . ?w rdfs:label ?work} FILTER regex (?date, '^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$', 'i' ) } ORDER BY ?date";
 
 		QueryExecution qe = new QueryEngineHTTP(conf.getEndPointUrl(), query, auth);
 
@@ -65,7 +65,7 @@ public class SPARQLEndPoint {
 					if (!resource.equals(r)){
 						hb.setImageUrl(hb.getThumbnails().get(0));
 						results.add(hb);		
-						resource = hb.getResource();
+						resource = r;
 						hb = new HomeImageBean();
 					}
 
