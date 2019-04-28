@@ -8,72 +8,18 @@
 <head data-color="${colorPair}" profile="http://www.w3.org/1999/xhtml/vocab">
 	<title>${results.getTitle()}LinkedStageGraph&mdash;LodView</title>
 	<jsp:include page="inc/home_header.jsp"></jsp:include>
+	<jsp:include page="inc/vikus_header.jsp"></jsp:include>
 </head>
 
 <c:set var="proxy1200" scope="session" value="http://cdv.yovisto.com/imageproxy/1200,q25/" />
 <c:set var="proxyThumb" scope="session" value="http://cdv.yovisto.com/imageproxy/150,sc,q25/" />
 
-<body data-uk-filter="target: .js-filter">
-	<jsp:include page="inc/custom_menu.jsp"></jsp:include>
-	<div class="spacer"></div>
-	
 
-	<div class="uk-container">
-		<div class="" uk-grid>
-			<div class="uk-width-5-6">
-				<c:forEach items='${images.keySet()}' var="year">
-					<h2 id="year${year}">${year}</h2>
-					<div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
-
-							<ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-top: 30">
-								<c:forEach items='${images.get(year)}' var="entry">
-								<li class="uk-width-5-5">
-									<div class="uk-cover-container">
-										
-									<div class="uk-inline-clip uk-transition-toggle" tabindex="0" uk-cover>
-										<img src='${proxy1200}${entry.getImageUrl()}' alt="" style="-webkit-filter: grayscale(1); filter: gray; filter: grayscale(1);">
-										<img class="uk-transition-fade uk-position-cover" src='${proxy1200}${entry.getImageUrl()}' alt="">
-									</div>
-									
-										<div class="uk-position-small uk-position-bottom uk-overlay uk-overlay-default uk-text-center uk-transition-toggle">
-												<ul uk-slider-parallax="x: 200,-200" class="uk-thumbnav">
-													<c:forEach items='${entry.getThumbnails()}' var="thumb" end="6">
-														<li uk-slideshow-item="0"><a href="#"><img src="${proxyThumb}${thumb}" width="100" alt=""></a></li>
-													</c:forEach>
-												</ul>
-											<h2 uk-slider-parallax="x: 100,-100"><a href='${entry.getResource().replace("http://example.org/cdv/","")}'>${entry.getLabel()}</a></h2>
-											<p uk-slider-parallax="x: 200,-200">${entry.getDateLabel()}</p>
-										</div>
-										
-										
-									</div>
-								</li></c:forEach>
-							</ul>
-						
-							<div class="uk-light">
-								<a class="uk-position-center-left uk-position-small uk-slidenav-large" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-								<a class="uk-position-center-right uk-position-small uk-slidenav-large" href="#" uk-slidenav-next uk-slider-item="next"></a>
-							</div>
-
-							<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-
-						</div>
-				</c:forEach>
-			</div>
-		
-			<div class="uk-width-1-6">
-				<div uk-sticky="offset: 100">
-				<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
-					<c:forEach items='${images.keySet()}' var="year">
-						<li><a href="#year${year}">${year}</a></li>
-					</c:forEach>
-				</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!--
+<!--
+<c:forEach items='${images.keySet()}' var="year">
+<c:forEach items='${images.get(year)}' var="entry">
+</c:forEach>
+</c:forEach>
 ${year}
 ${entry.getYear()}
 ${entry.getWorkLabel()}
@@ -83,10 +29,97 @@ ${entry.getLabel()}
 ${entry.getImageUrl()}
 -->
 
+    
 
+	<div id="hiddenreload"></div>
 
-	
+	<div class="browserInfo">
+		<p>This visualization is not optimized for mobile phones and needs WebGL enabled.</p>
+		<p>Please come back on a Computer.</p>
+		<span>💡</span>
+	</div>
 
+	<div class="search"></div>
+
+	<div class="page">
+
+		<div class="detailLoader"></div>
+		<div class="sideLoader"></div>
+
+		<div class="sidebar detail hide">
+			<div class="slidebutton"></div>
+
+			<div class="outer">
+				<div id="detail" class="inner">
+					<div class="entries" v-if="item">
+						<div v-if="item._imagenum > 1" class="entry wide pages">
+							<div class="label">Seite</div>
+							<div class="content">
+								<span v-for="i in parseInt(item._imagenum)" v-bind:key="i" v-on:click="displayPage(i-1)" v-bind:class="{ active: i === page+1, keyword: true }">
+									{{ i }}
+								</span>
+							</div>
+						</div>
+						<div v-for="entry in structure" v-bind:key="entry.name" v-bind:class="entry.display" class="entry" v-if="hasData(entry)">
+							<div class="label">{{ entry.name }}</div>
+							<div class="content">
+								<span v-if="entry.type === 'keywords'">
+									<span v-for="keyword in item[entry.source]" v-bind:key="keyword" class="keyword">
+										{{ keyword }}
+									</span>
+								</span>
+								<span v-else-if="entry.type === 'link'">
+									<a :href="item[entry.source]" target="_blank">Link</a>
+								</span>
+								<span v-else-if="entry.type === 'markdown'">
+									<span v-html="getContent(entry)"></span>
+								</span>
+								<span v-else>
+									{{ getContent(entry) }}
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="navi hide">
+			<div class="time button active">time</div>
+			<div class="tsne button">tsne</div>
+		</div>
+
+		<div class="infobar sneak">
+			<div class="infobutton">
+				<svg width="16px" height="24px" viewBox="0 0 16 24">
+					<path d="M13.6824546,2 L3.7109392,11.9715154 L13.7394238,22" stroke="#FFF" stroke-width="5"></path>
+				</svg>
+			</div>
+
+			<div class="outer">
+				<div class="inner">
+					<div id="infobar" class="infosidebar">
+						<span v-html="marked(info)"></span>
+						<div class="credit">Powered by
+							<a href="https://vikusviewer.fh-potsdam.de/" target="_blank">VIKUS Viewer</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="searchbar">
+			<input type="input" name="suche">
+			<div class="button">
+				<div class="openbutton"></div>
+			</div>
+		</div>
+	</div>
+
+	<script src="${conf.getStaticResourceURL()}vendor/vikusviewer
+    /js/sidebars.js"></script>
+    <script src="${conf.getStaticResourceURL()}vendor/vikusviewer
+    /js/viz.js"></script>
+    
 	<jsp:include page="inc/custom_footer.jsp"></jsp:include>
 	<jsp:include page="inc/footer.jsp"></jsp:include>
 </body>
