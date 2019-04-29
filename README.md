@@ -1,9 +1,14 @@
 # Linked Stage Graph
 
-This repository was created for the hackathon [Coding da Vinci Süd 2019](https://codingdavinci.de/events/sued/). 
+Linked Stage Graph is a Knowledge Graph developed as part of the [Coding da Vinci Süd 2019](https://codingdavinci.de/events/sued/) hackathon taking place from April 06 to May 18, 2019 in southern Germany. 
 
-We are creating a knowledge graph using data from the Stuttgart State Theatre. The data set is provided by the [National Archive of Baden-Wuerttemberg](https://www.landesarchiv-bw.de/web) and consists of almost 7.000 photographs from the theater (on and off the stage) a long with a variety of metadata.
+The graph is being created using a dataset provided by the [National Archive of Baden-Wuerttemberg](https://www.landesarchiv-bw.de/web). It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s. The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. 
 
-Our goal is to privide an endpoint to easily access the data using SPARQL and to create simple visualization to get an initial idea of the interesting photographs provided. 
+However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data standards. 
+
+
+
+
+
 
 
