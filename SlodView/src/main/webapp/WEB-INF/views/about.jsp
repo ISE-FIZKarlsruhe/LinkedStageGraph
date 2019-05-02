@@ -175,6 +175,17 @@
             </div>
         </div>
     </div>
+   <div>
+        <div class="uk-card-small uk-card-default uk-card-hover">
+            <div class="uk-card-media-top">
+                <img src="/staticResources/img/kanran.jpg" width="200" height="" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">Kanran Zhou</h3>
+                <p>Student co-worker at FIZ Karlsruhe</p>
+            </div>
+        </div>
+    </div>
     <div>
         <div class="uk-card-small uk-card-default uk-card-hover">
             <div class="uk-card-media-top">
@@ -186,17 +197,7 @@
             </div>
         </div>
     </div>
-    <div>
-        <div class="uk-card-small uk-card-default uk-card-hover">
-            <div class="uk-card-media-top">
-                <img src="/staticResources/img/kanran.jpg" width="200" height="" alt="">
-            </div>
-            <div class="uk-card-body">
-                <h3 class="uk-card-title">Kanran Zhou</h3>
-                <p>Student co-worker at FIZ Karlsruhe</p>
-            </div>
-        </div>
-    </div>
+
     <div>
         <div class="uk-card-small uk-card-default uk-card-hover">
             <div class="uk-card-media-top">
