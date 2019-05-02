@@ -131,7 +131,7 @@
             </div>
             <div class="uk-card-body">
                 <h3 class="uk-card-title">Jörg Waitelonis</h3>
-                <p>yovisto</p>
+                <p>yovisto GmbH</p>
             </div>
         </div>
     </div>
