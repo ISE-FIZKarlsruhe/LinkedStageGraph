@@ -56,7 +56,8 @@
         <h3 class="uk-heading-small">From XML (EAD-DDB) to RDF</h3>
         The metadata was provided using the XML EAD standard which is used for encoding descriptive information regarding archival records. In order to create a knowledge graph, the data has to be transformed into the Resource Description Framework (RDF). 
 		Many XML to RDF converters already exist, but due to the unique structure of the provided metadata, none of them worked out of the box. In the end, we used the XML2RDF converter by <a href="http://rhizomik.net/html/redefer/">rhizomik</a> and we used and adapted an <a href="http://data.archiveshub.ac.uk/ead2rdf">EADRDF XSLT Stylesheet</a>. We connected both outputs using an <code>owl:sameAs</code> link and merged both separate graphs by semantic reasoning. 
-        <h3 class="uk-heading-small">Named Entity Extraction and Linking to Other KGs</h3>
+
+        <h3 class="uk-heading-small">Named Entity Extraction and Linking</h3>
         <p>
         	The provided metadata contained interesting information about the performances and photographs in form of semi-structured or unstructured text. For example, the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> has a title (<code>dcterms:title</code>) and an abstract (<code>dcterms:description</code>): </p>
         	<table class="uk-table-small uk-table-divider uk-table-hover">
@@ -81,6 +82,69 @@
 				<li>Extract named entities from semi-structured or unstructured text. In the example above, named entities are e.g. the title "Was ihr wollt" or names like "Ernst Pils". </li>
 				<li>If available, map the extracted named entities to an existing knowledge base, like Wikidata</li>
 			</ul>
+
+        <h3 class="uk-heading-small">Photographs</h3>
+        Even though the provided data set contained nearly 7.000 black and white photographs, only 2.600 of them were actually referenced in the XML document. We added the remaining 4.400 photographs to the graph and connect them to their respective resource.  
+
+
+        <h2 class="uk-heading-medium">Exploration</h2>
+
+        <h3 class="uk-heading-small">SLOD Viewer</h3>
+        <h3 class="uk-heading-small">Vikus Viewer</h3>
+        <h3 class="uk-heading-small">AI-Based Image Coloring</h3>
+        <p>What breathes more life into photographs than a little bit of color? Using a <a href="https://richzhang.github.io/ideepcolor/">tool</a> based on artificial intelligence, we automatically colorized each photo in the data set with interesting outcomes. While the results aren’t close to perfection, we believe that the color adds a new vibrant dimension to these historical photos. </p>
+        <h3 class="uk-heading-small">SPARQL Endpoint</h3>
+        <h2 class="uk-heading-medium">Team</h2>
+
+        <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
+    <div>
+        <div class="uk-card-small uk-card-default uk-card-hover">
+            <div class="uk-card-media-top">
+                <img src="/staticResources/img/tabea.jpg" width="200" height="" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">Tabea Tietz</h3>
+                <p>Junior Researcher at FIZ Karlsruhe <br>
+                	Webpage at <a href="https://fizweb-p.fiz-karlsruhe.de/en/forschung/lebenslauf-und-publikationen-tabea-tietz">FIZ Karlsruhe</a> <br>
+                	Twitter: <a href="https://twitter.com/Tabea_T">Tabea_T</a> </p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card-small uk-card-default uk-card-hover">
+            <div class="uk-card-media-top">
+                <img src="/staticResources/img/joerg.jpg" width="200" height="" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">Jörg Waitelonis</h3>
+                <p>yovisto</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card-small uk-card-default uk-card-hover">
+            <div class="uk-card-media-top">
+                <img src="/staticResources/img/kanran.jpg" width="200" height="" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">Kanran Zhou</h3>
+                <p>Student co-worker at FIZ Karlsruhe</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card-small uk-card-default uk-card-hover">
+            <div class="uk-card-media-top">
+                <img src="/staticResources/img/paul.jpg" width="200" height="" alt="">
+            </div>
+            <div class="uk-card-body">
+                <h3 class="uk-card-title">Paul Felgentreff</h3>
+                <p>Design</p>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
 
