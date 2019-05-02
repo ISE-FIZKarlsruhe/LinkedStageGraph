@@ -132,7 +132,7 @@
         <p>What breathes more life into photographs than a little bit of color? Using a <a href="https://richzhang.github.io/ideepcolor/">tool</a> based on artificial intelligence, we automatically colorized each photo in the data set with interesting outcomes. While the results aren’t close to perfection, we believe that the color adds a new vibrant dimension to these historical photos. </p>
         <div class="uk-child-width-1-2" uk-grid>
 			<div>
-				<h3>SLOD Viewer</h3>
+				<h3>Linked Stage Graph Viewer</h3>
 				<p class="uk-text-justify">The SLOD Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. 
 				The photographs are arranged in a timeline from 1912 to 1943 which can be explored by scrolling up and down. Swiping left and right reveals other performances which have taken place in the same year. For the pictures to really come alive, you simply have to hover them and they instantly turn from their original black and white to colored photographs. By clicking on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances. </p>
 			</div>

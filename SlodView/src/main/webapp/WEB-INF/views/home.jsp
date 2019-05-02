@@ -35,7 +35,7 @@
 			</div>
 		</div>
 
-		<h1>SLOD Viewer</h1>
+		<h1>Linked Stage Graph Viewer</h1>
 		<div class="" uk-grid>
 			<div class="uk-width-5-6">
 				<c:forEach items='${images.keySet()}' var="year">
