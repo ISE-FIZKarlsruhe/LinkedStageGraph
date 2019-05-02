@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%><%@taglib uri="http://www.springframework.org/tags" prefix="sp"%><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page xmlns="http://www.w3.org/1999/xhtml" contentType="text/html" pageEncoding="UTF-8" session="true"%><%@taglib uri="http://www.springframework.org/tags" prefix="sp"%><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html version="XHTML+RDFa 1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml-rdfa-2.xsd"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -46,23 +46,48 @@
     		</div>
 		</div>
 
-		<h2 class="uk-heading-medium">Workflow</h2>
+		<h2 class="uk-heading-small">Workflow</h2>
         <img src="/staticResources/img/workflow.svg" width="1000" height="" alt="workflow" uk-img>
 
-        <h2 class="uk-heading-small">Knowledge Graph</h2>
+        <h2 class="uk-heading-small">Creating a Knowledge Graph</h2>
         A Knowledge Graph is ...
         And it is used because ... 
 
         <h3 class="uk-heading-small">From XML (EAD-DDB) to RDF</h3>
         The metadata was provided using the XML EAD standard which is used for encoding descriptive information regarding archival records. In order to create a knowledge graph, the data has to be transformed into the Resource Description Framework (RDF). 
-		Many XML to RDF converters already exist, but due to the unique structure of the provided metadata, none of them worked out of the box. In the end, we used the XML2RDF converter by <a href="http://rhizomik.net/html/redefer/">rhizomik</a> and we used and adapted an <a href="http://data.archiveshub.ac.uk/ead2rdf">EADRDF XSLT Stylesheet</a>. We connected both outputs using an <code>owl:sameAs</code> link and merged both separate graphs by semantic reasoning. 
+		Many XML to RDF converters already exist, but due to the unique structure of the provided metadata, none of them worked out of the box. In the end, we used the XML2RDF converter by <a href="http://rhizomik.net/html/redefer/">rhizomik</a> and we used and adapted an <a href="http://data.archiveshub.ac.uk/ead2rdf">EADRDF XSLT Stylesheet</a>. Both outputs were imported into <a href="https://virtuoso.openlinksw.com/">OpenLink Virtuoso</a> as two separate RDF graphs. We connected both outputs using an <code>owl:sameAs</code> link and merged both separate graphs by semantic reasoning.
 
-        <h3 class="uk-heading-small">Named Entity Extraction and Linking</h3>
+        <h2 class="uk-heading-small">Named Entity Extraction and Linking (Connecting with Others)</h2>
         <p>
-        	The provided metadata contained interesting information about the performances and photographs in form of semi-structured or unstructured text. For example, the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> has a title (<code>dcterms:title</code>) and an abstract (<code>dcterms:description</code>): </p>
-        	<table class="uk-table-small uk-table-divider uk-table-hover">
-			    <tbody>
-        			<tr>
+        	The provided metadata contained interesting information about the performances and photographs in form of semi-structured or unstructured text. For example, the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> has a title (<code>dcterms:title</code>) and an abstract (<code>dcterms:description</code>). These semi-structured textual information as shown in the left hand table below can be understood by humans, but not by machines. Therefore they cannot be queried or visualized in a meaningful way. We started to tackle this issue in two steps:
+			<ul>
+				<li>We extract named entities from semi-structured or unstructured text. In the example above, named entities are e.g. the title "Was ihr wollt" or names like "Felix Cziossek". </li>
+				<li>If available, we mapped the extracted named entities to an existing knowledge base, like Wikidata</li>
+			</ul></p>
+
+        	<div class="uk-column-1-2">
+        		<h4>Before Linking</h4>
+        		<table class="uk-table-small uk-table-divider uk-table-hover">
+			    	<tbody>
+        				<tr>
+            			<td><code>dcterms:title</code></td>
+            			<td>Was ihr wollt (William Shakespeare)</td>
+        				</tr>
+        				<tr>
+            			<td><code>dcterms:description</code></td>
+            			<td>Schauspiel <br>
+        				Art und Datum der Aufführung: Neuinszenierung, 11.03.1923 <br>
+        				Inszenierung: Curt Elwenspoek <br>
+        				Bühnenbild: Felix Cziossek <br>
+        				Kostüme: Ernst Pils</td>
+        				</tr>	
+    				</tbody>
+				</table>
+				<br> 
+				<h4>After Linking</h4>
+    			<table class="uk-table-small uk-table-divider uk-table-hover">
+			    	<tbody>
+			    	<tr>
             		<td><code>dcterms:title</code></td>
             		<td>Was ihr wollt (William Shakespeare)</td>
         			</tr>
@@ -74,41 +99,28 @@
         			Bühnenbild: Felix Cziossek <br>
         			Kostüme: Ernst Pils</td>
         			</tr>	
-    			</tbody>
-			</table>
-		<p>
-			These unstructured textual information can be understood by humans, but not by machines. Therefore they cannot be queried or visualized in a meaningful way. We started to tackle this issue in two steps:
-			<ul>
-				<li>Extract named entities from semi-structured or unstructured text. In the example above, named entities are e.g. the title "Was ihr wollt" or names like "Ernst Pils". </li>
-				<li>If available, map the extracted named entities to an existing knowledge base, like Wikidata</li>
-			</ul>
-				<table class="uk-table-small uk-table-divider uk-table-hover">
-			    	<tbody>
         			<tr>
             		<td><code>schema:isBasedOn</code></td>
-            		<td><a href="http://www.wikidata.org/entity/Q221211">http://www.wikidata.org/entity/Q221211</a> </td>
+            		<td><a href="http://www.wikidata.org/entity/Q221211">&lt;http://www.wikidata.org/entity/Q221211&gt;</a> </td>
         			</tr>
         			<tr>
             		<td><code>slod:relevantPerson</code></td>
-            		<td>Curt Elwenspoek </td>
+            		<td><a href="https://www.wikidata.org/wiki/Q55638867">&lt;https://www.wikidata.org/wiki/Q55638867&gt;</a></td>
             		</tr>
-            		<tr><td></td><td>Felix Cziossek</td></tr>
-        			<tr><td></td><td>Ernst Pils</td></tr>	
     				</tbody>
 				</table>
+			</div>
 
-        <h3 class="uk-heading-small">Photographs</h3>
-        Even though the provided data set contained nearly 7.000 black and white photographs, only 2.600 of them were actually referenced in the XML document. We added the remaining 4.400 photographs to the graph and connect them to their respective resource.  
+		<p>In this example, two mappings were created. Felix Cziossek was mapped to the respective Item in Wikidata using the property <code>slod:relevantPerson</code>  and the play "Was ihr wollt" was mapped to the respective creative work in Wikidata using the property <code>schema:isBasedOn</code>. That means we have now created new knowledge in the form of two machine understandable facts: the fact that the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a>, a play at the Stuttgart Theater, is based on the famous play by William Shakespeare, and the fact that <a href="https://www.wikidata.org/wiki/Q55638867">Felix Cziossek</a> is a relevant person for that play. These new and structured information can now be queried using SPARQL. </p>
 
-
-        <h2 class="uk-heading-medium">Exploration</h2>
+        <h2 class="uk-heading-small">Exploration</h2>
 
         <h3 class="uk-heading-small">SLOD Viewer</h3>
         <h3 class="uk-heading-small">Vikus Viewer</h3>
         <h3 class="uk-heading-small">AI-Based Image Coloring</h3>
         <p>What breathes more life into photographs than a little bit of color? Using a <a href="https://richzhang.github.io/ideepcolor/">tool</a> based on artificial intelligence, we automatically colorized each photo in the data set with interesting outcomes. While the results aren’t close to perfection, we believe that the color adds a new vibrant dimension to these historical photos. </p>
         <h3 class="uk-heading-small">SPARQL Endpoint</h3>
-        <h2 class="uk-heading-medium">Team</h2>
+        <h2 class="uk-heading-small">Team</h2>
 
         <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
     <div>
