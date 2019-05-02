@@ -1,4 +1,4 @@
-<%@page session="true"%><%@taglib uri="http://www.springframework.org/tags" prefix="sp"%><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%><%@taglib uri="http://www.springframework.org/tags" prefix="sp"%><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html version="XHTML+RDFa 1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml-rdfa-2.xsd"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -82,6 +82,20 @@
 				<li>Extract named entities from semi-structured or unstructured text. In the example above, named entities are e.g. the title "Was ihr wollt" or names like "Ernst Pils". </li>
 				<li>If available, map the extracted named entities to an existing knowledge base, like Wikidata</li>
 			</ul>
+				<table class="uk-table-small uk-table-divider uk-table-hover">
+			    	<tbody>
+        			<tr>
+            		<td><code>schema:isBasedOn</code></td>
+            		<td><a href="http://www.wikidata.org/entity/Q221211">http://www.wikidata.org/entity/Q221211</a> </td>
+        			</tr>
+        			<tr>
+            		<td><code>slod:relevantPerson</code></td>
+            		<td>Curt Elwenspoek </td>
+            		</tr>
+            		<tr><td></td><td>Felix Cziossek</td></tr>
+        			<tr><td></td><td>Ernst Pils</td></tr>	
+    				</tbody>
+				</table>
 
         <h3 class="uk-heading-small">Photographs</h3>
         Even though the provided data set contained nearly 7.000 black and white photographs, only 2.600 of them were actually referenced in the XML document. We added the remaining 4.400 photographs to the graph and connect them to their respective resource.  
