@@ -17,8 +17,31 @@
 	<jsp:include page="inc/custom_menu.jsp"></jsp:include>
 	<div class="spacer"></div>
 	
+	
 
 	<div class="uk-container">
+
+		<div class="uk-child-width-1-2" uk-grid>
+
+			<div>
+				<h1>Welcome to out project!</h1>
+
+				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+					diam nonumy eirmod tempor invidunt ut labore et dolore magna
+					aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+					duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+					sanctus est Lorem ipsum dolor sit amet.</p>
+			</div>
+			<div>
+				<a href="/about">About this Project</a> <br/> 
+				<a href="/sparql">SPARQL-Endpoint</a> <br/>
+				<a href="/vikus">Vikus Viewer</a> <br/>
+				<a href="/about">About this Project</a> <br/>
+			</div>
+
+
+		</div>
+
 		<div class="" uk-grid>
 			<div class="uk-width-5-6">
 				<c:forEach items='${images.keySet()}' var="year">
