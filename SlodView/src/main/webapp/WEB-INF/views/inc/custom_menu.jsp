@@ -17,9 +17,9 @@
             <div class="uk-width-auto">
                 <ul class="uk-subnav" data-uk-margin>
                     <li class="uk-visible@s"><a href="/">Home</a></li>
-                    <li class="uk-visible@s"><a href="/about-us">About Us</a></li>
-                    <li class="uk-visible@s"><a href="http://cdv.yovisto.com/sparql">sparql</a></li>
-                    <li class="uk-visible@s"><a href="#">View on github</a></li>
+                    <li class="uk-visible@s"><a href="/about">About</a></li>
+                    <li class="uk-visible@s"><a href="/sparql">SPARQL Endpoint</a></li>
+                    <li class="uk-visible@s"><a href="https://github.com/ISE-FIZKarlsruhe/LinkedStageGraph">View on github</a></li>
                     <li class="uk-hidden@s"><a data-uk-navbar-toggle-icon data-uk-toggle href="#offcanvas-nav"></a></li>
                 </ul>
             </div>

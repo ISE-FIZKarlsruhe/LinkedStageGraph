@@ -1,4 +1,4 @@
-<%@page session="true"%><%@taglib uri="http://www.springframework.org/tags" prefix="sp"%><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true"%><%@taglib uri="http://www.springframework.org/tags" prefix="sp"%><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html version="XHTML+RDFa 1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml-rdfa-2.xsd"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -24,19 +24,14 @@
 		<div class="uk-child-width-1-2" uk-grid>
 
 			<div>
-				<h1>Welcome to out project!</h1>
 
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-					diam nonumy eirmod tempor invidunt ut labore et dolore magna
-					aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-					duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-					sanctus est Lorem ipsum dolor sit amet.</p>
+				<p class="uk-text-justify">Linked Stage Graph is a Knowledge Graph developed as part of the Coding da Vinci Süd 2019 hackathon taking place from April 06 to May 18, 2019 in southern Germany. The graph is being created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s. <br>
+				The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data standards.</p>
 			</div>
 			<div>
-				<a href="/about">About this Project</a> <br/> 
+				<a href="/about">About Linked Stage Graph</a> <br/> 
 				<a href="/sparql">SPARQL-Endpoint</a> <br/>
 				<a href="/vikus">Vikus Viewer</a> <br/>
-				<a href="/about">About this Project</a> <br/>
 			</div>
 
 
