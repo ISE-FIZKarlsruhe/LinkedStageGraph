@@ -65,6 +65,22 @@ public class StaticController {
 		System.out.println("home controller");
 		return "home";
 	}
+	
+	
+	@RequestMapping(value = "/about")
+	public String about(HttpServletRequest req, HttpServletResponse res, Model model, Locale locale, @CookieValue(value = "colorPair", defaultValue = "") String colorPair) {
+		colorPair = conf.getRandomColorPair();
+		Cookie c = new Cookie("colorPair", colorPair);
+		c.setPath("/");
+		res.addCookie(c);
+		model.addAttribute("colorPair", colorPair);
+		model.addAttribute("conf", conf);
+		model.addAttribute("locale", locale.getLanguage());
+		model.addAttribute("path", new UrlPathHelper().getContextPath(req).replaceAll("/lodview/", "/"));
+		
+		System.out.println("about controller");
+		return "about";
+	}
 
 	private Map<String, List<HomeImageBean>> groupBy(List<HomeImageBean> beans) {
 		
