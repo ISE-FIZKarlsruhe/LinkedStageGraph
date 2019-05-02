@@ -63,9 +63,9 @@
 
         <h3>Named Entity Extraction and Linking (Connecting with Others)</h3>
         <p>
-        	The provided metadata contained interesting information about the performances and photographs in form of semi-structured or unstructured text. For example, the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> has a title (<code>dcterms:title</code>) and an abstract (<code>dcterms:description</code>). These semi-structured textual information as shown in the left hand table below can be interpreted by humans, but not by machines. Therefore they cannot be queried or visualized in a meaningful and useful way. We started to tackle this issue in two steps:
+        	The provided metadata contains interesting information about the performances and photographs in form of semi-structured or unstructured text. For example, the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> has a title (<code>dcterms:title</code>) and an abstract (<code>dcterms:description</code>). These semi-structured textual information as shown in the left hand table below can be interpreted by humans, but not by machines. Therefore they cannot be queried or visualized in a meaningful and useful way. We started to tackle this issue in two steps:
 			<ul>
-				<li>We extract named entities from semi-structured or unstructured text. In the example above, named entities are e.g. the title "Was ihr wollt" or names like "Felix Cziossek". </li>
+				<li>We extract named entities from semi-structured text. In the example below, named entities are e.g. the title "Was ihr wollt" or names like "Felix Cziossek". </li>
 				<li>If available, we mapped the extracted named entities to an existing knowledge base, like Wikidata</li>
 			</ul></p>
 
@@ -115,7 +115,7 @@
 				</table>
 			</div>
 
-		<p>In this example, two mappings were created. Felix Cziossek was mapped to the respective Item in Wikidata using the property <code>slod:relevantPerson</code>  and the play "Was ihr wollt" was mapped to the respective creative work in Wikidata using the property <code>schema:isBasedOn</code>. </p>
+		<p>In this example above (table on the right), two mappings were created. Felix Cziossek was mapped to the respective Item in Wikidata using the property <code>slod:relevantPerson</code>  and the play "Was ihr wollt" was mapped to the respective creative work in Wikidata using the property <code>schema:isBasedOn</code>. </p>
 
 		<h4>What does this mean?</h4>
 		<p>In this example, we have now created new knowledge in the form of two human and machine interpretable facts:</p> 
