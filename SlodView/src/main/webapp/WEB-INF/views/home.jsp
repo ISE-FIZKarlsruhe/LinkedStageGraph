@@ -25,18 +25,19 @@
 
 			<div>
 
-				<p class="uk-text-justify">Linked Stage Graph is a Knowledge Graph developed as part of the Coding da Vinci Süd 2019 hackathon taking place from April 06 to May 18, 2019 in southern Germany. The graph is being created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s. <br>
+				<p class="uk-text-justify">Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon taking place from April to May 2019. The graph is being created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s. <br>
 				The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data standards.</p>
 			</div>
 			<div>
-				<a href="/about">About Linked Stage Graph</a> <br/> 
-				<a href="/sparql">SPARQL-Endpoint</a> <br/>
-				<a href="/vikus">Vikus Viewer</a> <br/>
+				<h2>How to explore Linked Stage Graph</h2>
+				<p>Find out more about the project's workflow, goals and tools used.</p> <button class="uk-button uk-button-default">About Linked Stage Graph</button> <br/>
+				<p>Query the RDF data </p> <button class="uk-button uk-button-default">SPARQL Endpoint</button><br/>
+				<p>Who has been working on this?</p> <button class="uk-button uk-button-default">Team</button>
+				<p>Explore the photographs and metadata using the Vikus Viewer</p> <button class="uk-button uk-button-default">Start Vikus Viewer</button>
 			</div>
-
-
 		</div>
 
+		<h1>SLOD Viewer</h1>
 		<div class="" uk-grid>
 			<div class="uk-width-5-6">
 				<c:forEach items='${images.keySet()}' var="year">

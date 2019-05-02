@@ -17,14 +17,14 @@
 	<jsp:include page="inc/custom_menu.jsp"></jsp:include>
 	<div class="spacer"></div>
 		
-		<h1 class="uk-heading-small">About Linked Stage Graph</h2>
+		<h1>About Linked Stage Graph</h2>
 
         <div class=".uk-text-justify">
-                <p>Linked Stage Graph is a Knowledge Graph developed as part of the Coding da Vinci Süd 2019 hackathon taking place from April 06 to May 18, 2019 in southern Germany. The graph was created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s. <br>
+                <p>Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon taking place from April to May 2019. The graph is being created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s. <br>
                 The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data standards. </p>
         </div>
 
-        <h2 class="uk-heading-small">Goals</h2>
+        <h2>Goals</h2>
         <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
     		<div>
         		<div class="uk-card uk-card-default uk-card-body uk-card-hover">
@@ -46,18 +46,18 @@
     		</div>
 		</div>
 
-		<h2 class="uk-heading-small">Workflow</h2>
+		<h2>Workflow</h2>
         <img src="/staticResources/img/workflow.svg" width="1000" height="" alt="workflow" uk-img>
 
-        <h2 class="uk-heading-small">Creating a Knowledge Graph</h2>
+        <h2>Creating a Knowledge Graph</h2>
         A Knowledge Graph is ...
         And it is used because ... 
 
-        <h3 class="uk-heading-small">From XML (EAD-DDB) to RDF</h3>
+        <h3>From XML (EAD-DDB) to RDF</h3>
         The metadata was provided using the XML EAD standard which is used for encoding descriptive information regarding archival records. In order to create a knowledge graph, the data has to be transformed into the Resource Description Framework (RDF). 
 		Many XML to RDF converters already exist, but due to the unique structure of the provided metadata, none of them worked out of the box. In the end, we used the XML2RDF converter by <a href="http://rhizomik.net/html/redefer/">rhizomik</a> and we used and adapted an <a href="http://data.archiveshub.ac.uk/ead2rdf">EADRDF XSLT Stylesheet</a>. Both outputs were imported into <a href="https://virtuoso.openlinksw.com/">OpenLink Virtuoso</a> as two separate RDF graphs. We connected both outputs using an <code>owl:sameAs</code> link and merged both separate graphs by semantic reasoning.
 
-        <h2 class="uk-heading-small">Named Entity Extraction and Linking (Connecting with Others)</h2>
+        <h2s>Named Entity Extraction and Linking (Connecting with Others)</h2>
         <p>
         	The provided metadata contained interesting information about the performances and photographs in form of semi-structured or unstructured text. For example, the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> has a title (<code>dcterms:title</code>) and an abstract (<code>dcterms:description</code>). These semi-structured textual information as shown in the left hand table below can be understood by humans, but not by machines. Therefore they cannot be queried or visualized in a meaningful way. We started to tackle this issue in two steps:
 			<ul>
@@ -113,13 +113,39 @@
 
 		<p>In this example, two mappings were created. Felix Cziossek was mapped to the respective Item in Wikidata using the property <code>slod:relevantPerson</code>  and the play "Was ihr wollt" was mapped to the respective creative work in Wikidata using the property <code>schema:isBasedOn</code>. That means we have now created new knowledge in the form of two machine understandable facts: the fact that the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a>, a play at the Stuttgart Theater, is based on the famous play by William Shakespeare, and the fact that <a href="https://www.wikidata.org/wiki/Q55638867">Felix Cziossek</a> is a relevant person for that play. These new and structured information can now be queried using SPARQL. </p>
 
-        <h2 class="uk-heading-small">Exploration</h2>
+        <h2>Exploration</h2>
 
-        <h3 class="uk-heading-small">SLOD Viewer</h3>
-        <h3 class="uk-heading-small">Vikus Viewer</h3>
-        <h3 class="uk-heading-small">AI-Based Image Coloring</h3>
+        <h3>AI-Based Image Coloring</h3>
         <p>What breathes more life into photographs than a little bit of color? Using a <a href="https://richzhang.github.io/ideepcolor/">tool</a> based on artificial intelligence, we automatically colorized each photo in the data set with interesting outcomes. While the results aren’t close to perfection, we believe that the color adds a new vibrant dimension to these historical photos. </p>
+        <div class="uk-child-width-1-2" uk-grid>
+			<div>
+				<h3>SLOD Viewer</h3>
+				<p class="uk-text-justify">The SLOD Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. They are visualized in a simple timeline from 1912 to 1943. 
+				Swiping left and right reveals other performances which have taken place in the same year. For the pictures to really come alive, you simply have to hover them and they instantly turn from their original black and white to colored photographs. By clicking on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.</p>
+			</div>
+			<div>
+				<h3>Vikus Viewer</h3>
+				<p class="uk-text-justify">The Vikus Viewer was created by <a href="https://chrispie.com/">Christopher Pietsch</a> in the context of the <a href="https://uclab.fh-potsdam.de/">Urban Complexity Lab</a> at FH Potsdam. We found that the viewer works great with the data and photographs we had. The timeline allows the user to dynamically explore the images and metadata. Users can filter the content, zoom into it and focus on individual images which also reveals some of the metadata we have gathered.</p>
+			</div>
+		</div>
+
         <h3 class="uk-heading-small">SPARQL Endpoint</h3>
+
+        You can query the Linked Stage Graph using our <a href="/sparql">SPARQL-Endpoint</a>. 
+
+        <p>Use the following prefixes with your query:</p>
+		<pre><code>
+		PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+		PREFIX gnd: &lt;http://d-nb.info/gnd/&gt;
+		PREFIX schema: &lt;http://schema.org/&gt;
+		PREFIX slod: &lt;http://slod.fiz-karlsruhe.de/&gt;
+		PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+
+</code></pre>
+
+		<h4>Example Query 1</h4>
+		<h4>Example Query 2</h4>
+
         <h2 class="uk-heading-small">Team</h2>
 
         <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
