@@ -21,7 +21,7 @@
 
         <div class=".uk-text-justify">
                 <p>Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon taking place from April to May 2019. The graph is being created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s. <br>
-                The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data standards. </p>
+                The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data and interesting visualizations. </p>
         </div>
 
         <h2>Goals</h2>
@@ -133,7 +133,7 @@
         <div class="uk-child-width-1-2" uk-grid>
 			<div>
 				<h3>Linked Stage Graph Viewer</h3>
-				<p class="uk-text-justify">The SLOD Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. 
+				<p class="uk-text-justify">The Linked Stage Graph Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. 
 				The photographs are arranged in a timeline from 1912 to 1943 which can be explored by scrolling up and down. Swiping left and right reveals other performances which have taken place in the same year. For the pictures to really come alive, you simply have to hover them and they instantly turn from their original black and white to colored photographs. By clicking on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances. </p>
 			</div>
 			<div>
@@ -159,7 +159,7 @@
 		<h4>Example Query 1</h4>
 		<h4>Example Query 2</h4>
 
-        <h2 class="uk-heading-small">Team</h2>
+        <h2><a name="team"></a>Team</h2>
 
         <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
     <div>
@@ -169,7 +169,7 @@
             </div>
             <div class="uk-card-body">
                 <h3 class="uk-card-title">Tabea Tietz</h3>
-                <p>Junior Researcher at FIZ Karlsruhe <br>
+                <p>Junior Researcher at FIZ Karlsruhe and Karlsruhe Institute of Technology (AIFB)<br>
                 	Webpage at <a href="https://fizweb-p.fiz-karlsruhe.de/en/forschung/lebenslauf-und-publikationen-tabea-tietz">FIZ Karlsruhe</a> <br>
                 	Twitter: <a href="https://twitter.com/Tabea_T">Tabea_T</a> </p>
             </div>
@@ -182,7 +182,8 @@
             </div>
             <div class="uk-card-body">
                 <h3 class="uk-card-title">Kanran Zhou</h3>
-                <p>Student co-worker at FIZ Karlsruhe</p>
+                <p>Student of electrical engineering at Karlsruhe Institute of Technology and student co-worker at FIZ Karlsruhe <br>
+                	LinkedIn <a href="https://www.linkedin.com/in/kanran-zhou-26608bb0/">Profile</a></p>
             </div>
         </div>
     </div>
