@@ -10,7 +10,7 @@
 	<jsp:include page="inc/home_header.jsp"></jsp:include>
 </head>
 
-<c:set var="proxy1200" scope="session" value="http://cdv.yovisto.com/imageproxy/1200,q25/" />
+<c:set var="proxyImg" scope="session" value="http://cdv.yovisto.com/imageproxy/800,q65/" />
 <c:set var="proxyThumb" scope="session" value="http://cdv.yovisto.com/imageproxy/150,sc,q25/" />
 
 <body data-uk-filter="target: .js-filter">
@@ -48,8 +48,8 @@
 									<div class="uk-cover-container">
 										
 									<div class="uk-inline-clip uk-transition-toggle" tabindex="0" uk-cover>
-										<img src='${proxy1200}${entry.getImageUrl()}' alt="" style="-webkit-filter: grayscale(1); filter: gray; filter: grayscale(1);">
-										<img class="uk-transition-fade uk-position-cover" src='${proxy1200}${entry.getImageUrl()}' alt="">
+										<img src='${proxyImg}${entry.getImageUrl()}' alt="" style="-webkit-filter: grayscale(1); filter: gray; filter: grayscale(1);">
+										<img class="uk-transition-fade uk-position-cover" src='${proxyImg}${entry.getImageUrl()}' alt="">
 									</div>
 									
 										<div class="uk-position-small uk-position-bottom uk-overlay uk-overlay-default uk-text-center uk-transition-toggle">
