@@ -105,12 +105,17 @@
         			</tr>	
         			<tr>
             		<td><code>schema:isBasedOn</code></td>
-            		<td><a href="http://www.wikidata.org/entity/Q221211">&lt;http://www.wikidata.org/entity/Q221211&gt;</a> </td>
+            		<td><a href="http://www.wikidata.org/entity/Q221211">&lt;http://www.wikidata.org/entity/Q221211&gt;</a> <br>
+                        <a href="http://d-nb.info/gnd/4316770-6">&lt;http://d-nb.info/gnd/4316770-6&gt;</a> </td>
         			</tr>
         			<tr>
-            		<td><code>slod:relevantPerson</code></td>
-            		<td><a href="https://www.wikidata.org/wiki/Q55638867">&lt;https://www.wikidata.org/wiki/Q55638867&gt;</a></td>
+            		<td><code>dbo:setDesigner</code></td>
+            		<td><a href="https://www.wikidata.org/wiki/Q55638867">&lt;http://www.wikidata.org/wiki/Q55638867&gt;</a></td>
             		</tr>
+                    <tr>
+                        <td><code>schema:contributor</code></td>
+                        <td><a href="http://www.wikidata.org/entity/Q692">&lt;http://www.wikidata.org/entity/Q692&gt;</a></td>
+                    </tr>
     				</tbody>
 				</table>
 			</div>
