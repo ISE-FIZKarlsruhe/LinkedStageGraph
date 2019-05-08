@@ -70,9 +70,9 @@
 				<b>Graph of data</b> refers to a data set viewed  as a set of entities represented as nodes, with their relations represented as edges. <br>
 				<b>Composing knowledge</b> refers to a continual process of extracting and representing knowledge that enhances the interpretability of the resulting knowledge graph. </p>
 		
-			<p>A knowledge graph is therefore a way to create and organize knowledge in a continuing process in a way that it can be interpreted by humans and machines alike.
+			<p>A knowledge graph is therefore a method to create and organize knowledge in a continuing process in a way that it can be interpreted by humans and machines alike.
 			<br> <br>
-			Source: "<a href="http://drops.dagstuhl.de/opus/volltexte/2019/10328/">Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web</a>". Bonatti et al.</p> 
+			<i>Source:</i> "<a href="http://drops.dagstuhl.de/opus/volltexte/2019/10328/">Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web</a>". Bonatti et al.</p> 
 		
 			<h3>From XML (EAD-DDB) to RDF</h3>
 			<p class="uk-column-1-2">The metadata was provided using the XML EAD standard which is used for encoding descriptive information regarding archival records. In order to create a knowledge graph, the data has to be transformed into the Resource Description Framework (RDF).<br/>
