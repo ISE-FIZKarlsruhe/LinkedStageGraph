@@ -133,14 +133,14 @@
 				</tr>
 				</tbody>
 			</table>
-			<p>In this example above (table on the right), two mappings were created. Felix Cziossek was mapped to the respective Item in Wikidata using the property <code>slod:relevantPerson</code>  and the play "Was ihr wollt" was mapped to the respective creative work in Wikidata using the property <code>schema:isBasedOn</code>. </p>
+			<p>In the second table above, several mappings were created. For instance, Felix Cziossek was mapped to the respective Item in Wikidata using the property <code>dbo:setDesigner</code> and the play "Was ihr wollt" was mapped to the respective creative work in Wikidata and GND using the property <code>schema:isBasedOn</code>. </p>
 			<h4>What does this mean?</h4>
-			<p>In this example, we have now created new knowledge in the form of two human and machine interpretable facts:</p> 
+			<p>In this example, we have now created new knowledge in the form of human and machine interpretable facts:</p> 
 				<ul>
-					<li>the fact that the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> with the title "Was ihr wollt" is based on the famous play <a href="https://www.wikidata.org/wiki/Q221211">Twelfth Night</a> by William Shakespeare, and</li>
-					<li>the fact that <a href="https://www.wikidata.org/wiki/Q55638867">Felix Cziossek</a> is a relevant person for that play at the Stuttgart Theater.</li>
+					<li>the fact that the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> with the title "Was ihr wollt" is based on the famous play <a href="https://www.wikidata.org/wiki/Q221211">Twelfth Night</a> by <a href="http://www.wikidata.org/entity/Q692">William Shakespeare</a>, and</li>
+				<li>the fact that <a href="https://www.wikidata.org/wiki/Q55638867">Felix Cziossek</a> was the set designer for that play at the Stuttgart Theater.</li>
 				</ul>
-			<p>These new and structured information can now be queried using SPARQL. Another advantage of linking these entities from our knowledge graph to other knowledge graphs is that we can make use of all data linked to these resources (e.g. in <a href="https://www.wikidata.org/wiki/Q221211">Twelfth Night</a>).</p>
+			<p>These new and structured information can now be queried using SPARQL. Another advantage of linking these entities from our knowledge graph to other knowledge graphs is that we can make use of all data linked to these resources (e.g. in <a href="https://www.wikidata.org/wiki/Q221211">Twelfth Night</a>) as you can see in the <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390.html#lodCloud">Lodview Linked Open Data widget</a>.</p>
 		</div>
 	</section>
 	
@@ -188,7 +188,7 @@
 
 </code></pre>
 		<h4>Example Query 2: Federated Query</h4>
-        <p>Select all resources, each resource label and their respective representation in Wikidata (<code>schema:isBasedOn</code>). Additionally, query Wikidata for these resources and select the publication year for each resource.</p>
+        <p>Select all resources, each resource label and their respective representation in Wikidata (<code>schema:isBasedOn</code>). Additionally, query Wikidata for these resources and select the publication year for each resource. ( <a href="https://slod.fiz-karlsruhe.de/sparql?default-graph-uri=&query=PREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E+%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E++%0D%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0D%0APREFIX+bd%3A+%3Chttp%3A%2F%2Fwww.bigdata.com%2Frdf%23%3E%0D%0A%0D%0ASELECT+distinct+%3Fresource+%3Fresourcelabel+%3Fpublicationdate%0D%0AWHERE+%7B%0D%0A%3Fresource+%3Chttp%3A%2F%2Fschema.org%2FisBasedOn%3E+%3Fwikiresource+.%0D%0A%3Fresource+rdfs%3Alabel+%3Fresourcelabel+.%0D%0A%09SERVICE+%3Chttps%3A%2F%2Fquery.wikidata.org%2Fsparql%3E+%7B%0D%0A%09%09%3Fwikiresource+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2FP577%3E+%3Fpublicationdate+.%0D%0A%09%7D%0D%0A%7D&should-sponge=&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+">Query Demo</a>)</p>
         <pre><code>
     SELECT distinct ?resource ?resourcelabel ?publicationdate
 	WHERE {
