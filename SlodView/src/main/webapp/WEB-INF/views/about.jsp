@@ -186,11 +186,14 @@
 		<h4>Example Query 2</h4>
         <p>Select all resources ...</p>
         <pre><code>
-        SELECT * 
-        WHERE {
-
-        }
-        
+        SELECT distinct ?resource ?resourcelabel ?publicationdate
+		WHERE {
+			?resource <http://schema.org/isBasedOn> ?wikiresource .
+			?resource rdfs:label ?resourcelabel .
+		SERVICE <https://query.wikidata.org/sparql> {
+			?wikiresource <http://www.wikidata.org/prop/direct/P577> ?publicationdate .
+				}
+		}
 </code></pre>
 			<h4>Example Query 2</h4>
 		</div>
