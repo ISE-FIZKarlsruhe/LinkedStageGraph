@@ -56,7 +56,7 @@
 	<section class="uk-section">
 		<div class="uk-container uk-container-small">
 			<h2>Workflow</h2>
-			<img src="/staticResources/img/workflow.svg" width="800" height="" alt="workflow" uk-svg>
+			<img src="/staticResources/img/workflow.svg" uk-img alt="workflow">
 		</div>
 	</section>
 	

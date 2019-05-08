@@ -47,60 +47,63 @@
 			<p>The photographs are arranged in a timeline from 1912 to 1943 which can be explored by <b>scrolling</b> up and down. <b>Swiping</b> left and right reveals other performances which have taken place in the same year. <b>Hovering</b> each originally black and white photograph instanstly adds color to them. By <b>clicking</b> on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.</p>
 		</div>
 	</section>
-			
-		<div class="" uk-grid>
-			<div class="uk-width-5-6">
-				<c:forEach items='${images.keySet()}' var="year">
-					<h2 id="year${year}">${year}</h2>
-					<div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
 
-							<ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-top: 30">
+	<section class="uk-section">
+		<div id="" class="uk-container uk-container-expand">
+			<div uk-grid>
+				<div class="uk-width-5-6">
+					<c:forEach items='${images.keySet()}' var="year">
+						<h2 id="year${year}">${year}</h2>
+						<div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider="center: true">
+
+							<ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 20">
 								<c:forEach items='${images.get(year)}' var="entry">
-								<li class="uk-width-5-5">
-									<div class="uk-cover-container">
-										
-									<div class="uk-inline-clip uk-transition-toggle" tabindex="0" uk-cover>
-										<img src='${proxyImg}${entry.getImageUrl()}' alt="" style="-webkit-filter: grayscale(1); filter: gray; filter: grayscale(1);">
-										<img class="uk-transition-fade uk-position-cover" src='${proxyImg}${entry.getImageUrl()}' alt="">
-									</div>
-									
-										<div class="uk-position-small uk-position-bottom uk-overlay uk-overlay-default uk-text-center uk-transition-toggle">
-												<ul uk-slider-parallax="x: 200,-200" class="uk-thumbnav">
+									<li class="uk-width-3-4 uk-transition-toggle" tabindex="0">
+										<div class="uk-cover-container">
+											<img src='${proxyImg}${entry.getImageUrl()}' alt="" uk-cover>
+											<div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+												<p class="uk-margin-remove">${entry.getDateLabel()}</p>
+												<h2 class="uk-margin-remove uk-h4">
+													<a href='${entry.getResource().replace("http://example.org/cdv/","")}'>${entry.getLabel()}</a>
+												</h2>
+												<!-- @jörg in this line add an if state: if more than one image -->
+												<p class="uk-margin-remove">More Images in the data set</p>
+												<ul class="uk-thumbnav">
 													<c:forEach items='${entry.getThumbnails()}' var="thumb" end="6">
-														<li uk-slideshow-item="0"><a href="#"><img src="${proxyThumb}${thumb}" width="100" alt=""></a></li>
+														<li uk-slideshow-item="0"><a href='${entry.getResource().replace("http://example.org/cdv/","")}'><img src="${proxyThumb}${thumb}" width="50" alt=""></a></li>
 													</c:forEach>
 												</ul>
-											<h2 uk-slider-parallax="x: 100,-100"><a href='${entry.getResource().replace("http://example.org/cdv/","")}'>${entry.getLabel()}</a></h2>
-											<p uk-slider-parallax="x: 200,-200">${entry.getDateLabel()}</p>
+											</div>
 										</div>
-										
-										
-									</div>
-								</li></c:forEach>
+									</li>
+								</c:forEach>
 							</ul>
-						
+							
 							<div class="uk-light">
 								<a class="uk-position-center-left uk-position-small uk-slidenav-large" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
 								<a class="uk-position-center-right uk-position-small uk-slidenav-large" href="#" uk-slidenav-next uk-slider-item="next"></a>
 							</div>
-
+	
 							<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 
 						</div>
-				</c:forEach>
-			</div>
-		
-			<div class="uk-width-1-6">
-				<div uk-sticky="offset: 100">
-				<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
-					<c:forEach items='${images.keySet()}' var="year">
-						<li><a href="#year${year}">${year}</a></li>
+
 					</c:forEach>
-				</ul>
+				</div>
+			
+				<div class="uk-width-1-6">
+					<div uk-sticky="offset: 100">
+					<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
+						<c:forEach items='${images.keySet()}' var="year">
+							<li><a href="#year${year}">${year}</a></li>
+						</c:forEach>
+					</ul>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
+			
 
 	<!--
 ${year}
@@ -111,10 +114,6 @@ ${entry.getDateLabel()}
 ${entry.getLabel()}
 ${entry.getImageUrl()}
 -->
-
-
-
-	
 
 	<jsp:include page="inc/custom_footer.jsp"></jsp:include>
 	<jsp:include page="inc/footer.jsp"></jsp:include>

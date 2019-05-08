@@ -17,6 +17,10 @@ div#logoBanner div#logo {
 	}
 }
 
+.uk-thumbnav>*>::after {
+	content: none;
+}
+
 /* ********************************** */
 /*  CUSTOM FOOTER, HIDDEN BY DEFAULT  */
 /* ********************************** */
