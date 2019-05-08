@@ -6,7 +6,7 @@ The graph is being created using a dataset provided by the [National Archive of 
 
 However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data standards. 
 
-![Workflow](img/SLOD_Workflow.png)
+![Workflow](img/workflow.png)
 
 
 
