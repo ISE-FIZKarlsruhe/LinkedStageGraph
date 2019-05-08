@@ -171,6 +171,27 @@
 			PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 			</code></pre>
 			<h4>Example Query 1</h4>
+			        <p>Select all resources and their labels, for which there is a contributor (<code>schema:contributor</code>) listed in the data set. Optionally, also show the genre of each resource (<code>schema:genre</code>).</p>
+
+        <pre><code>
+    SELECT DISTINCT ?resource ?label ?contributor ?name ?genre
+    WHERE {
+        ?resource schema:contributor ?contributor .
+        ?resource rdfs:label ?label .
+        ?contributor rdfs:label ?name .
+        OPTIONAL {?resource schema:genre ?genre }
+        }
+
+</code></pre>
+		<h4>Example Query 2</h4>
+        <p>Select all resources ...</p>
+        <pre><code>
+        SELECT * 
+        WHERE {
+
+        }
+        
+</code></pre>
 			<h4>Example Query 2</h4>
 		</div>
 	</section>
