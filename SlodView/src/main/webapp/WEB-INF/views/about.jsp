@@ -170,7 +170,7 @@
 			PREFIX slod: &lt;http://slod.fiz-karlsruhe.de/&gt;
 			PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 			</code></pre>
-			<h4>Example Query 1</h4>
+			<h4>Example Query 1: Query Linked Stage Graph</h4>
 			        <p>Select all resources and their labels, for which there is a contributor (<code>schema:contributor</code>) listed in the data set. Optionally, also show the genre of each resource (<code>schema:genre</code>).</p>
 
         <pre><code>
@@ -183,19 +183,20 @@
         }
 
 </code></pre>
-		<h4>Example Query 2</h4>
-        <p>Select all resources ...</p>
+		<h4>Example Query 2: Federated Query</h4>
+        <p>Select all resources, each resource label and their respective representation in Wikidata (<code>schema:isBasedOn</code>). Additionally, query Wikidata for these resources and select the publication year for each resource.</p>
         <pre><code>
-        SELECT distinct ?resource ?resourcelabel ?publicationdate
-		WHERE {
-			?resource <http://schema.org/isBasedOn> ?wikiresource .
-			?resource rdfs:label ?resourcelabel .
+    SELECT distinct ?resource ?resourcelabel ?publicationdate
+	WHERE {
+		?resource schema:isBasedOn ?wikiresource .
+		?resource rdfs:label ?resourcelabel .
+	
 		SERVICE <https://query.wikidata.org/sparql> {
-			?wikiresource <http://www.wikidata.org/prop/direct/P577> ?publicationdate .
+			?wikiresource &lt;http://www.wikidata.org/prop/direct/P577&gt; ?publicationdate .
 				}
 		}
 </code></pre>
-			<h4>Example Query 2</h4>
+		<p><i>Disclaimer: When the server is busy, this federated query may cause a timeout. If this occurs, please try again a few minutes later. Thank you!</i>  </p>
 		</div>
 	</section>
 	
