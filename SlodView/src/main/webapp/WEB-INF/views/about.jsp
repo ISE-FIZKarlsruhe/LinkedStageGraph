@@ -22,9 +22,9 @@
 				About Linked Stage Graph
 			</h1>
 			<div class="uk-text-justify uk-column-1-2">
-				<p>Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon. The graph is being created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s.</p>
-				
-				<p>The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data and interesting visualizations. </p>
+				<p>Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon. The graph is being created using a dataset by the <a href="https://www.landesarchiv-bw.de/web">National Archive of Baden-Wuerttemberg</a>. It contains black and white photographs and metadata about the <a href="https://www.staatstheater-stuttgart.com/home/">Stuttgart State Theatre from the 1890s to the 1940s.</a><br> 
+				The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. <br>
+				This project proposes means to explore and understand the data by humans and machines using linked data and interesting visualizations. </p>
 			</div>
 		</div>
 	</section>
@@ -47,11 +47,26 @@
 				<div>
 					<div class="uk-card uk-card-default uk-card-body uk-card-hover">
 						<h3 class="uk-card-title">Providing Means of Exploration</h3>
-						<p>Use the data from the KG to create a simple visualization and bring the photographs to life to enable means of exploration for culture, theater, photography and history enthusiasts who want to browse through the timeline of theater in Stuttgart.</p>
+						<p>Use the data from the KG to create a simple visualization and bring the photographs to life to enable means of exploration for culture, theater, photography and history enthusiasts who want to browse through the timeline of the Stuttgart State Theater.</p>
 					</div>
 				</div>
 			</div>
 		</div>
+	</section>
+
+	<section class="uk-section">
+	<div class="uk-container uk-container-small">
+	<h2>Creating the Knowledge Graph</h2>
+			<h3>What is a Knowledge Graph?</h3>
+			<p><b>A knowledge graph is a "graph of data with the intend to compose knowledge".</b></p>
+			<p class="uk-column-1-2">
+				<b>Graph of data</b> refers to a data set viewed  as a set of entities represented as nodes, with their relations represented as edges. <br>
+				<b>Composing knowledge</b> refers to a continual process of extracting and representing knowledge that enhances the interpretability of the resulting knowledge graph. </p>
+		
+			<p>A knowledge graph is therefore a method to create and organize knowledge in a continuing process in a way that it can be interpreted by humans and machines alike.
+			<br> <br>
+			<i>Source:</i> "<a href="http://drops.dagstuhl.de/opus/volltexte/2019/10328/">Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web</a>". Bonatti et al.</p> 
+	</div>
 	</section>
 	
 	<section class="uk-section">
@@ -63,17 +78,6 @@
 	
 	<section class="uk-section">
 		<div class="uk-container uk-container-small">
-			<h2>Creating the Knowledge Graph</h2>
-			<h3>What is a Knowledge Graph?</h3>
-			<p><b>A knowledge graph is a "graph of data with the intend to compose knowledge".</b></p>
-			<p class="uk-column-1-2">
-				<b>Graph of data</b> refers to a data set viewed  as a set of entities represented as nodes, with their relations represented as edges. <br>
-				<b>Composing knowledge</b> refers to a continual process of extracting and representing knowledge that enhances the interpretability of the resulting knowledge graph. </p>
-		
-			<p>A knowledge graph is therefore a method to create and organize knowledge in a continuing process in a way that it can be interpreted by humans and machines alike.
-			<br> <br>
-			<i>Source:</i> "<a href="http://drops.dagstuhl.de/opus/volltexte/2019/10328/">Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web</a>". Bonatti et al.</p> 
-		
 			<h3>From XML (EAD-DDB) to RDF</h3>
 			<p class="uk-column-1-2">The metadata was provided using the XML EAD standard which is used for encoding descriptive information regarding archival records. In order to create a knowledge graph, the data has to be transformed into the Resource Description Framework (RDF).<br/>
 			Many XML to RDF converters already exist, but due to the unique structure of the provided metadata, none of them worked out of the box. In the end, we used the XML2RDF converter by <a href="http://rhizomik.net/html/redefer/">rhizomik</a> and we used and adapted an <a href="http://data.archiveshub.ac.uk/ead2rdf">EADRDF XSLT Stylesheet</a>. Both outputs were imported into <a href="https://virtuoso.openlinksw.com/">OpenLink Virtuoso</a> as two separate RDF graphs. We connected both outputs using <code>owl:sameAs</code> and merged both separate graphs by semantic reasoning.</p>
@@ -188,7 +192,7 @@
 
 </code></pre>
 		<h4>Example Query 2: Federated Query</h4>
-        <p>Select all resources, each resource label and their respective representation in Wikidata (<code>schema:isBasedOn</code>). Additionally, query Wikidata for these resources and select the publication year for each resource. ( <a href="https://slod.fiz-karlsruhe.de/sparql?default-graph-uri=&query=PREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E+%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E++%0D%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0D%0APREFIX+bd%3A+%3Chttp%3A%2F%2Fwww.bigdata.com%2Frdf%23%3E%0D%0A%0D%0ASELECT+distinct+%3Fresource+%3Fresourcelabel+%3Fpublicationdate%0D%0AWHERE+%7B%0D%0A%3Fresource+%3Chttp%3A%2F%2Fschema.org%2FisBasedOn%3E+%3Fwikiresource+.%0D%0A%3Fresource+rdfs%3Alabel+%3Fresourcelabel+.%0D%0A%09SERVICE+%3Chttps%3A%2F%2Fquery.wikidata.org%2Fsparql%3E+%7B%0D%0A%09%09%3Fwikiresource+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2FP577%3E+%3Fpublicationdate+.%0D%0A%09%7D%0D%0A%7D&should-sponge=&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+">Query Demo</a>)</p>
+        <p>Select all resources, each resource label and their respective representation in Wikidata (<code>schema:isBasedOn</code>). Additionally, query Wikidata for these resources and select the publication year for each resource. (<a href="https://slod.fiz-karlsruhe.de/sparql?default-graph-uri=&query=PREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E+%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E++%0D%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0D%0APREFIX+bd%3A+%3Chttp%3A%2F%2Fwww.bigdata.com%2Frdf%23%3E%0D%0A%0D%0ASELECT+distinct+%3Fresource+%3Fresourcelabel+%3Fpublicationdate%0D%0AWHERE+%7B%0D%0A%3Fresource+%3Chttp%3A%2F%2Fschema.org%2FisBasedOn%3E+%3Fwikiresource+.%0D%0A%3Fresource+rdfs%3Alabel+%3Fresourcelabel+.%0D%0A%09SERVICE+%3Chttps%3A%2F%2Fquery.wikidata.org%2Fsparql%3E+%7B%0D%0A%09%09%3Fwikiresource+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2FP577%3E+%3Fpublicationdate+.%0D%0A%09%7D%0D%0A%7D&should-sponge=&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+">Query Demo</a>)</p>
         <pre><code>
     SELECT distinct ?resource ?resourcelabel ?publicationdate
 	WHERE {
@@ -215,9 +219,16 @@
 					<div class="uk-card-body">
 						<h3 class="uk-card-title">Tabea Tietz</h3>
 						<p>Junior Researcher at FIZ Karlsruhe and Karlsruhe Institute of Technology (AIFB).<br>
-							Webpage at <a href="https://fizweb-p.fiz-karlsruhe.de/en/forschung/lebenslauf-und-publikationen-tabea-tietz">FIZ Karlsruhe</a> <br>
-							Twitter: <a href="https://twitter.com/Tabea_T">Tabea_T</a> <br>
-							Supervisor: <a href="https://www.fiz-karlsruhe.de/en/forschung/lebenslauf-prof-dr-harald-sack">Prof. Harald Sack</a> 
+							<ul>
+								<li><a href="https://fizweb-p.fiz-karlsruhe.de/en/forschung/lebenslauf-und-publikationen-tabea-tietz">Webpage</a></li>
+								<li><a href="https://twitter.com/Tabea_T">Twitter</a></li>
+								<li><a href="mailto:tabea.tietz@fiz-karlsruhe.de">Email</a>  </li>
+							</ul>
+							Supervisor:<br><a href="https://www.fiz-karlsruhe.de/en/forschung/lebenslauf-prof-dr-harald-sack">Prof. Harald Sack</a>
+							
+							 <br>
+							 <br>
+							 
 						</p>
 					</div>
 				</div>
@@ -229,9 +240,11 @@
 					<div class="uk-card-body">
 						<h3 class="uk-card-title">Kanran Zhou</h3>
 						<p>
-							Student of electrical engineering at Karlsruhe Institute of Technology and student co-worker at FIZ Karlsruhe. <br>
-							LinkedIn <a href="https://www.linkedin.com/in/kanran-zhou-26608bb0/">Profile</a> <br>
-							Supervisor: <a href="https://www.fiz-karlsruhe.de/en/forschung/lebenslauf-prof-dr-harald-sack">Prof. Harald Sack</a>
+							Student of electrical engineering at Karlsruhe Institute of Technology and student co-worker at FIZ Karlsruhe.
+							<ul>
+								<li><a href="https://www.linkedin.com/in/kanran-zhou-26608bb0/">LinkedIn</a></li>
+							</ul>
+							Supervisor:<br><a href="https://www.fiz-karlsruhe.de/en/forschung/lebenslauf-prof-dr-harald-sack">Prof. Harald Sack</a>
 						</p>
 					</div>
 				</div>
