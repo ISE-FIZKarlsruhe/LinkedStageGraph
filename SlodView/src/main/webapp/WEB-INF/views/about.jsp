@@ -65,11 +65,14 @@
 		<div class="uk-container uk-container-small">
 			<h2>Creating the Knowledge Graph</h2>
 			<h3>What is a Knowledge Graph?</h3>
-			<p class="uk-column-1-2">A knowledge graph is a "graph of data with the intend to compose knowledge". <b>Graph of data</b> refers to a data set viewed  as a set of entities represented as nodes, with their relations represented as edges. <b>Composing knowledge</b> refers to a continual process of extracting and representing knowledge that enhances the interpretability of the resulting knowledge graph. 
-				<br>
-			A knowledge graph is therefore a way to create and organize knowledge in a continuing process in a way that it can be interpreted by humans and machines alike.
+			<p><b>A knowledge graph is a "graph of data with the intend to compose knowledge".</b></p>
+			<p class="uk-column-1-2">
+				<b>Graph of data</b> refers to a data set viewed  as a set of entities represented as nodes, with their relations represented as edges. <br>
+				<b>Composing knowledge</b> refers to a continual process of extracting and representing knowledge that enhances the interpretability of the resulting knowledge graph. </p>
+		
+			<p>A knowledge graph is therefore a way to create and organize knowledge in a continuing process in a way that it can be interpreted by humans and machines alike.
 			<br> <br>
-			The presented definition is taken from "Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web" by Bonatti et al. For a more in depth definition and best practices, <a href="http://drops.dagstuhl.de/opus/volltexte/2019/10328/">read more here</a>.</p> 
+			Source: "<a href="http://drops.dagstuhl.de/opus/volltexte/2019/10328/">Knowledge Graphs: New Directions for Knowledge Representation on the Semantic Web</a>". Bonatti et al.</p> 
 		
 			<h3>From XML (EAD-DDB) to RDF</h3>
 			<p class="uk-column-1-2">The metadata was provided using the XML EAD standard which is used for encoding descriptive information regarding archival records. In order to create a knowledge graph, the data has to be transformed into the Resource Description Framework (RDF).<br/>
