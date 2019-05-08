@@ -66,12 +66,13 @@
         	The provided metadata contains interesting information about the performances and photographs in form of semi-structured or unstructured text. For example, the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> has a title (<code>dcterms:title</code>) and an abstract (<code>dcterms:description</code>). These semi-structured textual information as shown in the left hand table below can be interpreted by humans, but not by machines. Therefore they cannot be queried or visualized in a meaningful and useful way. We started to tackle this issue in two steps:
 			<ul>
 				<li>We extract named entities from semi-structured text. In the example below, named entities are e.g. the title "Was ihr wollt" or names like "Felix Cziossek". </li>
-				<li>If available, we mapped the extracted named entities to an existing knowledge base, like Wikidata</li>
+				<li>If available, we mapped the extracted named entities to an existing knowledge base, like Wikidata and the German National Library</li>
 			</ul></p>
 
         	<div class="uk-column-1-2">
         		<h4>Before Linking</h4>
         		<table class="uk-table-small uk-table-divider uk-table-hover">
+                    <thead><a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">&lt;http://slod.fiz-karlsruhe.de/labw-2-2599390&gt;</a></thead>
 			    	<tbody>
         				<tr>
             			<td><code>dcterms:title</code></td>
@@ -85,11 +86,15 @@
         				Bühnenbild: Felix Cziossek <br>
         				Kostüme: Ernst Pils</td>
         				</tr>	
+                        <tr> <td></td> </tr>
+                        <tr> <td></td> </tr>
     				</tbody>
 				</table>
+                <br>
 				<br> 
 				<h4>After Linking</h4>
     			<table class="uk-table-small uk-table-divider uk-table-hover">
+                    <thead><a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">&lt;http://slod.fiz-karlsruhe.de/labw-2-2599390&gt;</a></thead>
 			    	<tbody>
 			    	<tr>
             		<td><code>dcterms:title</code></td>
@@ -105,8 +110,7 @@
         			</tr>	
         			<tr>
             		<td><code>schema:isBasedOn</code></td>
-            		<td><a href="http://www.wikidata.org/entity/Q221211">&lt;http://www.wikidata.org/entity/Q221211&gt;</a> <br>
-                        <a href="http://d-nb.info/gnd/4316770-6">&lt;http://d-nb.info/gnd/4316770-6&gt;</a> </td>
+            		<td><a href="http://www.wikidata.org/entity/Q221211">&lt;http://www.wikidata.org/entity/Q221211&gt;</a>, <a href="http://d-nb.info/gnd/4316770-6">&lt;http://d-nb.info/gnd/4316770-6&gt;</a> </td>
         			</tr>
         			<tr>
             		<td><code>dbo:setDesigner</code></td>
@@ -120,15 +124,15 @@
 				</table>
 			</div>
 
-		<p>In this example above (table on the right), two mappings were created. Felix Cziossek was mapped to the respective Item in Wikidata using the property <code>slod:relevantPerson</code>  and the play "Was ihr wollt" was mapped to the respective creative work in Wikidata using the property <code>schema:isBasedOn</code>. </p>
+		<p>In this example above (table on the right), four mappings were created. For instance, Felix Cziossek was mapped to the respective Item in Wikidata using the property <code>dbo:setDesigner</code>  and the play "Was ihr wollt" was mapped to the respective creative work in Wikidata and GND using the property <code>schema:isBasedOn</code>. </p>
 
 		<h4>What does this mean?</h4>
 		<p>In this example, we have now created new knowledge in the form of two human and machine interpretable facts:</p> 
 			<ul>
-				<li>the fact that the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> with the title "Was ihr wollt" is based on the famous play <a href="https://www.wikidata.org/wiki/Q221211">Twelfth Night</a> by William Shakespeare, and</li>
-				<li>the fact that <a href="https://www.wikidata.org/wiki/Q55638867">Felix Cziossek</a> is a relevant person for that play at the Stuttgart Theater.</li>
+				<li>the fact that the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> with the title "Was ihr wollt" is based on the famous play <a href="https://www.wikidata.org/wiki/Q221211">Twelfth Night</a> by <a href="http://www.wikidata.org/entity/Q692">William Shakespeare</a>, and</li>
+				<li>the fact that <a href="https://www.wikidata.org/wiki/Q55638867">Felix Cziossek</a> was the set designer for that play at the Stuttgart Theater.</li>
 			</ul>
-		<p>These new and structured information can now be queried using SPARQL. Another advantage of linking these entities from our knowledge graph to other knowledge graphs is that we can make use of all data linked to these resources (e.g. in <a href="https://www.wikidata.org/wiki/Q221211">Twelfth Night</a>).</p>
+		<p>These new and structured information can now be queried using SPARQL. Another advantage of linking these entities from our knowledge graph to other knowledge graphs is that we can make use of all data linked to these resources (e.g. in <a href="https://www.wikidata.org/wiki/Q221211">Twelfth Night</a>) as you can see in the <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390.html#lodCloud">Lodview Linked Open Data widget</a>.</p>
 
         <h2>Exploration</h2>
         <p>We have created several means of exploration. For non-technical users who simply want to enjoy the photographs along with their descriptions and relevant persons, we have created the SLOD Viewer and we have utilized the Vikus Viewer. For technically advanced users, we provide an endpoint to be queried using SPARQL.</p>
@@ -153,16 +157,37 @@
 
         <p>Use the following prefixes with your query:</p>
 		<pre><code>
-		PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
-		PREFIX gnd: &lt;http://d-nb.info/gnd/&gt;
-		PREFIX schema: &lt;http://schema.org/&gt;
-		PREFIX slod: &lt;http://slod.fiz-karlsruhe.de/&gt;
-		PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+	PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+	PREFIX gnd: &lt;http://d-nb.info/gnd/&gt;
+	PREFIX schema: &lt;http://schema.org/&gt;
+	PREFIX slod: &lt;http://slod.fiz-karlsruhe.de/&gt;
+	PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+    PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 
 </code></pre>
 
 		<h4>Example Query 1</h4>
+        <p>Select all resources and their labels, for which there is a contributor (<code>schema:contributor</code>) listed in the data set. Optionally, also show the genre of each resource (<code>schema:genre</code>).</p>
+
+        <pre><code>
+    SELECT DISTINCT ?resource ?label ?contributor ?name ?genre
+    WHERE {
+        ?resource schema:contributor ?contributor .
+        ?resource rdfs:label ?label .
+        ?contributor rdfs:label ?name .
+        OPTIONAL {?resource schema:genre ?genre }
+        }
+
+</code></pre>
 		<h4>Example Query 2</h4>
+        <p>Select all resources ...</p>
+        <pre><code>
+        SELECT * 
+        WHERE {
+
+        }
+        
+</code></pre>
 
         <h2><a name="team"></a>Team</h2>
 
