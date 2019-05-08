@@ -169,9 +169,11 @@
             </div>
             <div class="uk-card-body">
                 <h3 class="uk-card-title">Tabea Tietz</h3>
-                <p>Junior Researcher at FIZ Karlsruhe and Karlsruhe Institute of Technology (AIFB)<br>
+                <p>Junior Researcher at FIZ Karlsruhe and Karlsruhe Institute of Technology (AIFB).<br>
                 	Webpage at <a href="https://fizweb-p.fiz-karlsruhe.de/en/forschung/lebenslauf-und-publikationen-tabea-tietz">FIZ Karlsruhe</a> <br>
-                	Twitter: <a href="https://twitter.com/Tabea_T">Tabea_T</a> </p>
+                	Twitter: <a href="https://twitter.com/Tabea_T">Tabea_T</a> <br>
+                	Supervisor: <a href="https://www.fiz-karlsruhe.de/en/forschung/lebenslauf-prof-dr-harald-sack">Prof. Harald Sack</a> 
+                </p>
             </div>
         </div>
     </div>
@@ -182,8 +184,11 @@
             </div>
             <div class="uk-card-body">
                 <h3 class="uk-card-title">Kanran Zhou</h3>
-                <p>Student of electrical engineering at Karlsruhe Institute of Technology and student co-worker at FIZ Karlsruhe <br>
-                	LinkedIn <a href="https://www.linkedin.com/in/kanran-zhou-26608bb0/">Profile</a></p>
+                <p>
+                	Student of electrical engineering at Karlsruhe Institute of Technology and student co-worker at FIZ Karlsruhe. <br>
+                	LinkedIn <a href="https://www.linkedin.com/in/kanran-zhou-26608bb0/">Profile</a> <br>
+                	Supervisor: <a href="https://www.fiz-karlsruhe.de/en/forschung/lebenslauf-prof-dr-harald-sack">Prof. Harald Sack</a>
+                </p>
             </div>
         </div>
     </div>
@@ -206,7 +211,7 @@
             </div>
             <div class="uk-card-body">
                 <h3 class="uk-card-title">Paul Felgentreff</h3>
-                <p>Design</p>
+                <p>Einhornbezwinger</p>
             </div>
         </div>
     </div>
