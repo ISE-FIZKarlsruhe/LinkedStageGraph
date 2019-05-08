@@ -22,7 +22,8 @@
 				About Linked Stage Graph
 			</h1>
 			<div class="uk-text-justify uk-column-1-2">
-				<p>Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon taking place from April to May 2019. The graph is being created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s.</p>
+				<p>Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon. The graph is being created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s.</p>
+				
 				<p>The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data and interesting visualizations. </p>
 			</div>
 		</div>
@@ -76,10 +77,10 @@
 		
 			<h3>Named Entity Extraction and Linking (Connecting with Others)</h3>
 			<p class="uk-column-1-2">
-				The provided metadata contains interesting information about the performances and photographs in form of semi-structured or unstructured text. For example, the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> has a title (<code>dcterms:title</code>) and an abstract (<code>dcterms:description</code>). These semi-structured textual information as shown in the left hand table below can be interpreted by humans, but not by machines. Therefore they cannot be queried or visualized in a meaningful and useful way. We started to tackle this issue in two steps:
-				<ul class="uk-column-1-2">
+				The provided metadata contains interesting information about the performances and photographs in form of semi-structured or unstructured text. For example, the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> has a title (<code>dcterms:title</code>) and an abstract (<code>dcterms:description</code>). These semi-structured textual information as shown in the first table below can be interpreted by humans, but not by machines. Therefore they cannot be queried or visualized in a meaningful and useful way. We started to tackle this issue in two steps:
+				<ul>
 					<li>We extract named entities from semi-structured text. In the example below, named entities are e.g. the title "Was ihr wollt" or names like "Felix Cziossek". </li>
-					<li>If available, we mapped the extracted named entities to an existing knowledge base, like Wikidata</li>
+					<li>If available, we mapped the extracted named entities to existing knowledge bases, Wikidata and the German National Library (GND)</li>
 				</ul>
 			</p>
 			<h4>Before Linking</h4>
