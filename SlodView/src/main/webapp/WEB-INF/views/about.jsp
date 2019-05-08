@@ -158,7 +158,7 @@
 				<div>
 					<h3>Linked Stage Graph Viewer</h3>
 					<p class="uk-text-justify"><a href="http://slod.fiz-karlsruhe.de">Linked Stage Graph Demo</a>. <br>
-					The Linked Stage Graph Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. 
+					The Linked Stage Graph Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. <br>
 					The photographs are arranged in a timeline from 1912 to 1943 which can be explored by scrolling up and down. Swiping left and right reveals other performances which have taken place in the same year. For the pictures to really come alive, you simply have to hover them and they instantly turn from their original black and white to colored photographs. By clicking on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.
 				   </p>
 				</div>
@@ -175,14 +175,15 @@
 		
 			<p>Use the following prefixes with your query:</p>
 			<pre><code>
-			PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
-			PREFIX gnd: &lt;http://d-nb.info/gnd/&gt;
-			PREFIX schema: &lt;http://schema.org/&gt;
-			PREFIX slod: &lt;http://slod.fiz-karlsruhe.de/&gt;
-			PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+	PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+	PREFIX gnd: &lt;http://d-nb.info/gnd/&gt;
+	PREFIX schema: &lt;http://schema.org/&gt;
+	PREFIX slod: &lt;http://slod.fiz-karlsruhe.de/&gt;
+	PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 			</code></pre>
 			<h4>Example Query 1: Query Linked Stage Graph</h4>
-			        <p>Select all resources and their labels, for which there is a contributor (<code>schema:contributor</code>) listed in the data set. Optionally, also show the genre of each resource (<code>schema:genre</code>).</p>
+			        <p>Select all resources and their labels, for which there is a contributor (<code>schema:contributor</code>) listed in the data set. Optionally, also show the genre of each resource (<code>schema:genre</code>). <br> 
+			        	(<a href="https://slod.fiz-karlsruhe.de/sparql?default-graph-uri=&query=PREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E+%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E++%0D%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0D%0APREFIX+bd%3A+%3Chttp%3A%2F%2Fwww.bigdata.com%2Frdf%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3Fresource+%3Flabel+%3Fcontributor+%3Fname+%3Fgenre%0D%0A++++WHERE+%7B%0D%0A++++++++%3Fresource+schema%3Acontributor+%3Fcontributor+.%0D%0A++++++++%3Fresource+rdfs%3Alabel+%3Flabel+.%0D%0A++++++++%3Fcontributor+rdfs%3Alabel+%3Fname+.%0D%0A++++++++OPTIONAL+%7B%3Fresource+schema%3Agenre+%3Fgenre+%7D%0D%0A++++++++%7D&should-sponge=&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+">Query Demo</a>)</p>
 
         <pre><code>
     SELECT DISTINCT ?resource ?label ?contributor ?name ?genre
@@ -195,7 +196,7 @@
 
 </code></pre>
 		<h4>Example Query 2: Federated Query</h4>
-        <p>Select all resources, each resource label and their respective representation in Wikidata (<code>schema:isBasedOn</code>). Additionally, query Wikidata for these resources and select the publication year for each resource. (<a href="https://slod.fiz-karlsruhe.de/sparql?default-graph-uri=&query=PREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E+%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E++%0D%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0D%0APREFIX+bd%3A+%3Chttp%3A%2F%2Fwww.bigdata.com%2Frdf%23%3E%0D%0A%0D%0ASELECT+distinct+%3Fresource+%3Fresourcelabel+%3Fpublicationdate%0D%0AWHERE+%7B%0D%0A%3Fresource+%3Chttp%3A%2F%2Fschema.org%2FisBasedOn%3E+%3Fwikiresource+.%0D%0A%3Fresource+rdfs%3Alabel+%3Fresourcelabel+.%0D%0A%09SERVICE+%3Chttps%3A%2F%2Fquery.wikidata.org%2Fsparql%3E+%7B%0D%0A%09%09%3Fwikiresource+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2FP577%3E+%3Fpublicationdate+.%0D%0A%09%7D%0D%0A%7D&should-sponge=&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+">Query Demo</a>)</p>
+        <p>Select all resources, each resource label and their respective representation in Wikidata (<code>schema:isBasedOn</code>). Additionally, query Wikidata for these resources and select the publication year for each resource. <br> (<a href="https://slod.fiz-karlsruhe.de/sparql?default-graph-uri=&query=PREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E+%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E++%0D%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0D%0APREFIX+bd%3A+%3Chttp%3A%2F%2Fwww.bigdata.com%2Frdf%23%3E%0D%0A%0D%0ASELECT+distinct+%3Fresource+%3Fresourcelabel+%3Fpublicationdate%0D%0AWHERE+%7B%0D%0A%3Fresource+%3Chttp%3A%2F%2Fschema.org%2FisBasedOn%3E+%3Fwikiresource+.%0D%0A%3Fresource+rdfs%3Alabel+%3Fresourcelabel+.%0D%0A%09SERVICE+%3Chttps%3A%2F%2Fquery.wikidata.org%2Fsparql%3E+%7B%0D%0A%09%09%3Fwikiresource+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2FP577%3E+%3Fpublicationdate+.%0D%0A%09%7D%0D%0A%7D&should-sponge=&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+">Query Demo</a>)</p>
         <pre><code>
     SELECT distinct ?resource ?resourcelabel ?publicationdate
 	WHERE {
@@ -238,8 +239,10 @@
 					<div class="uk-card-media-top">
 						<img src="/staticResources/img/kanran.jpg" width="200" height="" alt="">
 					</div>
-					<div class="uk-card-body">
+					<div class="uk-card-header">
 						<h3 class="uk-card-title">Kanran Zhou</h3>
+					</div>
+					<div class="uk-card-body">
 						<p>
 							Student of electrical engineering at Karlsruhe Institute of Technology and student co-worker at FIZ Karlsruhe.
 							<ul>
@@ -247,9 +250,10 @@
 							</ul>
 							Supervisor:<br><a href="https://www.fiz-karlsruhe.de/en/forschung/lebenslauf-prof-dr-harald-sack">Prof. Harald Sack</a>
 						</p>
-					</div>
 				</div>
-		
+				</div>
+				
+				<div>
 				<div class="uk-card-small uk-card-default uk-card-hover">
 					<div class="uk-card-media-top">
 						<img src="/staticResources/img/joerg.jpg" width="200" height="" alt="">
@@ -258,7 +262,7 @@
         				<h3 class="uk-card-title">Jörg Waitelonis</h3>
     					</div>
     					<div class="uk-card-body">
-						<p>Linked Data enthusiast <br> yovisto GmbH
+						<p>Linked Data enthusiast, <br> yovisto GmbH
 							<ul>
 								<li><a href="http://yovisto.com">Webpage</a></li>
 								<li><a href="https://twitter.com/yovisto">Twitter</a></li>
@@ -267,18 +271,25 @@
 						</p>
 					</div>
 				</div>
-		
+				</div>
+				<div>
 				<div class="uk-card-small uk-card-default uk-card-hover">
 					<div class="uk-card-media-top">
-						<img src="/staticResources/img/paul.jpg" width="200" height="" alt="">
+						<img src="/staticResources/img/joerg.jpg" width="200" height="" alt="">
 					</div>
-					<div class="uk-card-body">
-						<h3 class="uk-card-title">Paul Felgentreff</h3>
-						<p>Einhornbezwinger</p>
+						<div class="uk-card-header">
+        				<h3 class="uk-card-title">Paul Felgentreff</h3>
+    				</div>
+    				<div class="uk-card-body">
+						<p>Einhornbezwinger 
+							<ul>
+								<li><a href="mailto:paul.felge@pm.me">Email</a></li>
+							</ul>
+						</p>
 					</div>
 				</div>
+				</div>
 			</div>
-		</div>
 	</section>
 
 	<jsp:include page="inc/custom_footer.jsp"></jsp:include>
