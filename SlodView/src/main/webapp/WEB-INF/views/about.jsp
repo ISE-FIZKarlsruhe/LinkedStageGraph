@@ -22,7 +22,7 @@
 				About Linked Stage Graph
 			</h1>
 			<div class="uk-text-justify uk-column-1-2">
-				<p>Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon. The graph is being created using a dataset by the <a href="https://www.landesarchiv-bw.de/web">National Archive of Baden-Wuerttemberg</a>. It contains black and white photographs and metadata about the <a href="https://www.staatstheater-stuttgart.com/home/">Stuttgart State Theatre from the 1890s to the 1940s.</a><br> 
+				<p>Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon. The graph is being created using a dataset by the <a href="https://www.landesarchiv-bw.de/web">National Archive of Baden-Wuerttemberg</a>. It contains black and white photographs and metadata about the <a href="https://www.staatstheater-stuttgart.com/home/">Stuttgart State Theatre </a> from the 1890s to the 1940s.<br> 
 				The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. <br>
 				This project proposes means to explore and understand the data by humans and machines using linked data and interesting visualizations. </p>
 			</div>
@@ -80,7 +80,7 @@
 		<div class="uk-container uk-container-small">
 			<h3>From XML (EAD-DDB) to RDF</h3>
 			<p class="uk-column-1-2">The metadata was provided using the XML EAD standard which is used for encoding descriptive information regarding archival records. In order to create a knowledge graph, the data has to be transformed into the Resource Description Framework (RDF).<br/>
-			Many XML to RDF converters already exist, but due to the unique structure of the provided metadata, none of them worked out of the box. In the end, we used the XML2RDF converter by <a href="http://rhizomik.net/html/redefer/">rhizomik</a> and we used and adapted an <a href="http://data.archiveshub.ac.uk/ead2rdf">EADRDF XSLT Stylesheet</a>. Both outputs were imported into <a href="https://virtuoso.openlinksw.com/">OpenLink Virtuoso</a> as two separate RDF graphs. We connected both outputs using <code>owl:sameAs</code> and merged both separate graphs by semantic reasoning.</p>
+			Many XML to RDF converters already exist, but due to the unique structure of the provided metadata, none of them worked out of the box. In the end, we used the XML2RDF converter by <a href="http://rhizomik.net/html/redefer/">rhizomik</a> and we used and adapted an <a href="http://data.archiveshub.ac.uk/ead2rdf">EADRDF XSLT Stylesheet</a>. Both outputs were imported into <a href="https://virtuoso.openlinksw.com/">OpenLink Virtuoso</a>. We connected both outputs using <code>owl:sameAs</code> and the archival unit ids. This enabled us to merge both outputs by semantic reasoning.</p>
 		
 			<h3>Named Entity Extraction and Linking (Connecting with Others)</h3>
 			<p class="uk-column-1-2">
@@ -151,18 +151,21 @@
 	<section class="uk-section">
 		<div class="uk-container uk-container-small">
 			<h2>Exploration</h2>
-			<p>We have created several means of exploration. For non-technical users who simply want to enjoy the photographs along with their descriptions and relevant persons, we have created the SLOD Viewer and we have utilized the Vikus Viewer. For technically advanced users, we provide an endpoint to be queried using SPARQL.</p>
+			<p>We have created several means of exploration. For non-technical users who simply want to enjoy the photographs along with their descriptions and relevant persons, we have created the <b>Linked Stage Graph Viewer</b> and we have utilized the <b>Vikus Viewer</b>. For technically advanced users, we provide an endpoint to be queried using SPARQL.</p>
 			<h3>Preprocessing: AI-Based Image Coloring</h3>
 			<p>What breathes more life into photographs than a little bit of color? Using a <a href="https://richzhang.github.io/ideepcolor/">tool</a> based on artificial intelligence, we automatically colorized each photo in the data set with interesting outcomes. While the results aren’t close to perfection, we believe that the color adds a new vibrant dimension to these historical photos. </p>
 			<div class="uk-child-width-1-2" uk-grid>
 				<div>
 					<h3>Linked Stage Graph Viewer</h3>
-					<p class="uk-text-justify">The Linked Stage Graph Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. 
-					The photographs are arranged in a timeline from 1912 to 1943 which can be explored by scrolling up and down. Swiping left and right reveals other performances which have taken place in the same year. For the pictures to really come alive, you simply have to hover them and they instantly turn from their original black and white to colored photographs. By clicking on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances. </p>
+					<p class="uk-text-justify"><a href="http://slod.fiz-karlsruhe.de">Linked Stage Graph Demo</a>. <br>
+					The Linked Stage Graph Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. 
+					The photographs are arranged in a timeline from 1912 to 1943 which can be explored by scrolling up and down. Swiping left and right reveals other performances which have taken place in the same year. For the pictures to really come alive, you simply have to hover them and they instantly turn from their original black and white to colored photographs. By clicking on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.
+				   </p>
 				</div>
 				<div>
 					<h3>Vikus Viewer</h3>
-					<p class="uk-text-justify">The Vikus Viewer was created by <a href="https://chrispie.com/">Christopher Pietsch</a> in the context of the <a href="https://uclab.fh-potsdam.de/">Urban Complexity Lab</a> at FH Potsdam. We found that the viewer works great with the data and photographs from our knowledge graph. The timeline allows the user to dynamically explore the images and metadata. Users can filter the content, zoom into it and focus on individual images which also reveals some of the metadata we have gathered.</p>
+					<p class="uk-text-justify"><a href="http://slod.fiz-karlsruhe.de/vikus">Vikus Viewer Demo</a>. <br>
+					The Vikus Viewer was created by <a href="https://chrispie.com/">Christopher Pietsch</a> in the context of the <a href="https://uclab.fh-potsdam.de/">Urban Complexity Lab</a> at FH Potsdam. We found that the viewer works great with the data and photographs from our knowledge graph. The timeline allows the user to dynamically explore the images and metadata. Users can filter the content, zoom into it and focus on individual images which also reveals some of the metadata we have gathered.</p>
 				</div>
 			</div>
 		
@@ -204,7 +207,7 @@
 				}
 		}
 </code></pre>
-		<p><i>Disclaimer: When the server is busy, this federated query may cause a timeout. If this occurs, please try again a few minutes later. Thank you!</i>  </p>
+		<p><i>Disclaimer: When the Wikidata server is busy, this federated query may cause a timeout. If this occurs, please try again a few minutes later. Thank you!</i>  </p>
 		</div>
 	</section>
 	
@@ -216,8 +219,10 @@
 					<div class="uk-card-media-top">
 						<img src="/staticResources/img/tabea.jpg" width="200" height="" alt="">
 					</div>
-					<div class="uk-card-body">
-						<h3 class="uk-card-title">Tabea Tietz</h3>
+					<div class="uk-card-header">
+        				<h3 class="uk-card-title">Tabea Tietz</h3>
+    					</div>
+    					<div class="uk-card-body">
 						<p>Junior Researcher at FIZ Karlsruhe and Karlsruhe Institute of Technology (AIFB).<br>
 							<ul>
 								<li><a href="https://fizweb-p.fiz-karlsruhe.de/en/forschung/lebenslauf-und-publikationen-tabea-tietz">Webpage</a></li>
@@ -225,10 +230,6 @@
 								<li><a href="mailto:tabea.tietz@fiz-karlsruhe.de">Email</a>  </li>
 							</ul>
 							Supervisor:<br><a href="https://www.fiz-karlsruhe.de/en/forschung/lebenslauf-prof-dr-harald-sack">Prof. Harald Sack</a>
-							
-							 <br>
-							 <br>
-							 
 						</p>
 					</div>
 				</div>
@@ -253,9 +254,17 @@
 					<div class="uk-card-media-top">
 						<img src="/staticResources/img/joerg.jpg" width="200" height="" alt="">
 					</div>
-					<div class="uk-card-body">
-						<h3 class="uk-card-title">Jörg Waitelonis</h3>
-						<p>yovisto GmbH</p>
+						<div class="uk-card-header">
+        				<h3 class="uk-card-title">Jörg Waitelonis</h3>
+    					</div>
+    					<div class="uk-card-body">
+						<p>Linked Data enthusiast <br> yovisto GmbH
+							<ul>
+								<li><a href="http://yovisto.com">Webpage</a></li>
+								<li><a href="https://twitter.com/yovisto">Twitter</a></li>
+								<li><a href="mailto:joerg@yovisto.com">Email</a>  </li>
+							</ul>
+						</p>
 					</div>
 				</div>
 		
