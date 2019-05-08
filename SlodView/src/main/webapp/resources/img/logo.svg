@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg contentScriptType="text/ecmascript" width="183.0"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css"
+     viewBox="-98.000000 -56.000000 183.000000 86.280754" height="86.280754"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.1">
+    <g id="edges">
+        <path fill="none" stroke-width="9.747249"
+              d="M -48.071754,10.280756 C -28.071754,-9.719244 -28.071754,30.280756 -48.071754,10.280756"
+              class="id_0" stroke-opacity="1.0" stroke="#87cc70"/>
+        <path fill="none" stroke-width="9.747249"
+              d="M -48.071754,10.280756 C -33.273865,-7.734266 15.945503,-12.559965 33.960526,2.237924"
+              class="id_0 id_3" stroke-opacity="1.0" stroke="#8898aa"/>
+        <path fill="none" stroke-width="9.747249"
+              d="M -87.475731,-33.950085 C -67.475731,-53.950085 -67.475731,-13.950085 -87.475731,-33.950085"
+              class="id_4" stroke-opacity="1.0" stroke="#999999"/>
+        <path fill="none" stroke-width="9.747249"
+              d="M -87.475731,-33.950085 C -67.475731,-53.950085 -67.475731,-13.950085 -87.475731,-33.950085"
+              class="id_4" stroke-opacity="1.0" stroke="#999999"/>
+        <path fill="none" stroke-width="9.747249"
+              d="M -48.071754,10.280756 C -64.798721,9.315383 -88.441101,-17.223122 -87.475731,-33.950085"
+              class="id_0 id_4" stroke-opacity="1.0" stroke="#90b284"/>
+        <path fill="none" stroke-width="9.747249"
+              d="M -16.339327,-45.289494 C 3.226127,-45.843983 33.406036,-17.327530 33.960526,2.237924"
+              class="id_1 id_3" stroke-opacity="1.0" stroke="#a067a8"/>
+        <path fill="none" stroke-width="9.747249"
+              d="M 74.124397,-33.416206 C 73.222450,-18.252605 49.124126,3.139873 33.960526,2.237924"
+              class="id_2 id_3" stroke-opacity="1.0" stroke="#bf4e8e"/>
+        <path fill="none" stroke-width="9.747249"
+              d="M -87.475731,-33.950085 C -55.950874,-50.999733 16.910875,-29.286930 33.960526,2.237924"
+              class="id_4 id_3" stroke-opacity="1.0" stroke="#917ebf"/>
+        <path fill="none" stroke-width="9.747249"
+              d="M -16.339327,-45.289494 C -28.298727,-28.794331 -70.980568,-21.990688 -87.475731,-33.950085"
+              class="id_1 id_4" stroke-opacity="1.0" stroke="#a88282"/>
+        <path fill="none" stroke-width="9.747249"
+              d="M -48.071754,10.280756 C -52.839317,-7.179780 -33.799862,-40.521931 -16.339327,-45.289494"
+              class="id_0 id_1" stroke-opacity="1.0" stroke="#9f9b6d"/>
+    </g>
+    <g id="nodes">
+        <circle fill-opacity="1.0" fill="#87cc70" r="10.0" cx="-48.071754"
+                class="id_0" cy="10.280756" stroke="#000000"
+                stroke-opacity="1.0" stroke-width="9.747249"/>
+        <circle fill-opacity="1.0" fill="#b76b6b" r="10.0" cx="-16.339327"
+                class="id_1" cy="-45.289494" stroke="#000000"
+                stroke-opacity="1.0" stroke-width="9.747249"/>
+        <circle fill-opacity="1.0" fill="#f53838" r="10.0" cx="74.1244"
+                class="id_2" cy="-33.416206" stroke="#000000"
+                stroke-opacity="1.0" stroke-width="9.747249"/>
+        <circle fill-opacity="1.0" fill="#8a64e5" r="10.0" cx="33.960526"
+                class="id_3" cy="2.237924" stroke="#000000" stroke-opacity="1.0"
+                stroke-width="9.747249"/>
+        <circle fill-opacity="1.0" fill="#999999" r="10.0" cx="-87.47573"
+                class="id_4" cy="-33.950085" stroke="#000000"
+                stroke-opacity="1.0" stroke-width="9.747249"/>
+    </g>
+</svg>
