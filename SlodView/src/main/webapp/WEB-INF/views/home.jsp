@@ -15,32 +15,39 @@
 
 <body data-uk-filter="target: .js-filter">
 	<jsp:include page="inc/custom_menu.jsp"></jsp:include>
-	<div class="spacer"></div>
-	
-	
 
-	<div class="uk-container">
 
-		<div class="uk-child-width-1-2" uk-grid>
-
-			<div>
-
-				<p class="uk-text-justify">Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon 2019. The graph is being created using a dataset by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s. <br>
-				The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to <b>explore</b> and <b>understand</b> the data by <b>humans and machines</b> using linked data and interesting visualizations.</p>
-			</div>
-			<div>
-				<p>Find out more about the project's workflow, goals and tools used.</p> <a class="uk-button uk-button-default" href="/about">About Linked Stage Graph</a> <br/>
-				<p>Who has been working on this?</p> <a class="uk-button uk-button-default" href="/about#team">Team</a>
-				<p>Explore the photographs and metadata using the Vikus Viewer</p> <button class="uk-button uk-button-default">Start Vikus Viewer</button>
+	<section class="uk-section">
+		<div id="" class="uk-container uk-container-small">
+			<h6 class="uk-text-primary uk-margin-small-bottom">Linked Open Data</h6>
+			<h1 class="uk-margin-remove-top">Linked Stage Graph</h1>
+			<p class="uk-text-justify uk-column-1-2">Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon taking place from April to May 2019. The graph is being created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s. <br>
+				The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data and interesting visualizations.</p>
+				<h2>Quick Navigation</h2>
+				<div class="uk-flex uk-flex-center">
+					<div class="uk-width-1-3">
+						<a class="uk-button uk-button-default" href="/about">About Linked Stage Graph</a> <br/>
+						<p>Find out more about the project's workflow, goals and tools used.</p>
+				</div>
+				<div class="uk-width-1-3">
+					<a class="uk-button uk-button-default" href="/about#team">Team</a>
+					<p>Who has been working on this?</p>
+				</div>
+				<div class="uk-width-1-3">
+					<button class="uk-button uk-button-default">Start Vikus Viewer</button>
+					<p>Explore the photographs and metadata using the Vikus Viewer</p>
+				</div>
 			</div>
 		</div>
-
-		<h1>Linked Stage Graph Viewer</h1>
-		<div class="uk-container">
-			<p>
-				The photographs are arranged in a timeline from 1912 to 1943 which can be explored by <b>scrolling</b> up and down. <b>Swiping</b> left and right reveals other performances which have taken place in the same year. <b>Hovering</b> each originally black and white photograph instanstly adds color to them. By <b>clicking</b> on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.
-			</p>
+	</section>
+	
+	<section class="uk-section">
+		<div id="" class="uk-container uk-container-small">
+			<h1>Linked Stage Graph Viewer</h1>
+			<p>The photographs are arranged in a timeline from 1912 to 1943 which can be explored by <b>scrolling</b> up and down. <b>Swiping</b> left and right reveals other performances which have taken place in the same year. <b>Hovering</b> each originally black and white photograph instanstly adds color to them. By <b>clicking</b> on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.</p>
 		</div>
+	</section>
+			
 		<div class="" uk-grid>
 			<div class="uk-width-5-6">
 				<c:forEach items='${images.keySet()}' var="year">
