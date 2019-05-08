@@ -53,39 +53,50 @@
 			<div uk-grid>
 				<div class="uk-width-5-6">
 					<c:forEach items='${images.keySet()}' var="year">
-						<h2 id="year${year}">${year}</h2>
-						<div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider="center: true">
+						<div id="year${year}" class="uk-section">
+							<h2 style="
+							position: absolute;
+							transform: translateY(-18vh);
+							font-size: 10rem;
+							font-weight: 800;
+							opacity: 0.1;
+							z-index: 100;">${year}</h2>
+							<div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider="center: true">
 
-							<ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 20">
-								<c:forEach items='${images.get(year)}' var="entry">
-									<li class="uk-width-3-4 uk-transition-toggle" tabindex="0">
-										<div class="uk-cover-container">
-											<img src='${proxyImg}${entry.getImageUrl()}' alt="" uk-cover>
-											<div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-												<p class="uk-margin-remove">${entry.getDateLabel()}</p>
-												<h2 class="uk-margin-remove uk-h4">
-													<a href='${entry.getResource().replace("http://example.org/cdv/","")}'>${entry.getLabel()}</a>
-												</h2>
-												<!-- @jörg in this line add an if state: if more than one image -->
-												<p class="uk-margin-remove">More Images in the data set</p>
-												<ul class="uk-thumbnav">
-													<c:forEach items='${entry.getThumbnails()}' var="thumb" end="6">
-														<li uk-slideshow-item="0"><a href='${entry.getResource().replace("http://example.org/cdv/","")}'><img src="${proxyThumb}${thumb}" width="50" alt=""></a></li>
-													</c:forEach>
-												</ul>
+								<ul class="uk-slider-items uk-grid uk-grid-match" uk-height-viewport="offset-top: true; offset-bottom: 20">
+									<c:forEach items='${images.get(year)}' var="entry">
+										<li class="uk-width-3-4 uk-transition-toggle" tabindex="0">
+											<div class="uk-cover-container">
+												<img src='${proxyImg}${entry.getImageUrl()}' alt="" uk-cover>
+												<div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+													<p class="uk-margin-remove">${entry.getDateLabel()}</p>
+													<h2 class="uk-margin-remove uk-h4">
+														<a href='${entry.getResource().replace("http://example.org/cdv/","")}'>${entry.getLabel()}</a>
+													</h2>
+													<!-- @jörg in this line add an if state: if more than one image -->
+													<p class="uk-margin-remove">More Images in the data set</p>
+													<ul class="uk-thumbnav">
+														<c:forEach items='${entry.getThumbnails()}' var="thumb" end="6">
+															<li uk-slideshow-item="0"><a href='${entry.getResource().replace("http://example.org/cdv/","")}'><img src="${proxyThumb}${thumb}" width="50" alt=""></a></li>
+														</c:forEach>
+													</ul>
+													<div class="uk-position-center-right uk-margin-right">
+														<a href='${entry.getResource().replace("http://example.org/cdv/","")}' uk-icon="info"></a>
+													</div>
+												</div>
 											</div>
-										</div>
-									</li>
-								</c:forEach>
-							</ul>
-							
-							<div class="uk-light">
-								<a class="uk-position-center-left uk-position-small uk-slidenav-large" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-								<a class="uk-position-center-right uk-position-small uk-slidenav-large" href="#" uk-slidenav-next uk-slider-item="next"></a>
-							</div>
-	
-							<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+										</li>
+									</c:forEach>
+								</ul>
+								
+								<div class="uk-light">
+									<a class="uk-position-center-left uk-position-small uk-slidenav-large" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+									<a class="uk-position-center-right uk-position-small uk-slidenav-large" href="#" uk-slidenav-next uk-slider-item="next"></a>
+								</div>
+		
+								<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 
+							</div>
 						</div>
 
 					</c:forEach>
@@ -95,7 +106,7 @@
 					<div uk-sticky="offset: 100">
 					<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
 						<c:forEach items='${images.keySet()}' var="year">
-							<li><a href="#year${year}">${year}</a></li>
+							<li><a href="#year${year}" data-year="${year}">${year}</a></li>
 						</c:forEach>
 					</ul>
 					</div>

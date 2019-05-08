@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><%@taglib uri="http://www.springframework.org/tags" prefix="sp"%><%@page session="true"%>
 <!-- <link href="${conf.getStaticResourceURL()}style.css" rel="stylesheet" type="text/css" /> -->
 <link href="${conf.getStaticResourceURL()}css/uikit.min.css" rel="stylesheet" type="text/css" />
+<link href="${conf.getStaticResourceURL()}css/custom.css" rel="stylesheet" type="text/css" />
 <script src="${conf.getStaticResourceURL()}vendor/uikit/uikit.min.js"></script>
 <script src="${conf.getStaticResourceURL()}vendor/uikit/uikit-icons.min.js"></script>
 <script src="${conf.getStaticResourceURL()}vendor/uikit/cards.js"></script>
