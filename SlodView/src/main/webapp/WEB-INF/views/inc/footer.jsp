@@ -30,7 +30,9 @@
 
 
 <div id="license">
-	License Images : CC-by,  License Metadata CCo  
+	<b>Licences</b> <br>
+	All Photographs are lincenced under <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY</a> <br>
+	All Metadata are licenced under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>  
 </div>
 
 </footer>
