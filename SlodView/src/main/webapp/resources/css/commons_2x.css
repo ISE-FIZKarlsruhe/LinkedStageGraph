@@ -5,9 +5,9 @@
 	.sp {
 		background-image: url(../img/lodview-sprite@2x.png);
 	}
-	div#logoBanner div#logo {
+	/**div#logoBanner div#logo {
 		background-image: url(../img/logo-header-lodview@2x.png);
-	}
+	}*/
 	footer #linkBack {
 		background-image: url(../img/logo-footer-lodview@2x.png);
 	}
