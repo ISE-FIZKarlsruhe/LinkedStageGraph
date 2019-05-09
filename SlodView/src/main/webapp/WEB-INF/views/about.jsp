@@ -212,9 +212,10 @@
 		</div>
 	</section>
 	
+	
 	<section class="uk-section">
 		<div class="uk-container uk-container-small">
-			<h2><a name="team"></a>Team</h2>
+			<h2 id="team">Team</h2>
 			<div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
 				<div class="uk-card-small uk-card-default uk-card-hover">
 					<div class="uk-card-media-top">
