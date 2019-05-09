@@ -20,7 +20,7 @@
 
 	<section class="uk-section">
 		<div id="" class="uk-container uk-container-small">
-			<h6 class="uk-text-primary uk-margin-small-bottom">Linked Open Data</h6>
+			<!-- h6 class="uk-text-primary uk-margin-small-bottom">Linked Open Data</h6 --> 
 			<h1 class="uk-margin-remove-top">Linked Stage Graph</h1>
 			<p class="uk-text-justify uk-column-1-2">Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon taking place from April to May 2019. The graph is being created using a dataset provided by the National Archive of Baden-Wuerttemberg. It contains black and white photographs and metadata about the Stuttgart State Theatre from the 1890s to the 1940s. <br>
 				The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. This project proposes means to explore and understand the data by humans and machines using linked data and interesting visualizations.</p>
@@ -72,14 +72,14 @@
 												<div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
 													<p class="uk-margin-remove">${entry.getDateLabel()}</p>
 													<h2 class="uk-margin-remove uk-h4">
-														<a href='${entry.getResource()}'>${entry.getLabel()}</a>
+														<a href='${entry.getResource().replace("http://slod.fiz-karlsruhe.de/","")}'>${entry.getLabel()}</a>
 													</h2>													
 													<c:if test="${entry.getThumbnails().size()>6}">
 														<p class="uk-margin-remove">More Images in the data set</p>
 													</c:if>
 													<ul class="uk-thumbnav">
 														<c:forEach items='${entry.getThumbnails()}' var="thumb" end="6">
-															<li uk-slideshow-item="0"><a href='${entry.getResource()}'><img src="${proxyThumb}${thumb}" width="50" alt=""></a></li>
+															<li uk-slideshow-item="0"><a href='${entry.getResource().replace("http://slod.fiz-karlsruhe.de/","")}'><img src="${proxyThumb}${thumb}" width="50" alt=""></a></li>
 														</c:forEach>
 													</ul>
 													<div class="uk-position-center-right uk-margin-right">
