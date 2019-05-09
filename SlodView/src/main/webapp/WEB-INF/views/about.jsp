@@ -159,7 +159,7 @@
 					<h3>Linked Stage Graph Viewer</h3>
 					<p class="uk-text-justify"><a href="http://slod.fiz-karlsruhe.de">Linked Stage Graph Demo</a>. <br>
 					The Linked Stage Graph Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. <br>
-					The photographs are arranged in a timeline from 1912 to 1943 which can be explored by scrolling up and down. Swiping left and right reveals other performances which have taken place in the same year. For the pictures to really come alive, you simply have to hover them and they instantly turn from their original black and white to colored photographs. By clicking on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.
+					The photographs are arranged in a timeline from 1912 to 1943 which can be explored by scrolling up and down. Swiping left and right reveals other performances which have taken place in the same year. By clicking on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.
 				   </p>
 				</div>
 				<div>
@@ -281,7 +281,7 @@
         				<h3 class="uk-card-title">Paul Felgentreff</h3>
     				</div>
     				<div class="uk-card-body">
-						<p>Einhornbezwinger 
+						<p>Einhornbezwinger, Designer
 							<ul>
 								<li><a href="mailto:paul.felge@pm.me">Email</a></li>
 							</ul>
