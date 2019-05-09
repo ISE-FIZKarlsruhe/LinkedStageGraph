@@ -33,7 +33,7 @@ WHERE {
 
 
 # create nice abstracts
-INSERT INTO <http://http://slod.fiz-karlsruhe.de/> 
+INSERT INTO <http://slod.fiz-karlsruhe.de/> 
 { ?s <http://purl.org/dc/terms/description> ?abstract . } 
 WHERE {
 	SELECT distinct ?s ?abstract WHERE {
@@ -100,7 +100,7 @@ INSERT INTO <http://slod.fiz-karlsruhe.de/> {
 }
 
 ### create hidden GND entities
-INSERT INTO <http://slod.fiz-karlsruhe/>{ 
+INSERT INTO <http://slod.fiz-karlsruhe.de/>{ 
 ?s <http://slod.fiz-karlsruhe/ontology/relevantPerson> ?gndr .
 ?gndr <http://www.w3.org/2000/01/rdf-schema#label> ?lab .
 }
@@ -113,4 +113,33 @@ SELECT distinct ?s iri(concat('http://d-nb.info/gnd/', ?gnd)) as ?gndr ?lab WHER
 	?pn <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> ?lab 
 	} 
 }
+
+### remove 'en' langtags from literals
+INSERT INTO <http://slod.fiz-karlsruhe.de/> {
+	?s ?p ?cleaned .
+}WHERE {
+SELECT DISTINCT ?s ?p str(?o) as ?cleaned FROM <http://slod.fiz-karlsruhe.de/>
+	WHERE {
+		?s ?p ?o .
+		FILTER (isLiteral(?o))
+		FILTER (lang(?o)='en')
+	}
+}
+DELETE FROM <http://slod.fiz-karlsruhe.de/> {
+	?s ?p ?cleaned .
+}WHERE {
+SELECT DISTINCT ?s ?p ?o FROM <http://slod.fiz-karlsruhe.de/>
+	WHERE {
+		?s ?p ?o .
+		filter (isLiteral(?o))
+		filter (lang(?o)='en')
+	}
+}
+
+
+
+
+
+
+
 

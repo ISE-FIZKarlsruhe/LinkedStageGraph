@@ -46,7 +46,7 @@ rapper  -i rdfxml -o ntriples tmp/saxon-out2.rdf > rdf-result/result-ead2rdf.n3
 
 
 ##### Handle the images
-cat origin/images.txt | awk '{print "<http://slod.fiz-karlsruhe.de/" $1 "> <http://xmlns.com/foaf/0.1/depiction> <http://apps.yovisto.com/labs/joerg/cdv/" $2 "> ." }' > rdf-result/images.nt
+cat origin/images.txt | awk '{print "<http://slod.fiz-karlsruhe.de/" $1 "> <http://xmlns.com/foaf/0.1/depiction> <http://slod.fiz-karlsruhe.de/images/slod/" $2 "> ." }' > rdf-result/images.nt
 
 
 ### Now you can upload the result RDF data to the Triplestore and execute the SPARQL scripts
