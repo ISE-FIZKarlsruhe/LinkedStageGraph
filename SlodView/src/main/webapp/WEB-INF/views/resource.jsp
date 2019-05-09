@@ -6,7 +6,7 @@
 	<article>
 		<div id="logoBanner"> 
 			<div id="logo">
-				<!-- placeholder for logo -->
+				<a href="/" title=""><img src="${conf.getStaticResourceURL()}img/logo.svg" alt="Linked Stage Graph" ></a>
 			</div>
 		</div>
 		<header>

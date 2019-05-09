@@ -3,7 +3,7 @@
     <div class="uk-container">
         <div class="uk-grid uk-grid-medium uk-flex uk-flex-middle" data-uk-grid>
             <div class="uk-width-auto">
-                <a href="#" class="uk-logo" title=""><img src="${conf.getStaticResourceURL()}img/logo.svg" alt="Linked Stage Graph" style="padding-left:52px; padding-top:10px"></a>
+                <a href="/" class="uk-logo" title=""><img src="${conf.getStaticResourceURL()}img/logo.svg" alt="Linked Stage Graph" style="padding-left:52px; padding-top:10px"></a>
             </div>
             <div class="uk-width-expand">
                 <!--  form id="search-form" action="">
