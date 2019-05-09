@@ -276,13 +276,13 @@
 				<div>
 				<div class="uk-card-small uk-card-default uk-card-hover">
 					<div class="uk-card-media-top">
-						<img src="/staticResources/img/joerg.jpg" width="200" height="" alt="">
+						<img src="/staticResources/img/paul.jpg" width="200" height="" alt="">
 					</div>
 						<div class="uk-card-header">
         				<h3 class="uk-card-title">Paul Felgentreff</h3>
     				</div>
     				<div class="uk-card-body">
-						<p>Einhornbezwinger, Designer
+						<p>Einhornbezwinger, Design, Marketing
 							<ul>
 								<li><a href="mailto:paul.felge@pm.me">Email</a></li>
 							</ul>
