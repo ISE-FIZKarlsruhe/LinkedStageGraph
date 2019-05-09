@@ -10,8 +10,9 @@
 	<jsp:include page="inc/home_header.jsp"></jsp:include>
 </head>
 
-<c:set var="proxyImg" scope="session" value="http://cdv.yovisto.com/imageproxy/800,q65/" />
-<c:set var="proxyThumb" scope="session" value="http://cdv.yovisto.com/imageproxy/150,sc,q25/" />
+<!-- c:set var="proxyImg" scope="session" value="http://slod.fiz-karlsruhe.de/imageproxy/800,sc,q65/" /-->
+<c:set var="proxyImg" scope="session" value="http://slod.fiz-karlsruhe.de/imageproxy/800x800,sc,q65/" />
+<c:set var="proxyThumb" scope="session" value="http://slod.fiz-karlsruhe.de/imageproxy/150,sc,q25/" />
 
 <body data-uk-filter="target: .js-filter">
 	<jsp:include page="inc/custom_menu.jsp"></jsp:include>
@@ -34,7 +35,7 @@
 					<p>Who has been working on this?</p>
 				</div>
 				<div class="uk-width-1-3">
-					<button class="uk-button uk-button-default">Start Vikus Viewer</button>
+					<a class="uk-button uk-button-default" href="http://slod.fiz-karlsruhe.de/vikus">Start Vikus Viewer</a>
 					<p>Explore the photographs and metadata using the Vikus Viewer</p>
 				</div>
 			</div>
@@ -71,17 +72,18 @@
 												<div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
 													<p class="uk-margin-remove">${entry.getDateLabel()}</p>
 													<h2 class="uk-margin-remove uk-h4">
-														<a href='${entry.getResource().replace("http://example.org/cdv/","")}'>${entry.getLabel()}</a>
-													</h2>
-													<!-- @jörg in this line add an if state: if more than one image -->
-													<p class="uk-margin-remove">More Images in the data set</p>
+														<a href='${entry.getResource()}'>${entry.getLabel()}</a>
+													</h2>													
+													<c:if test="${entry.getThumbnails().size()>6}">
+														<p class="uk-margin-remove">More Images in the data set</p>
+													</c:if>
 													<ul class="uk-thumbnav">
 														<c:forEach items='${entry.getThumbnails()}' var="thumb" end="6">
-															<li uk-slideshow-item="0"><a href='${entry.getResource().replace("http://example.org/cdv/","")}'><img src="${proxyThumb}${thumb}" width="50" alt=""></a></li>
+															<li uk-slideshow-item="0"><a href='${entry.getResource()}'><img src="${proxyThumb}${thumb}" width="50" alt=""></a></li>
 														</c:forEach>
 													</ul>
 													<div class="uk-position-center-right uk-margin-right">
-														<a href='${entry.getResource().replace("http://example.org/cdv/","")}' uk-icon="info"></a>
+														<a href='${entry.getResource()}' uk-icon="info"></a>
 													</div>
 												</div>
 											</div>
