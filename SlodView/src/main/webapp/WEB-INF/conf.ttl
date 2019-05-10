@@ -197,7 +197,7 @@
 								
 	conf:longitudeProperties	geo:long;
 	conf:latitudeProperties		geo:lat;
-	conf:linkingProperties		owl:sameAs , slodo:relevantPerson , skos:exactMatch , gn:locatedIn , schema:isBasedOn,  <http://dbpedia.org/ontology/setDesigner>, <http://d-nb.info/standards/elementset/gnd#choreographer> , <http://schema.org/creator> , <http://schema.org/producer> , <http://schema.org/director> , <http://dbpedia.org/ontology/costumeDesigner> , <http://schema.org/performer> , <http://id.loc.gov/vocabulary/relators/msd> , schema:contributor, <http://www.bbc.co.uk/ontologies/coreconcepts/sameAs>;
+	conf:linkingProperties		owl:sameAs , slodo:relevantPerson , slodo:relevantPlace, skos:exactMatch , gn:locatedIn , schema:isBasedOn,  <http://dbpedia.org/ontology/setDesigner>, <http://d-nb.info/standards/elementset/gnd#choreographer> , <http://schema.org/creator> , <http://schema.org/producer> , <http://schema.org/director> , <http://dbpedia.org/ontology/costumeDesigner> , <http://schema.org/performer> , <http://id.loc.gov/vocabulary/relators/msd> , schema:contributor, <http://www.bbc.co.uk/ontologies/coreconcepts/sameAs>;
 
 	conf:videoProperties		<http://schema.org/VideoObject>;
 	conf:audioProperties		<http://schema.org/AudioObject>;
