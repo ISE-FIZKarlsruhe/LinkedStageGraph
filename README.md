@@ -1,3 +1,5 @@
+![Projektbild](/img/projektbild.png)
+
 # Linked Stage Graph
 
 Demo Webpage: [slod.fiz-karlsruhe.de](http://slod.fiz-karlsruhe.de)
