@@ -30,7 +30,7 @@
 				<div class="uk-flex uk-flex-center">
 					<div class="uk-width-1-3">
 						<a class="uk-button uk-button-default" href="/about">About</a> <br/>
-						<p>Find out more about the project's workflow, goals and tools used.</p>
+						<p>Find out more about the project's workflow, goals and tools used</p>
 				</div>
 				<div class="uk-width-1-3">
 					<a class="uk-button uk-button-default" href="/about#team">Team</a>
