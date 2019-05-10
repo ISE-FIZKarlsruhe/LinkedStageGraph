@@ -114,6 +114,20 @@ SELECT distinct ?s iri(concat('http://d-nb.info/gnd/', ?gnd)) as ?gndr ?lab WHER
 	} 
 }
 
+INSERT INTO <http://slod.fiz-karlsruhe.de/>{ 
+?s <http://slod.fiz-karlsruhe/ontology/relevantPlace> ?gndr .
+?gndr <http://www.w3.org/2000/01/rdf-schema#label> ?lab .
+}
+WHERE {
+SELECT distinct ?s iri(concat('http://d-nb.info/gnd/', ?gnd)) as ?gndr ?lab WHERE {
+	?s <urn:isbn:1-931666-22-9#index> ?i .
+	?i <urn:isbn:1-931666-22-9#indexentry> ?ie .
+	?ie <urn:isbn:1-931666-22-9#geogname> ?pn .
+	?pn <urn:isbn:1-931666-22-9#authfilenumber> ?gnd .
+	?pn <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> ?lab 
+	} 
+}
+
 ### remove 'en' langtags from literals
 INSERT INTO <http://slod.fiz-karlsruhe.de/> {
 	?s ?p ?cleaned .
