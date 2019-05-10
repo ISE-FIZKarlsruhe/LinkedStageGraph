@@ -36,18 +36,21 @@
 					<div class="uk-card uk-card-default uk-card-body uk-card-hover">
 						<h3 class="uk-card-title">Creating a Knowledge Graph</h3>
 						<p>Create a linked data knowledge graph (KG) out of the photographs and metadata to enable  means of exploration for (linked) data, web and information enthusiasts via a SPARQL endpoint. Users are then invited to query the data, create their own applications and visualizations out of them or connect the data to other data sources.</p>
+						<a href="/about#KG" class="uk-button uk-button-primary uk-position-bottom-center uk-margin-small-bottom">Read more</a>
 					</div>
 				</div>
 				<div>
 					<div class="uk-card uk-card-default uk-card-body uk-card-hover">
 						<h3 class="uk-card-title">Connecting with Others</h3>
 						<p>Extract named entities from the (often unstructured) textual mentions like persons or performances and connect as many entities as possible to existing KGs, such as Wikidata. This way, we are able to extend the information given in the original graph with new knowledge.</p>
+        				<a href="/about#Linking" class="uk-button uk-button-primary uk-position-bottom-center uk-margin-small-bottom">Read more</a>
 					</div>
 				</div>
 				<div>
 					<div class="uk-card uk-card-default uk-card-body uk-card-hover">
 						<h3 class="uk-card-title">Providing Means of Exploration</h3>
 						<p>Use the data from the KG to create a simple visualization and bring the photographs to life to enable means of exploration for culture, theater, photography and history enthusiasts who want to browse through the timeline of the Stuttgart State Theater.</p>
+						<a href="/about#Exploration" class="uk-button uk-button-primary uk-position-bottom-center uk-margin-small-bottom">Read more</a>
 					</div>
 				</div>
 			</div>
@@ -56,7 +59,7 @@
 
 	<section class="uk-section">
 	<div class="uk-container uk-container-small">
-	<h2>Creating the Knowledge Graph</h2>
+	<h2 id="KG">Creating the Knowledge Graph</h2>
 			<h3>What is a Knowledge Graph?</h3>
 			<p><b>A knowledge graph is a "graph of data with the intend to compose knowledge".</b></p>
 			<p class="uk-column-1-2">
@@ -82,7 +85,7 @@
 			<p class="uk-column-1-2">The metadata was provided using the XML EAD standard which is used for encoding descriptive information regarding archival records. In order to create a knowledge graph, the data has to be transformed into the Resource Description Framework (RDF).<br/>
 			Many XML to RDF converters already exist, but due to the unique structure of the provided metadata, none of them worked out of the box. In the end, we used the XML2RDF converter by <a href="http://rhizomik.net/html/redefer/">rhizomik</a> and we used and adapted an <a href="http://data.archiveshub.ac.uk/ead2rdf">EADRDF XSLT Stylesheet</a>. Both outputs were imported into <a href="https://virtuoso.openlinksw.com/">OpenLink Virtuoso</a>. We connected both outputs using <code>owl:sameAs</code> and the archival unit ids. This enabled us to merge both outputs by semantic reasoning.</p>
 		
-			<h3>Named Entity Extraction and Linking (Connecting with Others)</h3>
+			<h3 id="Linking">Named Entity Extraction and Linking (Connecting with Others)</h3>
 			<p class="uk-column-1-2">
 				The provided metadata contains interesting information about the performances and photographs in form of semi-structured or unstructured text. For example, the resource <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390">http://slod.fiz-karlsruhe.de/labw-2-2599390</a> has a title (<code>dcterms:title</code>) and an abstract (<code>dcterms:description</code>). These semi-structured textual information as shown in the first table below can be interpreted by humans, but not by machines. Therefore they cannot be queried or visualized in a meaningful and useful way. We started to tackle this issue in two steps:
 				<ul>
@@ -150,7 +153,7 @@
 	
 	<section class="uk-section">
 		<div class="uk-container uk-container-small">
-			<h2>Exploration</h2>
+			<h2 id="Exploration">Exploration</h2>
 			<p>We have created several means of exploration. For non-technical users who simply want to enjoy the photographs along with their descriptions and relevant persons, we have created the <b>Linked Stage Graph Viewer</b> and we have utilized the <b>Vikus Viewer</b>. For technically advanced users, we provide an endpoint to be queried using SPARQL.</p>
 			<h3>Preprocessing: AI-Based Image Coloring</h3>
 			<p>What breathes more life into photographs than a little bit of color? Using a <a href="https://richzhang.github.io/ideepcolor/">tool</a> based on artificial intelligence, we automatically colorized each photo in the data set with interesting outcomes. While the results aren’t close to perfection, we believe that the color adds a new vibrant dimension to these historical photos. </p>
@@ -282,7 +285,7 @@
         				<h3 class="uk-card-title">Paul Felgentreff</h3>
     				</div>
     				<div class="uk-card-body">
-						<p>Einhornbezwinger, Design, Marketing
+						<p>Design, Marketing
 							<ul>
 								<li><a href="mailto:paul.felge@pm.me">Email</a></li>
 							</ul>
