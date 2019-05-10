@@ -293,8 +293,8 @@
 			</div>
 	</section>
 
-	<jsp:include page="inc/custom_footer.jsp"></jsp:include>
-	<jsp:include page="inc/footer.jsp"></jsp:include>
+	
+	<jsp:include page="inc/about_footer.jsp"></jsp:include>
 </body>
 
 </html>

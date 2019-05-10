@@ -7,7 +7,7 @@
 		-->
 	</div>
 	<div id="endpoint">
-		<!--  ul>
+		<ul>
 			<c:choose>
 				<c:when test='${conf.getEndPointUrl().equals("<>")}'>
 					<li><sp:message code='footer.noSparql' text='data from: deferencing IRI' /></li>
@@ -25,7 +25,7 @@
 					</c:forEach>
 				</li>
 			</c:forEach>
-		</ul -->
+		</ul>
 	</div>
 
 
