@@ -1,7 +1,6 @@
 @prefix xml2rdf: <urn:isbn:1-931666-22-9#> .
 @prefix ead2rdf: <http://data.archiveshub.ac.uk/def/> .
-@prefix slod: <http://slod.fiz-karlsruhe.de/>  .
-@prefix slodo: <http://slod.fiz-karlsruhe/ontology/> .
+@prefix ex: <http://example.org/cdv/> .
 
 
 
@@ -20,15 +19,15 @@
 @prefix units: <http://dbpedia.org/units/> .
 @prefix geonames: <http://www.geonames.org/ontology#> .  
 @prefix void: <http://rdfs.org/ns/void#> . 
-@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbpedia-owl: <http://dbpedia.org/ontology/> .
 @prefix yago: <http://dbpedia.org/class/yago/> .
 @prefix gml: <http://www.opengis.net/gml/> .
-@prefix dbr: <http://dbpedia.org/resource/> .
-@prefix dbp: <http://dbpedia.org/property/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix dbpprop: <http://dbpedia.org/property/> .
 @prefix metalex: <http://www.metalex.eu/metalex/2008-05-02#> .
 @prefix frbr: <http://purl.org/vocab/frbr/core#> .
 @prefix gn: <http://www.geonames.org/ontology#> .
-@prefix schema: <http://schema.org/> .
+@prefix schema-org: <http://schema.org/> .
 @prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
 @prefix ibc: <http://dati.ibc.it/ibc/> .
 @prefix bio: <http://purl.org/vocab/bio/0.1/> .
@@ -67,7 +66,7 @@
 ## 	IRIs namespace we use to replace the webapp base (eg. http://localhost:8080/lodview/), an
 ##	installation on dbpedia domain should use <http://dbpedia.org/resource/> 
 	
-	conf:IRInamespace <http://slod.fiz-karlsruhe.de/>   ;
+	conf:IRInamespace <http://slod.fiz-karlsruhe.de/>  ;
 
 ## 	EndPoint
 
@@ -197,7 +196,7 @@
 								
 	conf:longitudeProperties	geo:long;
 	conf:latitudeProperties		geo:lat;
-	conf:linkingProperties		owl:sameAs , slodo:relevantPerson , skos:exactMatch , gn:locatedIn , schema:isBasedOn,  <http://dbpedia.org/ontology/setDesigner>, <http://d-nb.info/standards/elementset/gnd#choreographer> , <http://schema.org/creator> , <http://schema.org/producer> , <http://schema.org/director> , <http://dbpedia.org/ontology/costumeDesigner> , <http://schema.org/performer> , <http://id.loc.gov/vocabulary/relators/msd> , schema:contributor, <http://www.bbc.co.uk/ontologies/coreconcepts/sameAs>;
+	conf:linkingProperties		owl:sameAs , skos:exactMatch , gn:locatedIn ,  <http://www.bbc.co.uk/ontologies/coreconcepts/sameAs>;
 
 	conf:videoProperties		<http://schema.org/VideoObject>;
 	conf:audioProperties		<http://schema.org/AudioObject>;

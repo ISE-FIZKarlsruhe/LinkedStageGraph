@@ -34,7 +34,7 @@
 				</div>
 				<div class="uk-width-1-3">
 					<a class="uk-button uk-button-default" href="/about#team">Team</a>
-					<p>Who has been working on this?</p>
+					<p>See who has been working on this</p>
 				</div>
 				<div class="uk-width-1-3">
 					<a class="uk-button uk-button-default" href="http://slod.fiz-karlsruhe.de/vikus">Start Vikus Viewer</a>
