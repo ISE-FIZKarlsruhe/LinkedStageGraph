@@ -30,7 +30,7 @@ li.uk-active>a:before {
     border-top: 1px solid #1e87f0;
 }
 
-li.uk-active > a[data-year="1918"]::after {content: "1. WW"; padding-left: 1em;}
+/*li.uk-active > a[data-year="1918"]::after {content: "1. WW"; padding-left: 1em;}*/
 
 .uk-button-default:hover {
 border: 3px solid #0071bc;
