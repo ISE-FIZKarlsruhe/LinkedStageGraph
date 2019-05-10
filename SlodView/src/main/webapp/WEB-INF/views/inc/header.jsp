@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><%@taglib uri="http://www.springframework.org/tags" prefix="sp"%><%@page session="true"%>
 <link href="${conf.getStaticResourceURL()}style.css" rel="stylesheet" type="text/css" />
+
 <script>
 	document.write('<style type="text/css">');
 	document.write('.c2{visibility:hidden}');
