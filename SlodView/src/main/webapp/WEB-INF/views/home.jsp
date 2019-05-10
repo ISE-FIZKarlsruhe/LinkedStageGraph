@@ -75,7 +75,7 @@
 												<div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
 													<p class="uk-margin-remove">${entry.getDateLabel()}</p>
 													<h2 class="uk-margin-remove uk-h4">
-														<a href='${entry.getResource().replace("http://slod.fiz-karlsruhe.de/","")}'>${entry.getLabel()}</a>
+														<a style="color: #0071bc;" href='${entry.getResource().replace("http://slod.fiz-karlsruhe.de/","")}'>&#x1f517; ${entry.getLabel()}</a>
 													</h2>													
 													<c:if test="${entry.getThumbnails().size()>6}">
 														<p class="uk-margin-remove">More Images in the data set</p>
