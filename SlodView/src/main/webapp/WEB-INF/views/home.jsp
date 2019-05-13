@@ -14,6 +14,14 @@
 <c:set var="proxyImg" scope="session" value="http://slod.fiz-karlsruhe.de/imageproxy/800x800,sc,q65/" />
 <c:set var="proxyThumb" scope="session" value="http://slod.fiz-karlsruhe.de/imageproxy/150,sc,q25/" />
 
+<script>
+	function ch(elm, trgt){					
+		var img = elm.getAttribute("src").replace('http://slod.fiz-karlsruhe.de/imageproxy/150,sc,q25/', 'http://slod.fiz-karlsruhe.de/imageproxy/800x800,sc,q65/');
+		var t = document.getElementById(trgt)
+		t.setAttribute('src', img);
+	}
+</script>
+
 <body data-uk-filter="target: .js-filter">
 	<jsp:include page="inc/custom_menu.jsp"></jsp:include>
 
@@ -71,18 +79,18 @@
 									<c:forEach items='${images.get(year)}' var="entry">
 										<li class="uk-width-3-4 uk-transition-toggle" tabindex="0">
 											<div class="uk-cover-container">
-												<img src='${proxyImg}${entry.getImageUrl()}' alt="" uk-cover>
+												<img src='${proxyImg}${entry.getImageUrl()}' alt="" uk-cover id="image_${entry.getImageUrl().replace('/','')}">
 												<div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
 													<p class="uk-margin-remove">${entry.getDateLabel()}</p>
 													<h2 class="uk-margin-remove uk-h4">
 														<a style="color: #0071bc;" href='${entry.getResource().replace("http://slod.fiz-karlsruhe.de/","")}'>${entry.getLabel()}</a>
 													</h2>													
-													<c:if test="${entry.getThumbnails().size()>6}">
+													<c:if test="${entry.getThumbnails().size()>8}">
 														<p class="uk-margin-remove">More Images in the data set</p>
 													</c:if>
 													<ul class="uk-thumbnav">
-														<c:forEach items='${entry.getThumbnails()}' var="thumb" end="6">
-															<li uk-slideshow-item="0"><a href='${entry.getResource().replace("http://slod.fiz-karlsruhe.de/","")}'><img src="${proxyThumb}${thumb}" width="50" alt=""></a></li>
+														<c:forEach items='${entry.getThumbnails()}' var="thumb" end="8">
+															<li uk-slideshow-item="0"><a href='${entry.getResource().replace("http://slod.fiz-karlsruhe.de/","")}'><img onmouseover="ch(this, 'image_${entry.getImageUrl().replace('/','')}')" src="${proxyThumb}${thumb}" width="50" alt=""></a></li>
 														</c:forEach>
 													</ul>
 													<div class="uk-position-center-right uk-margin-right">
