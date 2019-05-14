@@ -236,7 +236,7 @@
 		?resource schema:isBasedOn ?wikiresource .
 		?resource rdfs:label ?resourcelabel .
 	
-		SERVICE <https://query.wikidata.org/sparql> {
+		SERVICE &lt;https://query.wikidata.org/sparql&gt; {
 			?wikiresource &lt;http://www.wikidata.org/prop/direct/P577&gt; ?publicationdate .
 				}
 		}
