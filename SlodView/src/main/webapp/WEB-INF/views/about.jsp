@@ -155,11 +155,30 @@
 		<div class="uk-container uk-container-small">
 			<h2 id="Exploration">Exploration</h2>
 			<p>We have created several means of exploration. For non-technical users who simply want to enjoy the photographs along with their descriptions and relevant persons, we have created the <b>Linked Stage Graph Viewer</b> and we have utilized the <b>Vikus Viewer</b>. For technically advanced users, we provide an endpoint to be queried using SPARQL.</p>
+
+		<div class="uk-container uk-container-small">
 			<h3>Preprocessing: AI-Based Image Coloring</h3>
-			<p>What breathes more life into photographs than a little bit of color? Using a <a href="https://richzhang.github.io/ideepcolor/">tool</a> based on artificial intelligence, we automatically colorized each photo in the data set with interesting outcomes. While the results aren’t close to perfection, we believe that the color adds a new vibrant dimension to these historical photos. </p>
+			<div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+    			<div>
+        			<div class="uk-card uk-card-default uk-card-body"><img src="/staticResources/img/baby_bw.png" width="300" height="" alt=""></div>
+    			</div>
+    			<div>
+        			<div class="uk-card uk-card-default uk-card-body"><img src="/staticResources/img/beer_bw.png" width="300" height="" alt=""></div>
+    			</div>
+    			<div>
+        			<div class="uk-card uk-card-default uk-card-body"><img src="/staticResources/img/couple_bw.png" width="300" height="" alt=""></div>
+    			</div>
+			</div>
+			<div>
+			<p class="uk-margin-small-top">What breathes more life into photographs than a little bit of color? Using a <a href="https://richzhang.github.io/ideepcolor/">tool</a> based on artificial intelligence, we automatically colorized each photo in the data set with interesting outcomes. While the results aren’t close to perfection, we believe that the color adds a new vibrant dimension to these historical photos. </p>
+			</div>
+		</div>
+			
+			<div>
+				<h3>User Interfaces</h3>
 			<div class="uk-child-width-1-2" uk-grid>
 				<div>
-					<h3>Linked Stage Graph Viewer</h3>
+					<h4>Linked Stage Graph Viewer</h4>
 					<img src="/staticResources/img/slodviewer.png" width="300" height="" alt=""> 
 					<div><a class="uk-button uk-button-default uk-margin-small-top" href="http://slod.fiz-karlsruhe.de/">Demo</a></div>
 					<p class="uk-text-justify">The Linked Stage Graph Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. <br>
@@ -167,11 +186,12 @@
 				   </p>
 				</div>
 				<div>
-					<h3>Vikus Viewer</h3>
+					<h4>Vikus Viewer</h4>
 					<img src="/staticResources/img/vikus.png" width="300" height="" alt="">
 					<div><a class="uk-button uk-button-default uk-margin-small-top" href="http://slod.fiz-karlsruhe.de/vikus">Demo</a></div>
 					<p class="uk-text-justify">The Vikus Viewer was created by <a href="https://chrispie.com/">Christopher Pietsch</a> in the context of the <a href="https://uclab.fh-potsdam.de/">Urban Complexity Lab</a> at FH Potsdam. We found that the viewer works great with the data and photographs from our knowledge graph. The timeline allows the user to dynamically explore the images and metadata. Users can filter the content, zoom into it and focus on individual images which also reveals some of the metadata we have gathered.</p>
 				</div>
+			</div>
 			</div>
 		
 			<h3>SPARQL Endpoint</h3>
