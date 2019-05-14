@@ -34,21 +34,21 @@
 			<div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
 				<div>
 					<div class="uk-card uk-card-default uk-card-body uk-card-hover">
-						<h3 class="uk-card-title">Creating a Knowledge Graph</h3>
+						<h3 class="uk-card-title">Create a Knowledge Graph</h3>
 						<p>Create a linked data knowledge graph (KG) out of the photographs and metadata to enable  means of exploration for (linked) data, web and information enthusiasts via a SPARQL endpoint. Users are then invited to query the data, create their own applications and visualizations out of them or connect the data to other data sources.</p>
 						<a href="/about#KG" class="uk-button uk-button-primary uk-position-bottom-center uk-margin-small-bottom">Read more</a>
 					</div>
 				</div>
 				<div>
 					<div class="uk-card uk-card-default uk-card-body uk-card-hover">
-						<h3 class="uk-card-title">Connecting with Others</h3>
+						<h3 class="uk-card-title">Connect with Others</h3>
 						<p>Extract named entities from the (often unstructured) textual mentions like persons or performances and connect as many entities as possible to existing KGs, such as Wikidata. This way, we are able to extend the information given in the original graph with new knowledge.</p>
         				<a href="/about#Linking" class="uk-button uk-button-primary uk-position-bottom-center uk-margin-small-bottom">Read more</a>
 					</div>
 				</div>
 				<div>
 					<div class="uk-card uk-card-default uk-card-body uk-card-hover">
-						<h3 class="uk-card-title">Providing Means of Exploration</h3>
+						<h3 class="uk-card-title">Explore</h3>
 						<p>Use the data from the KG to create a simple visualization and bring the photographs to life to enable means of exploration for culture, theater, photography and history enthusiasts who want to browse through the timeline of the Stuttgart State Theater.</p>
 						<a href="/about#Exploration" class="uk-button uk-button-primary uk-position-bottom-center uk-margin-small-bottom">Read more</a>
 					</div>
