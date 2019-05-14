@@ -22,7 +22,7 @@
 				About Linked Stage Graph
 			</h1>
 			<div class="uk-text-justify uk-column-1-2">
-				<p>Linked Stage Graph is a Knowledge Graph developed as part of the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon. The graph is being created using a dataset by the <a href="https://www.landesarchiv-bw.de/web">National Archive of Baden-Wuerttemberg</a>. It contains black and white photographs and metadata about the <a href="https://www.staatstheater-stuttgart.com/home/">Stuttgart State Theatre </a> from the 1890s to the 1940s.<br> 
+				<p>Linked Stage Graph is a Knowledge Graph developed during the <a href="https://codingdavinci.de/events/sued/">Coding da Vinci Süd 2019</a> hackathon. The graph is being created using a dataset by the <a href="https://www.landesarchiv-bw.de/web">National Archive of Baden-Wuerttemberg</a>. It contains black and white photographs and metadata about the <a href="https://www.staatstheater-stuttgart.com/home/">Stuttgart State Theatre </a> from the 1890s to the 1940s.<br> 
 				The nearly 7.000 photographs give vivid insights into on-stage events like theater plays, operas and ballet performances as well as off-stage moments and theater buildings. However, the images and the data set as they are currently organized are hard to use and explore for anyone who is unfamiliar with an achive’s logic to structure information. <br>
 				This project proposes means to explore and understand the data by humans and machines using linked data and interesting visualizations. </p>
 			</div>
@@ -160,21 +160,24 @@
 			<div class="uk-child-width-1-2" uk-grid>
 				<div>
 					<h3>Linked Stage Graph Viewer</h3>
-					<p class="uk-text-justify"><a href="http://slod.fiz-karlsruhe.de">Linked Stage Graph Demo</a>. <br>
-					The Linked Stage Graph Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. <br>
+					<img src="/staticResources/img/slodviewer.png" width="300" height="" alt=""> 
+					<div><a class="uk-button uk-button-default uk-margin-small-top" href="http://slod.fiz-karlsruhe.de/">Demo</a></div>
+					<p class="uk-text-justify">The Linked Stage Graph Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. <br>
 					The photographs are arranged in a timeline from 1912 to 1943 which can be explored by scrolling up and down. Swiping left and right reveals other performances which have taken place in the same year. By clicking on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.
 				   </p>
 				</div>
 				<div>
 					<h3>Vikus Viewer</h3>
-					<p class="uk-text-justify"><a href="http://slod.fiz-karlsruhe.de/vikus">Vikus Viewer Demo</a>. <br>
-					The Vikus Viewer was created by <a href="https://chrispie.com/">Christopher Pietsch</a> in the context of the <a href="https://uclab.fh-potsdam.de/">Urban Complexity Lab</a> at FH Potsdam. We found that the viewer works great with the data and photographs from our knowledge graph. The timeline allows the user to dynamically explore the images and metadata. Users can filter the content, zoom into it and focus on individual images which also reveals some of the metadata we have gathered.</p>
+					<img src="/staticResources/img/vikus.png" width="300" height="" alt="">
+					<div><a class="uk-button uk-button-default uk-margin-small-top" href="http://slod.fiz-karlsruhe.de/vikus">Demo</a></div>
+					<p class="uk-text-justify">The Vikus Viewer was created by <a href="https://chrispie.com/">Christopher Pietsch</a> in the context of the <a href="https://uclab.fh-potsdam.de/">Urban Complexity Lab</a> at FH Potsdam. We found that the viewer works great with the data and photographs from our knowledge graph. The timeline allows the user to dynamically explore the images and metadata. Users can filter the content, zoom into it and focus on individual images which also reveals some of the metadata we have gathered.</p>
 				</div>
 			</div>
 		
 			<h3>SPARQL Endpoint</h3>
 		
-			You can query the Linked Stage Graph using our <a href="/sparql">SPARQL-Endpoint</a>. 
+			<p>You can query the Linked Stage Graph using our SPARQL-Endpoint.</p>
+			<div><a class="uk-button uk-button-default uk-margin-small-top" href="http://slod.fiz-karlsruhe.de/sparql">Go to Endpoint</a></div> 
 		
 			<p>Use the following prefixes with your query:</p>
 			<pre><code>
@@ -198,7 +201,7 @@
         }
 
 </code></pre>
-		<h4>Example Query 2: Federated Query (via Wikidata) </h4>
+		<h4>Example Query 2: Federated Query</h4>
         <p>Select all resources, each resource label and their respective representation in Wikidata (<code>schema:isBasedOn</code>). Additionally, query Wikidata for these resources and select the publication year for each resource. <br> (<a href="https://slod.fiz-karlsruhe.de/sparql?default-graph-uri=&query=PREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E+%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E++%0D%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0D%0APREFIX+bd%3A+%3Chttp%3A%2F%2Fwww.bigdata.com%2Frdf%23%3E%0D%0A%0D%0ASELECT+distinct+%3Fresource+%3Fresourcelabel+%3Fpublicationdate%0D%0AWHERE+%7B%0D%0A%3Fresource+%3Chttp%3A%2F%2Fschema.org%2FisBasedOn%3E+%3Fwikiresource+.%0D%0A%3Fresource+rdfs%3Alabel+%3Fresourcelabel+.%0D%0A%09SERVICE+%3Chttps%3A%2F%2Fquery.wikidata.org%2Fsparql%3E+%7B%0D%0A%09%09%3Fwikiresource+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2FP577%3E+%3Fpublicationdate+.%0D%0A%09%7D%0D%0A%7D&should-sponge=&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+">Query Demo</a>)</p>
         <pre><code>
     SELECT distinct ?resource ?resourcelabel ?publicationdate
@@ -206,31 +209,12 @@
 		?resource schema:isBasedOn ?wikiresource .
 		?resource rdfs:label ?resourcelabel .
 	
-		SERVICE &lt;https://query.wikidata.org/sparql&gt; {
+		SERVICE <https://query.wikidata.org/sparql> {
 			?wikiresource &lt;http://www.wikidata.org/prop/direct/P577&gt; ?publicationdate .
 				}
 		}
 </code></pre>
 		<p><i>Disclaimer: When the Wikidata server is busy, this federated query may cause a timeout. If this occurs, please try again a few minutes later. Thank you!</i>  </p>
-		
-		
-		<h4>Example Query 3: Federated Query (via DBpedia) </h4>
-        <p>Select the English language abstracts of each linked resource (e.g. persons and plays). <br> (<a href="http://slod.fiz-karlsruhe.de/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+gnd%3A+%3Chttp%3A%2F%2Fd-nb.info%2Fgnd%2F%3E%0D%0APREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E%0D%0APREFIX+slod%3A+%3Chttp%3A%2F%2Fslod.fiz-karlsruhe.de%2F%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0A%0D%0ASELECT+distinct+%3Fresource+%3Fresourcelabel+%3Fdbp+%3Fabstract%0D%0AWHERE+%7B%0D%0A%3Fresource+schema%3AisBasedOn+%3Fwikiresource+.%0D%0A%3Fresource+rdfs%3Alabel+%3Fresourcelabel+.%0D%0A%0D%0ASERVICE+%3Chttp%3A%2F%2Fdbpedia.org%2Fsparql%3E+%7B%0D%0A%3Fdbp+%3Fp+%3Fwikiresource+.%0D%0Afilter+regex%28%3Fdbp%2C+%27http%3A%2F%2Fdbpedia.org%2F%27%2C+%27i%27%29%0D%0A%3Fdbp+%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2Fabstract%3E+%3Fabstract+.%0D%0Afilter+%28lang%28%3Fabstract%29+%3D+%27en%27%29+.%0D%0A%7D%0D%0A%0D%0A%0D%0A%7D%0D%0A&should-sponge=&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+">Query Demo</a>)</p>
-        <pre><code>
-		
-	SELECT DISTINCT ?resource ?resourcelabel ?dbp ?abstract
-	WHERE {
-		?resource schema:isBasedOn ?wikiresource .
-		?resource rdfs:label ?resourcelabel .
-
-		SERVICE &lt;http://dbpedia.org/sparql&gt; {
-			?dbp ?p ?wikiresource .
-			FILTER regex(?dbp, 'http://dbpedia.org/', 'i')
-			?dbp &lt;http://dbpedia.org/ontology/abstract&gt; ?abstract .
-			FILTER (lang(?abstract) = 'en') .
-		}	
-</code></pre>
-		<p><i>Disclaimer: When the DBpedia server is busy, this federated query may cause a timeout. If this occurs, please try again a few minutes later. Thank you!</i>  </p>
 		</div>
 	</section>
 	
@@ -315,8 +299,8 @@
 			</div>
 	</section>
 
-	
-	<jsp:include page="inc/about_footer.jsp"></jsp:include>
+	<jsp:include page="inc/custom_footer.jsp"></jsp:include>
+	<jsp:include page="inc/footer.jsp"></jsp:include>
 </body>
 
 </html>
