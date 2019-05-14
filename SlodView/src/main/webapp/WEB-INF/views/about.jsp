@@ -148,6 +148,7 @@
 				<li>the fact that <a href="https://www.wikidata.org/wiki/Q55638867">Felix Cziossek</a> was the set designer for that play at the Stuttgart Theater.</li>
 				</ul>
 			<p>These new and structured information can now be queried using SPARQL. Another advantage of linking these entities from our knowledge graph to other knowledge graphs is that we can make use of all data linked to these resources (e.g. in <a href="https://www.wikidata.org/wiki/Q221211">Twelfth Night</a>) as you can see in the <a href="http://slod.fiz-karlsruhe.de/labw-2-2599390.html#lodCloud">Lodview Linked Open Data widget</a>.</p>
+			<div><a class="uk-button uk-button-default uk-margin-small-top" href="http://slod.fiz-karlsruhe.de/labw-2-2599390">Show Resource in Lodview</a></div>
 		</div>
 	</section>
 	
@@ -160,13 +161,19 @@
 			<h3>Preprocessing: AI-Based Image Coloring</h3>
 			<div class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
     			<div>
-        			<div class="uk-card uk-card-default uk-card-body"><img src="/staticResources/img/baby_bw.png" width="300" height="" alt=""></div>
+    				<div uk-lightbox>
+        			<div class="uk-card uk-card-default uk-card-body"><a href="/staticResources/img/baby_bw_g.png" data-alt="Baby"><img src="/staticResources/img/baby_bw_g.png" width="300" height="" alt=""></a></div>
+        			</div>
     			</div>
     			<div>
-        			<div class="uk-card uk-card-default uk-card-body"><img src="/staticResources/img/beer_bw.png" width="300" height="" alt=""></div>
+    				<div uk-lightbox>
+        			<div class="uk-card uk-card-default uk-card-body"><a href="/staticResources/img/beer_bw_g.png" data-alt="Baby"><img src="/staticResources/img/beer_bw_g.png" width="300" height="" alt=""></a></div>
+        			</div>
     			</div>
     			<div>
-        			<div class="uk-card uk-card-default uk-card-body"><img src="/staticResources/img/couple_bw.png" width="300" height="" alt=""></div>
+    				<div uk-lightbox>
+        			<div class="uk-card uk-card-default uk-card-body"><a href="/staticResources/img/couple_bw_g.png" data-alt="Baby"><img src="/staticResources/img/couple_bw_g.png" width="300" height="" alt=""></a></div>
+        			</div>
     			</div>
 			</div>
 			<div>
@@ -180,7 +187,7 @@
 				<div>
 					<h4>Linked Stage Graph Viewer</h4>
 					<img src="/staticResources/img/slodviewer.png" width="300" height="" alt=""> 
-					<div><a class="uk-button uk-button-default uk-margin-small-top" href="http://slod.fiz-karlsruhe.de/">Demo</a></div>
+					<div><a class="uk-button uk-button-default uk-margin-small-top" href="/#Viewer">Demo</a></div>
 					<p class="uk-text-justify">The Linked Stage Graph Viewer is an exploration interface created by us. It enables to explore the images from the data set in (sort of) an instagram feed like fashion. We have cropped the photographs automatically to focus on the most interesting sections in them. <br>
 					The photographs are arranged in a timeline from 1912 to 1943 which can be explored by scrolling up and down. Swiping left and right reveals other performances which have taken place in the same year. By clicking on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.
 				   </p>
@@ -221,7 +228,7 @@
         }
 
 </code></pre>
-		<h4>Example Query 2: Federated Query</h4>
+		<h4>Example Query 2: Federated Query (via Wikidata)</h4>
         <p>Select all resources, each resource label and their respective representation in Wikidata (<code>schema:isBasedOn</code>). Additionally, query Wikidata for these resources and select the publication year for each resource. <br> (<a href="https://slod.fiz-karlsruhe.de/sparql?default-graph-uri=&query=PREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E+%0D%0APREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E++%0D%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0D%0APREFIX+bd%3A+%3Chttp%3A%2F%2Fwww.bigdata.com%2Frdf%23%3E%0D%0A%0D%0ASELECT+distinct+%3Fresource+%3Fresourcelabel+%3Fpublicationdate%0D%0AWHERE+%7B%0D%0A%3Fresource+%3Chttp%3A%2F%2Fschema.org%2FisBasedOn%3E+%3Fwikiresource+.%0D%0A%3Fresource+rdfs%3Alabel+%3Fresourcelabel+.%0D%0A%09SERVICE+%3Chttps%3A%2F%2Fquery.wikidata.org%2Fsparql%3E+%7B%0D%0A%09%09%3Fwikiresource+%3Chttp%3A%2F%2Fwww.wikidata.org%2Fprop%2Fdirect%2FP577%3E+%3Fpublicationdate+.%0D%0A%09%7D%0D%0A%7D&should-sponge=&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+">Query Demo</a>)</p>
         <pre><code>
     SELECT distinct ?resource ?resourcelabel ?publicationdate
@@ -235,6 +242,23 @@
 		}
 </code></pre>
 		<p><i>Disclaimer: When the Wikidata server is busy, this federated query may cause a timeout. If this occurs, please try again a few minutes later. Thank you!</i>  </p>
+		<h4>Example Query 3: Federated Query (via DBpedia) </h4>
+        <p>Select the English language abstracts of each linked resource (e.g. persons and plays). <br> (<a href="http://slod.fiz-karlsruhe.de/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+gnd%3A+%3Chttp%3A%2F%2Fd-nb.info%2Fgnd%2F%3E%0D%0APREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E%0D%0APREFIX+slod%3A+%3Chttp%3A%2F%2Fslod.fiz-karlsruhe.de%2F%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0A%0D%0ASELECT+distinct+%3Fresource+%3Fresourcelabel+%3Fdbp+%3Fabstract%0D%0AWHERE+%7B%0D%0A%3Fresource+schema%3AisBasedOn+%3Fwikiresource+.%0D%0A%3Fresource+rdfs%3Alabel+%3Fresourcelabel+.%0D%0A%0D%0ASERVICE+%3Chttp%3A%2F%2Fdbpedia.org%2Fsparql%3E+%7B%0D%0A%3Fdbp+%3Fp+%3Fwikiresource+.%0D%0Afilter+regex%28%3Fdbp%2C+%27http%3A%2F%2Fdbpedia.org%2F%27%2C+%27i%27%29%0D%0A%3Fdbp+%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2Fabstract%3E+%3Fabstract+.%0D%0Afilter+%28lang%28%3Fabstract%29+%3D+%27en%27%29+.%0D%0A%7D%0D%0A%0D%0A%0D%0A%7D%0D%0A&should-sponge=&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+">Query Demo</a>)</p>
+        <pre><code>
+		
+	SELECT DISTINCT ?resource ?resourcelabel ?dbp ?abstract
+	WHERE {
+		?resource schema:isBasedOn ?wikiresource .
+		?resource rdfs:label ?resourcelabel .
+
+		SERVICE &lt;http://dbpedia.org/sparql&gt; {
+			?dbp ?p ?wikiresource .
+			FILTER regex(?dbp, 'http://dbpedia.org/', 'i')
+			?dbp &lt;http://dbpedia.org/ontology/abstract&gt; ?abstract .
+			FILTER (lang(?abstract) = 'en') .
+		}	
+</code></pre>
+		<p><i>Disclaimer: When the DBpedia server is busy, this federated query may cause a timeout. If this occurs, please try again a few minutes later. Thank you!</i>  </p>
 		</div>
 	</section>
 	

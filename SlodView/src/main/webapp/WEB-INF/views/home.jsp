@@ -54,7 +54,7 @@
 	</section>
 	
 	<section class="uk-section">
-		<div id="" class="uk-container uk-container-small">
+		<div id="Viewer" class="uk-container uk-container-small">
 			<h1>Linked Stage Graph Viewer</h1>
 			<p>We colored the black and white photographs using a tool based on AI. In the viewer, these photographs are arranged in a timeline from 1912 to 1942 which can be explored by <b>scrolling</b> up and down. <b>Swiping</b> left and right reveals other performances which have taken place in the same year. By <b>clicking</b> on a title, you are directed to the Lodview interface which shows you all metadata we have for each of the performances.</p>
 		</div>
