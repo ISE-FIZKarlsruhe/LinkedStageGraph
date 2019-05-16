@@ -269,7 +269,7 @@
 			<div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
 				<div class="uk-card-small uk-card-default uk-card-hover">
 					<div class="uk-card-media-top">
-						<img src="/staticResources/img/tabea.jpg" width="200" height="" alt="">
+						<img src="/staticResources/img/tabea.jpg" width="200" height="" alt="Tabea Tietz" uk-img>
 					</div>
 					<div class="uk-card-header">
         				<h3 class="uk-card-title">Tabea Tietz</h3>
@@ -288,7 +288,7 @@
 		
 				<div class="uk-card-small uk-card-default uk-card-hover">
 					<div class="uk-card-media-top">
-						<img src="/staticResources/img/kanran.jpg" width="200" height="" alt="">
+						<img src="/staticResources/img/kanran.jpg" width="200" height="" alt="" uk-img>
 					</div>
 					<div class="uk-card-header">
 						<h3 class="uk-card-title">Kanran Zhou</h3>
@@ -307,7 +307,7 @@
 				<div>
 				<div class="uk-card-small uk-card-default uk-card-hover">
 					<div class="uk-card-media-top">
-						<img src="/staticResources/img/joerg.jpg" width="200" height="" alt="">
+						<img src="/staticResources/img/joerg.jpg" width="200" height="" alt="Jörg Waitelonis" uk-img>
 					</div>
 						<div class="uk-card-header">
         				<h3 class="uk-card-title">Jörg Waitelonis</h3>
@@ -326,15 +326,16 @@
 				<div>
 				<div class="uk-card-small uk-card-default uk-card-hover">
 					<div class="uk-card-media-top">
-						<img src="/staticResources/img/paul.jpg" width="200" height="" alt="">
+						<img src="/staticResources/img/paul-felgentreff.jpg" width="200" height="" alt="Paul Felgentreff Web Dev" uk-img>
 					</div>
 						<div class="uk-card-header">
         				<h3 class="uk-card-title">Paul Felgentreff</h3>
     				</div>
     				<div class="uk-card-body">
-						<p>Design, Marketing
+						<p>Addicted to progress and nature, design & Green Marketing &dash; not green washing but actual good&nbsp;marketing&nbsp;✌
 							<ul>
 								<li><a href="mailto:paul.felge@pm.me">Email</a></li>
+								<li><a href="https://www.linkedin.com/in/paulfelgentreff/">LinkedIn</a></li>
 							</ul>
 						</p>
 					</div>
