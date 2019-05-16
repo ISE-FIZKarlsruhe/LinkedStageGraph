@@ -4,7 +4,6 @@
 <link href="${conf.getStaticResourceURL()}css/custom.css" rel="stylesheet" type="text/css" />
 <script src="${conf.getStaticResourceURL()}vendor/uikit/uikit.min.js"></script>
 <script src="${conf.getStaticResourceURL()}vendor/uikit/uikit-icons.min.js"></script>
-<script src="${conf.getStaticResourceURL()}vendor/uikit/cards.js"></script>
 <script>
 	document.write('<style type="text/css">');
 	document.write('.c2{visibility:hidden}');

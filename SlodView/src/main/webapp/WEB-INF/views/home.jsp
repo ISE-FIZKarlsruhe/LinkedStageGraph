@@ -116,12 +116,14 @@
 				</div>
 			
 				<div class="uk-width-1-6">
-					<div uk-sticky="offset: 100">
-					<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
-						<c:forEach items='${images.keySet()}' var="year">
-							<li><a href="#year${year}" data-year="${year}">${year}</a></li>
-						</c:forEach>
-					</ul>
+					<div uk-sticky="offset: 100" style="
+					position: sticky;
+					top: 100px;">
+						<ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
+							<c:forEach items='${images.keySet()}' var="year">
+								<li><a href="#year${year}" data-year="${year}">${year}</a></li>
+							</c:forEach>
+						</ul>
 					</div>
 				</div>
 			</div>
