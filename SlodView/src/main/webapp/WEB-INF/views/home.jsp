@@ -88,13 +88,13 @@
 													<c:if test="${entry.getThumbnails().size()>8}">
 														<p class="uk-margin-remove">More Images in the data set</p>
 													</c:if>
-													<ul class="uk-thumbnav">
+													<ul class="uk-thumbnav uk-flex-center">
 														<c:forEach items='${entry.getThumbnails()}' var="thumb" end="8">
 															<li uk-slideshow-item="0"><a href='${entry.getResource().replace("http://slod.fiz-karlsruhe.de/","")}'><img onmouseover="ch(this, 'image_${entry.getImageUrl().replace('/','')}')" src="${proxyThumb}${thumb}" width="50" alt=""></a></li>
 														</c:forEach>
 													</ul>
 													<div class="uk-position-center-right uk-margin-right">
-														<a href='${entry.getResource()}' uk-icon="info"></a>
+														<a href='${entry.getResource()}' uk-icon="icon: info; ratio: 2"></a>
 													</div>
 												</div>
 											</div>
