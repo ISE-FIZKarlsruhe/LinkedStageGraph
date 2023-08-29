@@ -36,4 +36,11 @@ These requirements are based on the following publications:
 ### Example Modeling 1:
 #### Leveraging the Swiss Performing Arts Data Model for Linked Stage Graph on the example of the performance "Twelfth Night". Green boxes represent classes, red boxes instances already present in the KG, yellow boxes are instances which have to be newly created to fit the model.
 ![Figure 1](https://github.com/ISE-FIZKarlsruhe/LinkedStageGraph/blob/940205a7d053dfa6bc4df2fbd382cde349293c2f/LinkedStageGraph2.0/img/LSG_SPAmodeling_TopDown.jpg)
+
+### Example Modeling 2:
+#### Simplified Modeling of "Twelfth Night" utilizing the SPA model. 
 ![Figure 2](https://github.com/ISE-FIZKarlsruhe/LinkedStageGraph/blob/940205a7d053dfa6bc4df2fbd382cde349293c2f/LinkedStageGraph2.0/img/LSG_SPAmodeling_BottomUp.jpg)
+
+While the SPA is an extensive and detailed model for performing arts data, it is also complex and assumes a richness in metadata about persons and their functions which often historical cultural heritage collections cannot offer. Furthermore, the take-up of the SPA model within the performing arts community is rather low (to the best of our knowledge). 
+
+While reusing open standards and ontologies like CIDOC, FRBR, and FRBRoo, the more lightweight model presented in example 2 is interoperable (REQ3) and easy to further extend and specify. The data within Linked Stage Graph is with respect to its richness and its information structure a representative resource for historical archival and performing arts data in Germany and the presented efforts are generalizable beyond the presented dataset. 
