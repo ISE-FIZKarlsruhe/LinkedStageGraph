@@ -33,6 +33,7 @@ These requirements are based on the following publications:
 - Thull, Bernhard, Kerstin Diwisch, and Vera Marz. 2015. Linked Data im digitalen Tanzarchiv der Pina Bausch Foundation. In Corporate Semantic Web: Wie semantische Anwendungen in Unternehmen Nutzen stiften, 259–275.
 
 ## Leveraging Existing Ontologies for Historical Performing Arts Data
-
+### Example Modeling 1:
+#### Leveraging the Swiss Performing Arts Data Model for Linked Stage Graph on the example of the performance "Twelfth Night". Green boxes represent classes, red boxes instances already present in the KG, yellow boxes are instances which have to be newly created to fit the model.
 ![Figure 1](https://github.com/ISE-FIZKarlsruhe/LinkedStageGraph/blob/940205a7d053dfa6bc4df2fbd382cde349293c2f/LinkedStageGraph2.0/img/LSG_SPAmodeling_TopDown.jpg)
 ![Figure 2](https://github.com/ISE-FIZKarlsruhe/LinkedStageGraph/blob/940205a7d053dfa6bc4df2fbd382cde349293c2f/LinkedStageGraph2.0/img/LSG_SPAmodeling_BottomUp.jpg)
