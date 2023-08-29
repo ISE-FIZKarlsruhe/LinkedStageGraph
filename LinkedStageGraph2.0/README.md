@@ -32,6 +32,7 @@ These requirements are based on the following publications:
 - McMullan, Anna, Trish McTighe, David Pattie, and David Tucker. 2014. Staging Beckett: constructing histories of performance. Journal of Beckett Studies 23 (1): 11–33.
 - Thull, Bernhard, Kerstin Diwisch, and Vera Marz. 2015. Linked Data im digitalen Tanzarchiv der Pina Bausch Foundation. In Corporate Semantic Web: Wie semantische Anwendungen in Unternehmen Nutzen stiften, 259–275.
 
-
-
 ## Leveraging Existing Ontologies for Historical Performing Arts Data
+
+![Figure 1](https://github.com/ISE-FIZKarlsruhe/LinkedStageGraph/blob/940205a7d053dfa6bc4df2fbd382cde349293c2f/LinkedStageGraph2.0/img/LSG_SPAmodeling_TopDown.jpg)
+![Figure 2](https://github.com/ISE-FIZKarlsruhe/LinkedStageGraph/blob/940205a7d053dfa6bc4df2fbd382cde349293c2f/LinkedStageGraph2.0/img/LSG_SPAmodeling_BottomUp.jpg)
